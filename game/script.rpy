@@ -31,13 +31,15 @@ label start:
     e "I heard you had some issues with your memory allocation homework."
     e "I can take a look at it, but you'll need to answer my question first."
 
-    show malloc eyes
+    show malloc eyes with dissolve
     e "Did you write a heap checker?"
     menu:
-        "Yes":
+        "Yes.":
             jump heapcheck
-        "...":
+        "No...":
             jump no_heapcheck
+        "What's that?":
+            jump unsure_hpcheck
 
     # This ends the game.
 
@@ -54,7 +56,7 @@ label no_heapcheck:
     return
 
 label heapcheck:
-    show malloc normal
+    show malloc normal with dissolve
     e "Looks like you actually know what you're doing."
     e "The number of people who answer \"no\" to that question is astounding."
     e "..."
@@ -62,9 +64,9 @@ label heapcheck:
     e "Memory leaks are one of the most prominent threats to freedom these days."
     e "Everyone wants to take up memory, but no one wants to give it up."
     e "Don't be one of those scummy people, taking what's not yours and refusing to give it up."
-    show malloc eyes
+    show malloc eyes with dissolve
     e "Free the memory!!" with hpunch
-    show malloc normal
+    show malloc normal with dissolve
     "..."
     e "..."
     e "Sorry about that."
@@ -81,4 +83,27 @@ label heapcheck:
     "...."
     "..."
     "Ah shit, I just forgot a semicolon."
+    return
+
+label unsure_hpcheck:
+    show malloc normal with dissolve
+    e "Are you serious?"
+    e "How do you not know what that is?"
+    e "Do you not pay attention during lecture or something?"
+    "..."
+    e "Ah, I get it. You must be one of those people who think they're too good to go to lectures, aren't you?"
+    e "All you \"pro-gamer\" scum are the same. Thinking you can get by watching recordings at 2x speed." 
+    show malloc eyes with dissolve
+    e "You may be happily cruising along now, but just wait until my buddy Proxy really makes you suffer."
+    e "I look forward to seeing how that fragmentation turns out."
+    e "See you at the final exam."
+
+    hide malloc eyes with dissolve
+
+    "..."
+    "What just happened?"
+    "And who the fuck is Proxy?"
+    "Am I supposed to be scared?"
+    "..."
+    "Nah, if I can sleep during lectures and still keep my A, there's nothing to be afraid of."
     return
