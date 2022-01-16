@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 29, in script
+    e "Hello, %(player_name)."
+ValueError: incomplete format
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 29, in script
+    e "Hello, %(player_name)."
+  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/ast.py", line 721, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/exports.py", line 1408, in say
+    what = what % tag_quoting_dict
+ValueError: incomplete format
+
+Windows-10-10.0.19041
+Ren'Py 7.4.11.2266
+HeartInCode 1.0
+Sat Jan 15 18:07:47 2022

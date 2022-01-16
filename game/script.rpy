@@ -20,11 +20,15 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show malloc normal
+    $ player_name = renpy.input("What is your name?", length=32)
+    $ player_name = player_name.strip()
+    show malloc normal with moveinright
 
     # These display lines of dialogue.
 
-    e "Hello, new student."
+    e "Hello, [player_name]."
+    e "I heard you had some issues with your memory allocation homework."
+    e "I can take a look at it, but you'll need to answer my question first."
 
     e "Did you write a heap checker?"
     menu:
@@ -39,10 +43,38 @@ label start:
 
 label no_heapcheck:
     e "A Segmentation Fault is too kind of a punishment for scum like you."
-    e "May your dreams be haunted by memory leaks for all eternity."
+    e "Come back when you've learned how to debug your code yourself."
+    "Bam!!" with vpunch
+    hide malloc normal with dissolve
+    "D...Did he just punch me?"
+    "Who needs a heap checker when I have my own two eyes?"
+    "Whatever. That guy needs serious help..."
     return
 
 label heapcheck:
-    e "Looks like your code gets to live another day."
-    e "At least, until ProxyLab kicks your ass."
+    e "Looks like you actually know what you're doing."
+    e "The number of people who answer \"no\" to that question is astounding."
+    e "..."
+    e "Well anyway, you may want to check that you're freeing variables."
+    e "Memory leaks are one of the most prominent threats to freedom these days."
+    e "Everyone wants to take up memory, but no one wants to give it up."
+    e "Don't be one of those scummy people, taking what's not yours and refusing to give it up."
+    e "Free the memory!!" with hpunch
+    
+    "..."
+
+    e "Sorry about that."
+    e "I tend to rant when I talk about things like this."
+    e "That should fix your problem, but if not, I trust your programming ability."
+    e "Hope this helps!"
+    hide malloc normal with dissolve
+
+    "..."
+    "What the heck was that?"
+    "That guy probably has a few screws loose or something."
+    "I should look at my code though, just to check what he said."
+    "..."
+    "...."
+    "..."
+    "Oh shit, I just forgot a semicolon."
     return
