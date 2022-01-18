@@ -48,7 +48,7 @@ label start:
 label no_heapcheck:
     m "A Segmentation Fault is too kind of a punishment for scum like you."
     m "Come back when you've learned how to debug your code yourself."
-    "Bam!!" with vpunch
+    "Bam!!" with hpunch
     hide malloc normal with dissolve
     "D...Did he just punch me?"
     "Who needs a heap checker when I have my own two eyes?"
@@ -122,22 +122,53 @@ label unsure_heapcheck:
     "There's nothing that could possibly be more difficult than that."
     jump shell_intro_bad
     
+label shell_intro_bad:
+    show shell angry with dissolve
+    s "Let me just stop you right there. Show me your Vimrc."
+    "Huh?"
+    s "I heard you bragging about your Vim setup, but you couldn't even get your heapchecker working."
+    "How do you know that?"
+    s "Miles seemed to be in a pretty bad mood after talking to you, and there's only one way that that can happen."
+    "(I guess that dude really did have a few screws loose.)"
+    "(Imagine only getting angry when other people can't fix their code.)"
+    s "Yeah, this Vimrc is kinda fancy, but it's still pretty trash. No wonder your code didn't work."
+    "What does having a bad setup have to do with not having working code?"
+    s "Damn, you really are clueless, aren't you?"
+    show shell normal with dissolve
+    s "Maybe you should join my Vim club. Someone like you could clearly use the help."
+    "..."
+    "(So this girl just showed up in a penguin hoodie, trashed my Vimrc, and now she wants me to join her club?)"
+    "(She can't be serious...)"
+    "Actually, I think I'll pass."
+    show shell angry with dissolve
+    s "Hahaha! You thought you had a choice?"
+    "(Ah shit, I should have guessed. The ones with the weird hoodies are always like this.)"
+    show shell normal with dissolve
+    s "See you at 5 in the activity room. If you don't show up, I know where to find you, [player_name]."
+    "(Alright, so she knows my name too. This day is going great)."
+    hide shell normal with dissolve
+    "(...)"
+    return
 
 label shell_intro_good:
+    show shell star with dissolve
     s "Did someone say Vim?"
     "Uh...yes?"
     s "No one likes Vim more than I do!"
+    show shell normal with dissolve
     s "Do you want to join my Vim club?"
     "(Vim \"club\"?)"
-    "(Why is there a club focusing entirely on a text editor?)"
+    "(Why is there a club just for Vim?)"
     "(Is everyone here this crazy?)"
+    show shell star with dissolve
     s "So, what do you say?"
-    "Wait, but I don't even know you!"
+    "Wait, but I don't even know who you are!"
+    show shell normal with dissolve
     s "..."
     s "Sorry about that. I've been trying to get people to join my club for a long time, 
         but no one's really interested."
-    s "I guess everyone's using different editors now."
-    "..."
+    s "I thought another Vimp like you could help me with finding members."
+    "(\"Vimp\"? I call myself a Vim connoisseur. I don't think I'm at \"Vimp\" level...)"
     $ s.name = "Michelle Tausch"
     s "Anyway, I'm Michelle, but you can call me Shell. What's your name?"
     "I'm [player_name]."
@@ -149,37 +180,18 @@ label shell_intro_good:
             s "So, what do you say? Do you want to join my club?"
     menu:
         "Sure!":
-            s "Oh that's great! I'll email you the info, hang on a second."
+            show shell star with dissolve
+            s "Oh that's great! I'll email you the club form, just give me a second..."
         "Nah, I'm good.":
-            s "Aw man, I failed again..."
-    "Also, what's with the penguin hoodie?"
-    "Are you some kind of penguin enthusiast?"
-    s "Well, that's because..."
-    m "Sheryl, you're gonna be late for class!"
+            s "Aw man, another rejection..."
+            s "Why does no one want to join? "
+    show shell normal at left with move
+    show malloc normal at right with dissolve
+    m "Shell, you're gonna be late for class!"
     s "Oh shoot, I gotta run! See you later, [player_name]!"
+    hide shell normal with dissolve
+    hide malloc normal with dissolve
     "..."
     "The people here just keep getting weirder and weirder."
     return
 
-label shell_intro_bad:
-    s "Let me just stop you right there. Show me your Vimrc."
-    "Huh?"
-    s "I heard you bragging about your Vim setup, but you couldn't even get your heapchecker working."
-    "How do you know that?"
-    s "Miles seemed to be in a pretty bad mood after talking to you, and there's only one way that that can happen."
-    "(I guess that dude really did have a few screws loose.)"
-    "(Imagine only getting angry when other people can't fix their code.)"
-    s "Yeah, this Vimrc is kinda fancy, but it's still pretty trash. No wonder your code didn't work."
-    "What does having a bad setup have to do with not having working code?"
-    s "Damn, you really are clueless, aren't you?"
-    s "Maybe you should join my Vim club. Someone like you could clearly use the help."
-    "..."
-    "(So this girl just showed up in a penguin hoodie, trashed my Vimrc, and now she wants me to join her club?)"
-    "(She can't be serious...)"
-    "Actually, I think I'll pass."
-    s "Hahaha! You thought you had a choice?"
-    "(Ah shit, I should have guessed. The ones with the weird hoodies are always like this.)"
-    s "See you at 5 in the activity room. If you don't show up, I know where to find you, [player_name]."
-    "(Alright, so she knows my name too. This day is going great)."
-    "(...)"
-    return

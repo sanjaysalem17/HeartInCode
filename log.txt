@@ -1,18 +1,22 @@
-Mon Jan 17 20:59:07 2022
+Tue Jan 18 16:29:20 2022
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
  
 
-Bootstrap to the start of init.init took 0.16s
+Bootstrap to the start of init.init took 0.15s
 Early init took 0.01s
 Loader init took 0.06s
-Loading error handling took 0.05s
-Loading script took 0.43s
+Loading error handling took 0.06s
+Loading script took 0.61s
 Loading save slot metadata. took 0.04s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 146: choice menuitem expects a non-empty block.
-    "Nice to meet you too!":
-                            ^
+File "game/script.rpy", line 161: end of line expected.
+    show shell normal with dissolve at left
+                                    ^
+
+File "game/script.rpy", line 162: end of line expected.
+    show malloc normal with dissolve at right
+                                     ^
 DPI scale factor: 2.500000
 nvdrs: Loaded, about to disable thread optimizations.
