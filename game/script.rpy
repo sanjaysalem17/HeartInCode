@@ -3,8 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define m = Character("Miles Locke")
+define m = Character("Malek")
 define s = Character(name="???")
+define p = Character("Roxy")
 
 init:
     $ player_name = ""
@@ -25,7 +26,8 @@ label start:
     $ player_name = renpy.input("What is your name?", length=32)
     $ player_name = player_name.strip().capitalize()
     show malloc normal with moveinright
-
+    $ vim_user = False
+    $ bad_heapcheck = False
     # These display lines of dialogue.
 
     m "Hello, [player_name]."
@@ -62,11 +64,17 @@ label debug_code:
     "..."
     "There's no way I forgot a semicolon or something stupid like that."
     "I'm too smart for those kind of mistakes."
-    "People who forget semicolons probably don't even use Vim, like me, an intellectual."
-    jump shell_intro_bad
+    menu:
+        "It's not like I'm using Vim...":
+            $ vim_user = False
+            jump shell_intro_good
+        "People who forget semicolons probably don't even use Vim, like me, an intellectual.":
+            $ bad_heapcheck = True
+            jump shell_intro_bad
 
 label heapcheck:
     show malloc normal with dissolve
+    
     m "Looks like you actually know what you're doing."
     m "The number of people who answer \"no\" to that question is astounding."
     m "..."
@@ -93,8 +101,13 @@ label heapcheck:
     "...."
     "..."
     "Ah shit, I just forgot a semicolon."
-    "Well, this is what I get for not using Vim."
-    jump shell_intro_good
+    menu:
+        "Well, this is what I get for not using Vim.":
+            $ vim_user = True
+            jump shell_intro_good
+        "Well, this is what I get for using Vim.":
+            $ vim_user = False
+            jump shell_intro_good
 
 label unsure_heapcheck:
     
@@ -106,7 +119,7 @@ label unsure_heapcheck:
     m "Ah, I get it. You must be one of those people who think they're too good to go to lectures, aren't you?"
     m "All you \"pro-gamer\" scum are the same. Thinking you can get by watching recordings at 2x speed." 
     show malloc eyes with dissolve
-    m "You may be happily cruising along now, but just wait until my buddy Proxy really makes you suffer."
+    m "You may be happily cruising along now, but just wait until my buddy Roxy really makes you suffer."
     m "I look forward to seeing how that turns out."
     m "See you at the final exam."
 
@@ -114,15 +127,21 @@ label unsure_heapcheck:
 
     "..."
     "What just happened?"
-    "And who the fuck is Proxy?"
+    "And who the fuck is Roxy?"
     "Am I supposed to be scared?"
     "..."
     "Nah, if I can sleep during lectures and still keep my A, there's nothing to be afraid of."
-    "After all, I set up my own fancy Vimrc all by myself."
-    "There's nothing that could possibly be more difficult than that."
-    jump shell_intro_bad
-    
+    menu:
+        "After all, I don't use Vim.":
+            $ vim_user = False
+            jump shell_intro_good
+        "After all, I set up my own fancy Vimrc all by myself.":
+            "There's nothing that could possibly be more difficult than that."
+            $ bad_heapcheck = True
+            jump shell_intro_bad
+
 label shell_intro_bad:
+    $ join_vimclub = True
     show shell angry with dissolve
     s "Let me just stop you right there. Show me your Vimrc."
     "Huh?"
@@ -168,9 +187,12 @@ label shell_intro_good:
     s "Sorry about that. I've been trying to get people to join my club for a long time, 
         but no one's really interested."
     s "I thought another Vimp like you could help me with finding members."
-    "(\"Vimp\"? I call myself a Vim connoisseur. I don't think I'm at \"Vimp\" level...)"
-    $ s.name = "Michelle Tausch"
+    if vim_user:
+        "(\"Vimp\"? I call myself a Vim connoisseur. I don't think I'm at \"Vimp\" level...)"
+    else:
+        "(\"Vimp\"? I don't even use Vim though...)"
     s "Anyway, I'm Michelle, but you can call me Shell. What's your name?"
+    $ s.name = "Michelle"
     "I'm [player_name]."
     s "Well, nice to meet you, [player_name]!"
     menu:
@@ -180,15 +202,27 @@ label shell_intro_good:
             s "So, what do you say? Do you want to join my club?"
     menu:
         "Sure!":
+            $ join_vimclub = True
             show shell star with dissolve
-            s "Oh that's great! I'll email you the club form, just give me a second..."
+            s "Oh that's great! I'll give you a club form, just give me a second..."
+            show shell star at left with move
         "Nah, I'm good.":
+            $ join_vimclub = False
+            show shell sad with dissolve
             s "Aw man, another rejection..."
             s "Why does no one want to join? "
-    show shell normal at left with move
+            show shell sad at left with move
     show malloc normal at right with dissolve
     m "Shell, you're gonna be late for class!"
-    s "Oh shoot, I gotta run! See you later, [player_name]!"
+    show shell normal at left
+    s "Oh shoot, I gotta run!"
+    if join_vimclub:
+        s "Here's the club form. Fill it out and put it in the box at the end of the hallway."
+        "Why can't I just give it to the student council directly?"
+        s "They're typically very busy, so they make Packet deliver all their stuff to them from that box."
+        s "Just so that they don't get too many people trying to talk to them all day."
+        "(Who's Packet?)"
+    s "See you later, [player_name]!"
     hide shell normal with dissolve
     hide malloc normal with dissolve
     "..."
