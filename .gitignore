@@ -1,6 +1,4 @@
 .vscode/
-game/cache/
-game/saves/
 *.save
 *.json
 *.rpyb
