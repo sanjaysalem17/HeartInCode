@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 161: end of line expected.
-    show shell normal with dissolve at left
-                                    ^
-
-File "game/script.rpy", line 162: end of line expected.
-    show malloc normal with dissolve at right
-                                     ^
+File "game/script.rpy", line 324: expected 'simple_expression' not found.
+    show shell normal at midright with 
+                                       ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Tue Jan 18 16:29:21 2022
+Wed Jan 19 22:00:14 2022
