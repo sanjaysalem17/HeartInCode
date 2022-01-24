@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 324: expected 'simple_expression' not found.
-    show shell normal at midright with 
-                                       ^
+File "game/script.rpy", line 364: end of line expected.
+    if not join_stuco: jump vim_club
+                       ^
+
+File "game/script.rpy", line 433: end of line expected.
+    if not join_stuco: jump vim_club
+                       ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Wed Jan 19 22:00:14 2022
+Sun Jan 23 18:22:53 2022

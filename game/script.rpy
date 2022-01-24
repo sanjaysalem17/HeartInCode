@@ -3,12 +3,14 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+define d = Character("Bitsy")
 define m = Character("Malek")
 define s = Character(name="???")
 define p = Character("Roxy")
 
 init:
     $ player_name = ""
+    $ join_stuco = False
 # The game starts here.
 
 label start:
@@ -47,11 +49,12 @@ label start:
 
 
 label no_heapcheck:
+    show malloc eyes2 with dissolve
     m "A Segmentation Fault is too kind of a punishment for scum like you."
     m "Come back when you've learned how to debug your code yourself."
     m "Or maybe I should tell Roxy to deal with you somehow."
     "Bam!!" with hpunch
-    hide malloc normal with dissolve
+    hide malloc eyes2 with dissolve
     "D...Did he just punch me?"
     "Who needs a heap checker when I have my own two eyes?"
     "And who's Roxy?"
@@ -144,10 +147,11 @@ label unsure_heapcheck:
     m "All you \"pro-gamer\" scum are the same. Thinking you can get by watching recordings at 2x speed." 
     show malloc eyes with dissolve
     m "You may be happily cruising along now, but just wait until my buddy Roxy really makes you suffer."
+    show malloc eyes2 with dissolve
     m "I look forward to seeing how that turns out."
     m "See you at the final exam."
 
-    hide malloc eyes with dissolve
+    hide malloc eyes2 with dissolve
 
     "..."
     "What just happened?"
@@ -202,14 +206,14 @@ label shell_intro_bad2:
     "(Okay, so this girl is clearly crazy too.)"
     "Alright, I'll keep that in mind."
     s "You think I'm just gonna let you go after you made fun of Vim?"
-    "(Shit... She's not gonna slap me or something right?)"
+    "(Shit... She's not gonna slap me or something, is she?)"
     s "I'm signing you up to join my Vim club!"
     "Hold up, hold up. There's a club just for Vim?"
     "Why does that exist?"
     s "You take that back!" with hpunch
     "(Yup, I'm probably gonna get slapped.)"
-    s "I'll see you in the activity room at 5. If you don't show up, I'll tell the student council president!"
-    "(Yeah, that's definitely worse than getting slapped.)"
+    s "I'll see you in the activity room at 5. If you don't show up, I'll tell the student council president to expell you!"
+    "(Welp, that's definitely worse than getting slapped.)"
     "(This day is going great.)"
     hide shell angry with dissolve
     jump proxy_bad_req_den
@@ -259,8 +263,8 @@ label shell_intro_good:
             s "Aw man, another rejection..."
             s "Why does no one want to join? "
             show shell sad at midleft with move
-    show malloc normal at midright with dissolve
-    m "Shell, you're gonna be late for class!"
+    show data normal at midright with dissolve
+    d "Shell, you're gonna be late for class!"
     show shell normal at midleft with dissolve
     s "Oh shoot, I gotta run!"
     if join_vimclub:
@@ -271,7 +275,7 @@ label shell_intro_good:
         "(Who's Packet?)"
     s "See you later, [player_name]!"
     hide shell normal with dissolve
-    hide malloc normal with dissolve
+    hide data normal with dissolve
     "..."
     "The people here just keep getting weirder and weirder."
     if join_vimclub:
@@ -303,11 +307,10 @@ label proxy_good_req_den:
     s "Hmm, maybe we should go talk to the student council president."
     "Uhh, alright...?"
     "I thought you said they don't like random people barging in, though."
-    s "Don't worry, Roxy's a good friend. She'll talk to us about this."
-    s "There's gotta be some reason why she personally would reject your form, though. It's probably important."
-    s "Since this apparently didn't go through Steven."
+    s "Don't worry, Roxy's a good friend of mine. She'll talk to us if I'm with you."
+    s "There's gotta be some reason why she would reject your form, though. Maybe something on here is wrong."
     "..."
-    s "Let's go talk to her!"
+    s "Let's go ask her!"
     
 
     s "Hey, look, she's over there!"
@@ -324,12 +327,46 @@ label proxy_good_req_den:
     p "So, who's this with you?"
     show shell normal at midright with dissolve
     s "This is [player_name]. We wanted to ask you why his request to join my Vim club got denied."
-    p "Oh, you're [player_name]? I wanted to talk to you about something anyway."
+    p "Oh, you're [player_name]? I wanted to talk to you about something, anyway."
+    p "Your club member request got denied? That's odd."
     p "Let's go back to the council room and talk there."
+
+    p "Hmm... let me see..."
+    p "Ah, here it is."
+    p "Hmm... looks like Steven accidentally rejected it."
+    p "I'll have to yell at him later..."
+    p "Anyway, what I wanted to ask you was..."
+    p "Are you interested in joining the student council?"
+    p "I know this is very sudden, but you seem to be in good academic standing, and have good interpersonal skills."
+    p "Malek especially was very impressed by your programming skills."
+    s "Oooh that's great! You should definitely join! I've heard it's super fun!"
+    s "You also get to plan the school festival!"
+    p "That is correct. But keep in mind, it's not all fun."
+    p "The student council does have to deal with important matters as well."
+    p "It will involve a lot of time committment, but I do believe the rewards are worth it."
+    p "So, what do you say?"
+    menu:
+        "I'm definitely interested!":
+            $ join_stuco = True
+            p "Great! Let me fill out the relevant paperwork."
+        "Actually, I think I'm good. Thanks for the offer.":
+            p "No worries, I understand."
+            p "Let me approve your club membership form, then."
+    p "..."
+    p "Here you are. I just need your signature at the bottom."
+    p "You can take your time to read through it, if you'd like."
+    "..."
+    "...."
+    "..."
+    "Hmm, looks good to me."
+    p "Great!"
+    p "You should be good to go, then."
+    if not join_stuco: 
+        jump vim_club
     return
+    
 
 label proxy_join_stuco:
-    $ join_stuco = False
     show malloc normal with dissolve
     m "Hello, [player_name], are you doing well?"
     "Yeah, how about you?"
@@ -348,6 +385,8 @@ label proxy_join_stuco:
     m "..."
     m "Here we are."
     m "Roxy, I've brought [player_name]."
+    show malloc normal at midright with move
+    show proxy normal at midleft with dissolve
     p "Just a second, I'm trying to get Packet to eat his food."
     p "Come on, Packet. I know this food isn't as good, but if you don't finish it then I can't get you the one you like."
     "Packet" "nyan nyan"
@@ -358,7 +397,7 @@ label proxy_join_stuco:
     "Yeah, he said you wanted me to join the student council?"
     "But why me, though?"
     m "I recommended you."
-    p "Malek here was pretty outspoken about your interpersonal skills, so I thought I'd ask you to join, since we need an additional member."
+    p "Malek here was pretty outspoken about your interpersonal and technical skills, so I thought I'd ask you to join, since we need an additional member."
     "(Why does this feel like some kind of anime plot...?)"
     p "So, what do you say?"
     if join_stuco:
@@ -366,16 +405,35 @@ label proxy_join_stuco:
     else:
         "Hmm... I'm not really sure if I want to..."
         "What do I get out of being on the student council?"
-        p "You get to help us plan the Tech Festival."
+        p "You get to help us plan the School Festival."
         "Hmmm....."
-        p "You also get free food at council meetings. Does that interest you?"
+        p "You also get free food vouchers for the festival. Does that interest you?"
         menu:
-            "Yes!"
-            "Yes, but it's the second option."
-        
-    p "Great!"
-    p "Let me get the paperwork sorted out."
+            "Yes!":
+                $ join_stuco = True
+                p "Great!"
+            "Yes! (but it's the second option)":
+                $ join_stuco = True
+                p "Great!"
+            "Actually, I'm good, thanks.":
+                p "No worries, I understand."
+    
+    if join_stuco: 
+        p "Let me get the paperwork sorted out, then."
+    else:
+        p "Let me approve your club membership form, then."
     p "(Damn that Steven, he's probably off stealing food from other clubs somewhere...)"
+    p "..."
+    p "Here you are. I just need your signature at the bottom."
+    p "You can take your time to read through it, if you'd like."
+    "..."
+    "...."
+    "..."
+    "Hmm, looks good to me."
+    p "Great!"
+    p "You should be good to go, then."
+    if not join_stuco: 
+        jump vim_club
     return
 
 
@@ -395,15 +453,53 @@ label proxy_bad_req_den:
     s "It says request denied..."
     "(Yes! This is great!)"
     "Haha, well, if it got denied, then there's nothing else that can be done!"
+    show shell normal with dissolve
     s "Nope, we're gonna go talk to the student council president."
     "(Damn, I should've known it wouldn't be that easy!)"
     s "Roxy probably had some reason for rejecting your member form."
     s "We can just ask her directly."
     "(Roxy? Is this the person Malek was talking about?)"
     "(Welp, time to find out how exactly she'll make me \"suffer\"...)"
+    s "There she is!"
+    s "Roxy! Why did you reject [player_name]'s club member form?"
+    show shell normal at midleft with move
+    show proxy normal at midright with dissolve
+    p "Oh, hello, Shell."
+    "Packet" "mrroww!"
+    p "Is this [player_name]?"
+    p "I actually wanted to talk to you about that."
+    p "Malek told me about how much of a troublemaker you are, so I decided to keep a closer eye on you."
+    p "Please sign at the bottom of this form."
+    "(\"Troublemaker\"? All I did was not write a heapchecker.)"
+    "(Is that all it takes to be a troublemaker here?)"
+    "..."
+    "(Wait a second... \"probationary student council member\")?"
+    "You can't make me do that! This has to be against the rules or something!"
+    "I refuse!"
+    show proxy okawaii at midright with dissolve
+    p "How cute."
+    p "You do understand that I am the student council president, do you not?"
+    p "You have to do whatever I say, or I can get you expelled from this institution."
+    p "For I have the power to do so."
+    "..."
+    "(Ah shit...)"
+    "..."
+    "(End my suffering...)"
+    "(All these idiots with their heapchecker complexities can go to hell for all I care.)"
+    show proxy normal at midright with dissolve
+    p "Thank you for your cooperation."
+    p "I'll see you tomorrow at 3 in the student council office."
+    hide proxy normal with dissolve
+    show shell normal at center with move
+    "..."
+    s "Haha, looks like Roxy thought of an even worse punishment for you, Vim hater!"
+    "Please stop calling me that."
+    s "Have fun suffering!"
     return
 
 
+label vim_club:
+    return
 
     
 
