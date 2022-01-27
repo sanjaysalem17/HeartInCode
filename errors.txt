@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 364: end of line expected.
-    if not join_stuco: jump vim_club
-                       ^
-
-File "game/script.rpy", line 433: end of line expected.
-    if not join_stuco: jump vim_club
-                       ^
+File "game/script.rpy", line 95: expected statement.
+    "...!"2
+           ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sun Jan 23 18:22:53 2022
+Wed Jan 26 23:58:10 2022
