@@ -4,7 +4,7 @@
 # name of the character.
 
 define d = Character("Bitsy")
-define a = Character("Flora")
+define a = Character("Flo")
 define b = Character("Faye")
 define gdb = Character("Blake")
 define m = Character("Malek")
@@ -15,11 +15,13 @@ define p = Character("Roxy")
 
 init:
     $ player_name = ""
+    $ duo_name = "Mr. SCS"
     $ join_stuco = False
     $ malloc_points = 0
     $ shell_points = 0
     $ proxy_points = 0
     $ data_points = 0
+    $ stuco_task = -1
 # The game starts here.
 
 label start:
@@ -48,6 +50,7 @@ label start:
     m "Did you write a heap checker?"
     menu:
         "Yes.":
+            $ malloc_points += 30
             jump heapcheck
         "No...":
             jump no_heapcheck
@@ -78,6 +81,7 @@ label no_heapcheck:
     
     menu:
         "Maybe I should just write a heapchecker...":
+            $ malloc_points += 30
             jump shell_prologue_good
         "Maybe I should just give up...":
             "There's no way I forgot a semicolon or something stupid like that."
@@ -85,13 +89,43 @@ label no_heapcheck:
             "..."
             jump shell_prologue_bad
 
-label shell_prologue_good:
+label malloc_epilogue:
     "I have other work to finish anyway, so hopefully this finds the bugs..."
     "..."
     "...."
     "..."
     "Alright, time to test this out..."
     "..."
+    "Okay, so my heapchecker says there's something wrong at this part of the memory..."
+    "But what could it be...?"
+    "Hmm... I'm probably missing something dumb."
+    "Maybe I should go ask Malek again."
+    show text "You find Malek ranting about freeing memory to some frightened freshmen." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show malloc normal with dissolve
+    m "Oh, hello [player_name]. What brings you back here?"
+    "I wrote a heapchecker, but I still can't figure out my issue."
+    m "I see you've learned from your mistakes."
+    $ malloc_points += 20
+    m "Good for you. Sorry if I was too harsh earlier, but being able to write software that backs you up is very important."
+    "Yeah, no worries, I understand."
+    m "Let me take a look..."
+    m "..."
+    m "...."
+    m "..."
+    m "Ah, I see the issue."
+    "Wow, that was fast."
+    m "If you look at this part here, when you get rid of this memory block you're forgetting to do something."
+    m "You should be able to figure it out from there."
+    m "Good luck!"
+    hide malloc normal with dissolve
+    jump shell_prologue_good
+
+label shell_prologue_good:
+    "Hmm.. what am I forgetting here?"
+    "..."
+    "...."
     "...!"
     "Damn, I forgot to free that variable..."
     menu:
@@ -167,7 +201,7 @@ label unsure_heapcheck:
 
     "..."
     "What just happened?"
-    "And who the fuck is Roxy?"
+    "And who the frick is Roxy?"
     "Am I supposed to be scared?"
     "..."
     "Nah, if I can sleep during lectures and still keep my A, there's nothing to be afraid of."
@@ -270,7 +304,7 @@ label shell_intro_good:
         "Nice to meet you too!":
             $ shell_points += 30
             s "So, what do you say? Do you want to join my club?"
-        "Likewise.":
+        "Likewise, I guess.":
             $ shell_points += 10
             s "So, what do you say? Do you want to join my club?"
     menu:
@@ -413,6 +447,8 @@ label proxy_join_stuco:
         "(Hmm, I'm not really interested, but I'll hear her out.)":
             "So where is the student council room?"
         "(Yes! Something to add to my LinkedIn profile!)":
+            $ proxy_points += 30
+            $ malloc_points += 30
             $ join_stuco = True
             "Oooh yes, I'm definitely interested!"
     m "It's just down this way."
@@ -459,6 +495,8 @@ label proxy_join_stuco:
                 "Hmm, looks good to me."
                 p "Great!"
                 p "You should be good to go, then."
+                hide proxy normal with dissolve
+                hide malloc normal with dissolve
                 jump stuco_good
             "Actually, I'm good, thanks.":
                 p "No worries, I understand."
@@ -470,7 +508,21 @@ label proxy_join_stuco:
                 pause 1.0
                 hide text with dissolve
                 jump second_intro
-
+    p "Great!"
+    p "Let me get the paperwork sorted out, then."
+    p "(Damn that Steven, he's probably off stealing food from other clubs somewhere...)"
+    p "..."
+    p "Here you are. I just need your signature at the bottom."
+    p "You can take your time to read through it, if you'd like."
+    "..."
+    "...."
+    "..."
+    "Hmm, looks good to me."
+    p "Great!"
+    p "You should be good to go, then."
+    hide proxy normal with dissolve
+    hide malloc normal with dissolve
+    jump stuco_good
 
 
 
@@ -534,6 +586,7 @@ label proxy_bad_req_den:
     s "Haha, looks like Roxy thought of an even worse punishment for you, Vim hater!"
     "Please stop calling me that."
     s "Have fun suffering!"
+    hide shell normal with dissolve
     jump stuco_bad
 
 
@@ -548,11 +601,9 @@ label vim_club:
     s "How are you doing?"
     menu:
         "I'm doing well!":
-            $ shell_points += 30
             s "That's great!"
             s "Hopefully you enjoy your first Vim club meeting!"
         "Not that well, actually...":
-            $ shell_points += 10
             s "Oh, I'm sorry to hear that."
             s "Hopefully your first Vim club meeting cheers you up!"
     show shell star with dissolve
@@ -576,9 +627,14 @@ label vim_club:
         "Have a fancy Vimrc?":
             $ shell_points += 30
             s "Haha, you don't need a fancy Vimrc to join this club."
+    show shell normal at right with move
+    show rebecca normal at midleft with dissolve
     "Rebecca" "Is it to write a cheatsheet?"
+    show evelyn normal at midright with dissolve
     "Evelyn" "Wait, but I didn't write a cheatsheet for my Vim commands..."
     "Rebecca" "That's pretty zesty, besty. You're too big brained."
+    hide rebecca normal with dissolve
+    hide evelyn normal with dissolve
     show shell normal at midleft with move
     show steven normal at midright with dissolve
     "Steven" "I have a question. How do I exit Vim?"
@@ -588,7 +644,9 @@ label vim_club:
     "Steven" "Well, they ran out of food, so I came here instead."
     "Steven" "Have the snacks arrived yet?"
     "Steven" "I could only steal this one cookie from the track team."
+    show rebecca normal at left with dissolve
     "Rebecca" "Steven's highkey sus right now..."
+    hide rebecca normal with dissolve
     "Who is this guy?"
     s "Steven's {i}supposed{/i} to be the secretary of the student council."
     "Steven" "That is correct, but it's not like many people are joining new clubs right now."
@@ -605,7 +663,6 @@ label vim_club:
     s "Now go sit in the Emacs corner while you approve all those member requests."
     "Steven" "(Sigh...)"
     hide steven normal with moveoutright
-    show shell normal at midright with dissolve
     show shell normal at center with move
     s "..."
     "Damn, Shell, you almost sound like an actual member of the student council."
@@ -642,6 +699,7 @@ label vim_club:
             s "That's great!"
             s "Next meeting will be even more fun, since we need to start planning for the school festival."
         "It was a bit underwhelming...":
+            $ shell_points += 30
             show shell sad with dissolve
             s "Aw, that's too bad..."
             s "Hopefully our next meeting is more interesting for you, since we'll be planning for the school festival."
@@ -658,17 +716,232 @@ label vim_club:
     s "Anyway, I gotta go now. I'll catch you later!"
     "Bye!"
     hide shell star with dissolve
-    "You have [shell_points] points."
+    #"You have [shell_points] points."
     jump break_time
 
 label stuco_good:
-    return
+    
+    "I think this is the right room..."
+    show proxy normal with dissolve
+    p "Hello, [player_name]! How are you doing today?"
+    "Packet" "nya nya nya"
+    menu:
+        "I'm doing well!":
+            $ proxy_points += 30
+            p "That's great!"
+        "Not that well, actually.":
+            $ proxy_points += 20
+            p "Oh, that's unfortunate."
+    p "Hopefully today's meeting will be entertaining."
+    "Why is that?"
+    p "Because if Steven doesn't show up, you get to take his position."
+    "Who's Steven? And why would he not show up?"
+    p "(Sigh...)"
+    p "He's {i}supposed{/i} to be our secretary, but he keeps skipping meetings to go steal food from random clubs on campus."
+    "(Sounds like a real character...)"
+    p "Anyway, let's head inside."
+    "Packet" "mrroww"
+    "Rudeus" "Heyo!"
+    p "Hey, Rudeus."
+    p "Is everyone else here yet?"
+    "Rudeus" "Well, everyone except Steven."
+    "Connor" "Which was definitely expected."
+    "Rudeus" "Oh, and your brother's here taking coffee again, as usual."
+    "Paxton" "What do you mean, \"as usual\"?"
+    p "Paxton, please just fix your coffee machine."
+    "Paxton" "See I would, but that requires actual effort."
+    "Paxton" "My free time is already distributed too thin, you know?"
+    p "(Sigh...)"
+    p "Anyway, do we want to wait a few minutes for Steven, or should I just kick him out now?"
+    "Rudeus" "Yes, I am down for punishing Steven."
+    "Connor" "Seconded."
+    "Rudeus" "The other day, he wouldn't shut up about how his Vimrc was better than mine."
+    "Rudeus" "I don't even know what that is!"
+    "Connor" "Yeah, that sounds like a Steven thing to do."
+    "Connor" "He also somehow dug up my embarrassing middle school pictures and started spreading rumors about me again."
+    "Connor" "(Sigh...)"
+    p "..."
+    p "So, [player_name], how would you like to be the new secretary of the student council?"
+    "Sure, I guess."
+    $ proxy_points += 30
+    "Rudeus" "Wait, hold on. Don't we have to do some kind of vote?"
+    "Rudeus" "Or have some pool of candidates to consider first?"
+    "Connor" "Dude, there's literally no one else here."
+    "Paxton" "(Slurp...)"
+    p "Paxton, can you take your coffee and slurp somewhere else?"
+    "Paxton" "Hold on, this is just getting interesting."
+    "Paxton" "What if Steven pops in right now?"
+    p "That's probably not going to happen."
+    "Connor" "With high probability."
+    "Paxton" "..."
+    "Paxton" "Alright, alright, you can stop glaring at me. I'll leave now."
+    p "..."
+    p "Let's {i}officially{/i} start the meeting now, then."
+    p "[player_name], can you take down the meeting notes?"
+    "Sure, I can do that."
+    p "So, we have quite a bit of tasks to get through today."
+    p "I guess the first thing to ask is how the budgeting for the festival is going?"
+    "Rudeus" "I think I already verified most of the club budgets and allocated funds, so we should be good to go on that end."
+    "Connor" "Damn, this man just reduced all of his work for the rest of the semester."
+    "Rudeus" "I mean, it's easy to finish my work when I'm not TAing a class and lowering students' grades, \"Destroyer of Dreams\"."
+    "Connor" "..."
+    "Connor" "How do you know about that name?"
+    "Rudeus" "hehe"
+    p "Can we get back on topic, please?"
+    "Connor" "Oops..."
+    hide proxy normal with dissolve
+    show text "Roxy goes over some of the menial tasks, which are trivial and left to interpretation by the player." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show proxy normal with dissolve
+    p "So the three main things we have to do now are talk to the sysadmin to make sure the WiFi bandwidth is enough for the expected crowd,..."
+    p "check that the cooking club has a big enough space for their festival activities,..."
+    p "ask someone to create a logo and some posters for the festival,..."
+    p "and find some music artist to perform the opener."
+    p "Does anyone have a preference on which one they want to do?"
+    p "The music artist isn't as high priority, so if you happen to find someone, just let me know."
+    menu:
+        "I can talk to the sysadmin.":
+            $ stuco_task = 0
+            $ proxy_points += 30
+            "Rudeus" "I can go talk to the cooking club then."
+            "Connor" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
+        "I can talk to the cooking club.":
+            $ stuco_task = 1
+            $ proxy_points += 30
+            "Rudeus" "I can go talk to the sysadmin then."
+            "Connor" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
+        "I can find someone to make posters.":
+            $ stuco_task = 2
+            $ proxy_points += 30
+            "Rudeus" "I can go talk to the cooking club then."
+            "Connor" "I'll talk the sysadmin, I guess."
+            p "Okay, cool. [player_name], you may want to go find someone in the gaming club for posters."
+            p "If I recall correctly, the club president was the one who drew the logo last year."
+            "Sounds good."
+    p "Alright, then. We have our next meeting in a month, so let me know how your tasks are going then."
+    "Rudeus" "For sure."
+    "Connor" "Ciao!"
+    p "So, [player_name], did you enjoy your first student council meeting?"
+    "It was..."
+    "Interesting."
+    p "I hope that's meant in a good way, haha."
+    p "Good luck. I'll see you at our next meeting."
+    "Bye!"
+    hide proxy normal with dissolve
+    jump break_time
 
 label stuco_bad:
-    return
+    $ stuco_task = -1
+    "Hmm... I think this is the right room."
+    "Hopefully no one's here, so I don't have to be stuck in this stupid meeting."
+    show proxy okawaii with dissolve
+    p "Ah, hello troublemaker."
+    "Ah shit."
+    show proxy normal with dissolve
+    p "Let's head in."
+    p "If you're lucky, you may be promoted from probationary student today."
+    "(What does that mean?)"
+    "Packet" "mrroww"
+    "Rudeus" "Heyo!"
+    p "Hey, Rudeus."
+    p "Is everyone else here yet?"
+    "Rudeus" "Well, everyone except Steven."
+    "Connor" "Which was definitely expected."
+    "Rudeus" "Oh, and your brother's here taking coffee again, as usual."
+    "Paxton" "What do you mean, \"as usual\"?"
+    p "Paxton, please just fix your coffee machine."
+    "Paxton" "See I would, but that requires actual effort."
+    "Paxton" "My free time is already distributed too thin, you know?"
+    p "(Sigh...)"
+    p "Anyway, do we want to wait a few minutes for Steven, or should I just kick him out now?"
+    "Rudeus" "Yes, I am down for punishing Steven."
+    "Connor" "Seconded."
+    "Rudeus" "The other day, he wouldn't shut up about how his Vimrc was better than mine."
+    "Rudeus" "I don't even know what that is!"
+    "Connor" "Yeah, that sounds like a Steven thing to do."
+    "Connor" "He also somehow dug up my embarrassing middle school pictures and started spreading rumors about me again."
+    "Connor" "Which I don't understand how people believed him, because he was wearing that obnoxious cow onesie again..."
+    "Connor" "(Sigh...)"
+    p "..."
+    p "So, [player_name], how would you like to be the new secretary of the student council?"
+    p "Looks like you got lucky, after all."
+    "Uh, well... it's better than being a probationary student, no?"
+    p "That is correct."
+    $ proxy_points += 30
+    "Rudeus" "Wait, hold on. Don't we have to do some kind of vote?"
+    "Rudeus" "Or have some pool of candidates to consider first?"
+    "Connor" "Dude, there's literally no one else here."
+    "Paxton" "(Slurp...)"
+    p "Paxton, can you take your coffee and slurp somewhere else?"
+    "Paxton" "Hold on, this is just getting interesting."
+    "Paxton" "What if Steven pops in right now?"
+    p "That's probably not going to happen."
+    "Connor" "With high probability."
+    "Paxton" "..."
+    "Paxton" "Alright, alright, you can stop glaring at me. I'll leave now."
+    p "..."
+    p "Let's {i}officially{/i} start the meeting now, then."
+    p "[player_name], can you take down the meeting notes?"
+    "Sure, I can do that, I guess."
+    "(This is going surprisingly better than I expected...)"
+    p "So, we have quite a bit of tasks to get through today."
+    p "I guess the first thing to ask is how the budgeting for the festival is going?"
+    "Rudeus" "I think I already verified most of the club budgets and allocated funds, so we should be good to go on that end."
+    "Connor" "Damn, this man just reduced all of his work for the rest of the semester."
+    "Rudeus" "I mean, it's easy to finish my work when I'm not TAing a class and lowering students' grades, Mr. \"Destroyer of Dreams\"."
+    "Connor" "..."
+    "Connor" "How do you know about that name?"
+    "Rudeus" "hehe"
+    p "Can we get back on topic, please?"
+    "Connor" "Oops..."
+    hide proxy normal with dissolve
+    show text "Roxy goes over some of the menial tasks, which are trivial and left to interpretation by the player." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show proxy normal with dissolve
+    p "So the four main things we have to do now are talk to the sysadmin to make sure the WiFi bandwidth is enough for the expected crowd,..."
+    p "check that the cooking club has a big enough space for their festival activities,..."
+    p "ask someone to create a logo and some posters for the festival,..."
+    p "and find some music artist to perform the opener."
+    p "Does anyone have a preference on which one they want to do?"
+    p "The music artist isn't as high priority, so if you happen to find someone, just let me know."
+    menu:
+        "I can talk to the sysadmin.":
+            $ stuco_task = 0
+            $ proxy_points += 30
+            "Rudeus" "I can go talk to the cooking club then."
+            "Connor" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
+        "I can talk to the cooking club.":
+            $ stuco_task = 1
+            $ proxy_points += 30
+            "Rudeus" "I can go talk to the sysadmin then."
+            "Connor" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
+        "I can find someone to make posters.":
+            $ stuco_task = 2
+            $ proxy_points += 30
+            "Rudeus" "I can go talk to the cooking club then."
+            "Connor" "I'll talk the sysadmin, I guess."
+            p "Okay, cool. [player_name], you may want to go find someone in the gaming club for posters."
+            p "If I recall correctly, the club president was the one who drew the logo last year."
+            "Sounds good."
+    p "Alright, then. We have our next meeting in a month, so let me know how your tasks are going then."
+    "Rudeus" "For sure."
+    "Connor" "Ciao!"
+    p "So, [player_name], how was your first student council meeting?"
+    p "Don't be like Steven, or I'll have to punish you for real, like Malek wanted."
+    p "But if you get your tasks done well, I'll look the other way."
+    "Uh...okay?"
+    "I'll make sure to finish my tasks while not prancing around in a cow onesie."
+    p "I hope that's meant in a good way, haha."
+    p "Good luck. I'll see you at our next meeting."
+    "Goodbye!"
+    hide proxy normal with dissolve
+    jump break_time
+
 
 label break_time:
-    show text "A few weeks later..." with dissolve
+    show text "One week later..." with dissolve
     pause 1.0
     hide text with dissolve
     "(Finally, I get a long weekend!)"
@@ -729,15 +1002,17 @@ label break_time:
         clc "Oh! I'm fine!"
         clc "I don't know why my nose started bleeding like this!"
         "(Wow, looks like someone has a crush...)"
+        "(I shouldn't tell Faye, should I?)"
         m "Well, we should head out."
         m "It was nice seeing both of you."
         m "Tell Cash I said hello."
         b "Oh, I sure will!"
         "(...)"
-        "(I shouldn't tell her, should I?)"
         clc "Bye, Blake!"
         gdb "Goodbye...!"
-        return
+        if join_stuco:
+            jump after_break_stuco
+        jump second_intro
 
 
     label second_intro:
@@ -746,14 +1021,409 @@ label break_time:
             "I should go visit Cash.":
                 jump meet_cache
             "I should go visit Bitsy.":
+                $ data_points += 30
                 jump meet_bitsy
     
     label meet_cache:
+        "..."
+        "He should be around here somewhere..."
+        "Ah, there he is."
+        "Looks like he's getting ready to go somewhere."
+        "Hey, Cash!"
+        show cache normal with dissolve
+        c "Oh, hey, [player_name]."
+        c "What's up?"
+        "Nothing much."
+        "Just glad to finally have some sort of break from classes."
+        c "Yeah, I hear you."
+        c "I'm about to go get dinner soon, if you want to join?"
+        "..."
+        "You're getting dinner now? It's only 4."
+        c "Yeah, but there's a really good nightclub I want to go to later."
+        c "It's tough to get in because it gets crowded quickly, so I wanted to get there early."
+        "Oh, that sounds fun!"
+        "Sure, I'd be down."
+        c "Great!"
+        c "Let's take the 61D down this way."
+        hide cache normal with dissolve
+        show text "You and Cash get on the 61D bus down to the Waterfront." with dissolve
+        pause 1.5
+        hide text with dissolve
+        show cache normal with dissolve
+        "So Cash, how's your relationship going?"
+        c "Oh it's..."
+        c "Going, I guess."
+        "What does that mean?"
+        c "Uhh..."
+        c "(Lemme just make sure she's not here...)"
+        c "(...)"
+        c "Alright you've gotta help me out here."
+        "Huh...?"
+        c "Faye is actually crazy."
+        "Wut"
+        c "The other day, she almost pulled a knife on Flo when she tried to talk to me."
+        "Nani"
+        c "Yeah, that was my reaction!"
+        "(Are you sure you reacted with \"nani\"?"
+        c "She gets way too jealous about these kinds of things."
+        c "She's even smiling while she does this, so there's clearly something wrong..."
+        c "It's not like I'd start dating Flo again!"
+        "Hold up, you used to date Flo?"
+        "Why'd you break up?"
+        c "Uhh..."
+        c "It's complicated."
+        "Pretty sure it's not as complicated as why you're trying to get away from Faye."
+        c "..."
+        c "Ok, fair."
+        c "Basically, we were both too busy with work to be able to get a relationship to work."
+        c "She also felt that I didn't give her enough attention and that I only cared about myself..."
+        c "But we're in college, you know? It was hard to care about my grades and be committed to a relationship!"
+        c "I don't get how people can make it work so easily during just their freshman year!"
+        c "Or maybe I just took too many programming classes which killed my free time..."
+        c "Either way, it didn't work out."
+        c "So here we are."
+        "So is Faye your rebound or something?"
+        c "What? Of course not!"
+        c "I genuinely liked her before I found out she was like this."
+        c "I didn't expect Flo to take me back once I had enough time to commit to a relationship, so I figured I'd just move on."
+        "(Damn, I thought this guy just liked whatever girl was hot, but he's actually pretty emotionally complicated.)"
+        c "..."
+        c "So, will you help me break up with Faye?"
+        "..."
+        "I mean sure, but won't it hurt your reputation?"
+        "Something something \"Cash can't commit to a relationship and breaks two girls' hearts\"..."
+        c "Honestly, I don't care about that anymore."
+        c "I just don't want her to pull a knife on me or anything, you know?"
+        "(I feel like she's going to anyway, if you try to break up with her...)"
+        c "I'd rather feel safe than have a good reputation..."
+        "..."
+        "Alright, I'll help."
+        "When are you doing this?"
+        c "Ah, thank you so much!"
+        c "I owe you one."
+        c "I just need you there for emotional support."
+        "(This dude needs more than just emotional support...)"
+        c "Maybe if I do it at the school festival, there'll be enough people there that she doesn't go off..."
+        "..."
+        "Uh, ok."
+        "(Terrible plan, but ok.)"
+        "(Isn't she more likely to go off if you break up during the festival?)"
+        "I guess I can help when I'm free..."
+        c "Ah, thank you thank you thank you thank you"
+        "Don't worry about it."
+        c "Oop, here's our stop!"
+        hide cache normal with dissolve
+        show text "You and Cash enjoy a nice meal at a nearby restaurant and head to the nightclub." with dissolve
+        pause 2.0
+        hide text with dissolve
+        show cache normal with dissolve
+        c "Ok, here we are."
+        "Bouncer" "Can I see your ID?"
+        c "Here you go."
+        "Here's mine."
+        "Bouncer" "..."
+        "Bouncer" "Ok, these are acceptable."
+        "Bouncer" "Enjoy your evening."
+        "Thanks!"
+        c "Oh, we got here just in time! The show's about to start."
+        hide cache normal with dissolve
+        show jason normal with dissolve
+        "lil mem sbrk" "Yo yo, it's your boi lil mem sbrk here with our opening act for this evening:"
+        "lil mem sbrk" "Please welcome [duo_name] to the stage!"
+        hide jason normal with dissolve
+        if join_stuco:
+            jump after_break_stuco
         return
+
 
     label meet_bitsy:
+        "She should be somewhere around the track team area..."
+        "Ah, there she is."
+        show data normal with dissolve
+        d "No no not like that, Nex."
+        d "You have to make sure your arms don't move when you curl back down."
+        "Nex" "You mean like this?"
+        d "Yeah, that's a lot better!"
+        "Nex" "Ah, ok. Thanks, captain!"
+        d "No prob!"
+        d "Oh hey, [player_name]!"
+        d "What brings you to this part of campus?"
+        "Ah, I was just wandering around and thought that it'd been a while."
+        "Are you not doing anything special for family weekend?"
+        d "Nah, my family is backpacking through Europe right now, so they can't really come."
+        d "So I thought I'd use the extra time to work on getting some good exercise in before the regional track meet."
+        "Ooh, that sounds fun!"
+        d "Haha yeah!"
+        d "I'm hoping I can get the entire team into the top 10 this time."
+        "Is that why you're coaching him?"
+        d "Oh, yeah."
+        d "I don't think you guys have met yet!"
+        d "[player_name], this is Nex. Nex, this is [player_name]."
+        "Hello!"
+        "Nex" "Hey!"
+        "Those are some pretty impressive biceps!"
+        "Are you on the track team too?"
+        "Nex" "Yeah! I'm trying to make sure I don't just exercise my legs."
+        "Ah, that makes sense."
+        "Nex" "I'm also trying to grow my fitness channel, if you're interested, haha."
+        "Nex" "Subtle flex."
+        "Oh sure, I'll check it out! What's it called?"
+        "Nex" "It's called \"SaidoChesto22\"."
+        "(Hmm...that somehow sounds familiar...)"
+        d "So, [player_name], since you're here, do you want to race?"
+        "Wut"
+        d "Haha, I just want to see how fast you are!"
+        "Uh, ok...?"
+        d "No pressure!"
+        "Sure, I guess."
+        "Though you're probably going to be disappointed."
+        d "Nah, don't worry about that!"
+        d "I'm sure you're pretty fast!"
+        "Alright how do we do this?"
+        d "Nex, can you do a countdown from 5?" 
+        "Nex" "Sure!"
+        d "(Float like a butterfly, float like a butterfly....)"
+        "What's she muttering?"
+        hide data normal with dissolve
+        "Nex" "5!"
+        "Nex" "4!"
+        "Nex" "3!"
+        "Nex" "2!"
+        "Nex" "1!"
+        "Nex" "Go!" with hpunch
+        "...!"
+        "......!"
+        "Oh wow, she's pretty fast, but somehow I'm able to keep up!"
+        "...!"
+        d "Wow, you're pretty quick!"
+        "(Sounds like she's gonna say something like how this isn't her top speed...)"
+        d "But guess what, this isn't my final form!"
+        "(Yup, close enough...)"
+        "!"
+        "Holy shit, she just took off!"
+        "She's like a horse!"
+        "{i}panting noises{/i}"
+        "..."
+        "{i}more panting noises{/i}"
+        "Finally....made...it...!"
+        d "Hey, you really surprised me there!"
+        "Well....my lungs....are dead...."
+        "Nex" "You should be fine if you sit down for a while, but still, that was pretty fast!"
+        "I...need some....water...."
+        d "Right right, let's head back inside and find a water fountain."
+        show text "The three of you head inside and find the nearest water fountain to hydrate." with dissolve
+        pause 2.0
+        hide text with dissolve
+        d "Ah, that hit's the spot!"
+        "(My lungs are definitely dead now...)"
+        "Nex" "You should definitely join the track team, [player_name]!"
+        "No thanks."
+        "I don't think I can do that again..."
+        d "Still, you did great!"
+        "..."
+        "Wait..."
+        "What's that music?"
+        d "We're near the music room, so maybe someone's practicing in there..."
+        "Nex" "This sounds like an anime song..."
+        "I'm pretty sure it is an anime song..."
+        "I'm gonna go see who's playing it."
+        "I'll be right back."
+        "..."
+        "...."
+        "...!"
+        "Hello!"
+        show paperbag life with dissolve
+        "Oh, hello."
+        "Why are you wearing a paperbag on your head?"
+        "???" "Uh..."
+        "???" "Why aren't you wearing a paperbag on your head?"
+        "Wut"
+        "???" "Uno reverse card!"
+        "...!"
+        "???" "Nah..."
+        "???" "I'm trying to see how well I can play violin without looking."
+        "..."
+        "That sounds difficult..."
+        "???" "I'm also trying to practice before I record this for my music channel, so I kinda need the bag."
+        "Do you wear that when you record videos too?"
+        "(Wow, looks like everyone has a channel for something nowadays...)"
+        "???" "Yeah, it started as a joke, but then I just went with it because people thought it was funny, haha."
+        "So what song were you playing earlier?"
+        "It sounded like the new HIRUASOBI song."
+        "???" "Haha, yeah, it was HIRUASOBI."
+        "???" "It's from a game I play called Herrscher Impact."
+        "Oh, nice nice!"
+        "Oh shoot, I didn't introduce myself did I?"
+        "This must be kinda awkward..."
+        "???" "Haha, don't worry about it."
+        "Anyway, I'm [player_name], nice to meet you."
+        "Ricky" "I'm Ricky. Yoroshiku onegaishimasu!"
+        "What's your music channel called?"
+        "Ricky" "It's called Paperbag Life, lol."
+        "(I should have guessed...)"
+        "Anyway, it was nice to meet you! Good luck on the channel!"
+        "Ricky" "Arigatou gozaimasu!"
+        hide paperbag life with dissolve
+        "..."
+        show data normal with dissolve
+        d "Oh, you're back!"
+        "Nex" "We were gonna go and run a few more laps before coming back inside again, if you wanted to come with us?"
+        "Uhhh...."
+        "I think that was enough exercise for me for today..."
+        "I'm gonna go sit down somewhere."
+        d "Haha, no worries!"
+        "Nex" "See you later!"
+        hide data normal with dissolve
+        if join_stuco: 
+            jump after_break_stuco
         return
 
 
+    label after_break_stuco:
+        show text "A few days later..." with dissolve
+        pause 1.0
+        hide text with dissolve
+        "Ah, that was a nice break."
+        "I guess I should actually get to that task I needed to do for the student council."
+        "Hmm... let's see..."
+        if stuco_task == 0:
+            "Ah, I need to go talk to the sysadmin."
+            jump sysadmin
+        elif stuco_task == 1:
+            "Ah, I need to go talk to the cooking club."
+            jump cooking_club
+        else:
+            "Ah, I need to find someone to make festival posters."
+        return
     
+label sysadmin:
+    "..."
+    "Hmm, this seems like the place."
+    "Hello?"
+    "Ether" "Hello!"
+    "Ether" "Are you here from the student council?"
+    "Yeah, I'm [player_name]. I'm here to make sure the servers can handle the traffic for the school festival."
+    "Ether" "Ok, cool. Roxy sent me an email saying someone would come by."
+    "Ether" "Let me go get my colleague."
+    show fanpu normal at midright with dissolve
+    "Ether" "Hey Fanpu. The student council rep is here."
+    "Ether" "Can you pull up the network graphs from last year?"
+    "FanPu" "Gimme a sec, I'm trying to finish this quest...!"
+    "Ether" "What?"
+    "FanPu" "I need more Freemogems to get Yae Miko!"
+    "FanPu" "I'm so close to soft pity!"
+    "Ether" "Is this what you're using the cluster machines for?"
+    "Ether" "You need help, man."
+    "FanPu" "Alright alright, I finished my daily commissions."
+    "FanPu" "What did you need, again?"
+    "Ether" "Can you check the network traffic from last year's festival?"
+    "FanPu" "Ah, ok. It should be in this folder..."
+    "FanPu" "..."
+    "FanPu" "Oh shit, this is a pretty high number..."
+    "FanPu" "We may need to check the bandwidth before this festival."
+    "Ether" "Hmmm..."
+    "Ether" "It should be doable if we get a larger router, right?"
+    "FanPu" "Hmmm...but do we have the money?"
+    "Ether" "(We'd have more money if you didn't waste our funds on Gnostic Impact...)"
+    "FanPu" "Or we can implement a better QoS algorithm so that everyone can use the network..."
+    "Ether" "Hmmm..."
+    "FanPu" "Hmmm..."
+    "(What language are they speaking?)"
+    "Ether" "I think that would work."
+    "Ether" "Can you also stop using our funds for your gatcha addiction?"
+    "FanPu" "What do you mean \"addiction\"?"
+    "FanPu" "These are 3D waifus, not 2D waifus!"
+    "FanPu" "This is clearly worth the money!"
+    "Ether" "(Sigh....)"
+    "..."
+    "Ok so I understood none of that, but do you guys have it under control?"
+    "Ether" "Yeah, I think we should be able to handle the traffic."
+    "Ether" "If FanPu stops streaming his games and actually does work for once."
+    "FanPu" "Bruh, why do you keep calling me out like this?"
+    "FanPu" "If you played this game, you'd understand!"
+    "Ether" "I highly doubt that."
+    "FanPu" "Where are those who share the memory...?"
+    "Ether" "Anyway, [player_name], you can tell Roxy we've got the situation handled."
+    "Alright, sounds good."
+    "Ether" "Enjoy the rest of your day!"
+    "FanPu" "Noooo I got a Qiqi!!"
+    "FanPu" "Wallet-kun doko da?!"
+    "Ether" "(Sigh...)"
+    "Ether" "You need serious help, man."
+    "FanPu" "Nuuuu I need to grind more Freemogems now!"
+    "FanPu" "Toki ga kieta!!"
+    "Ether" "(Sigh...)"
+    "Ether" "I'm gonna have to do most of this by myself, aren't I?"
+    "Yeah, I'm just gonna leave now..."
+    hide fanpu normal with dissolve
+    return
+
+label cooking_club:
+    show text "After contacting the cooking club, you set up a time to talk during one of their meetings." with dissolve
+    pause 1.5
+    hide text with dissolve
+    "So the club president is someone named Jenny..."
+    "I think it's this room, right?"
+    "..."
+    "Hello? Is Jenny here?"
+    "Jenny" "Hewo!"
+    "Jenny" "Are you [player_name]?"
+    "Yeah, nice to meet you!"
+    "Jenny" "Nice to meet you, too!"
+    "You got the email from Roxy, right?"
+    "Jenny" "The one about event space for the festival, right?"
+    "Jenny" "I think we just finalized what we're planning to do, so we should be able to start looking for spaces now."
+    "What's the cooking club doing?"
+    "Jenny" "Oh, we're planning on doing a maid cafe!"
+    "Jenny" "We just finalized the menu too, so we should be good to look at other logistics."
+    "Ooh, that sounds fun!"
+    "So do you have an expected number of customers?"
+    "Jenny" "Yeah, lemme just ask Sandi."
+    "Jenny" "Hey, Sandi, can you get the binder for last year's logistics?"
+    "Sandi" "Yeah, sure, this bread's about to finish proofing so lemme stick it in the oven first..."
+    "Sandi" "..."
+    "Sandi" "Ok, there we go."
+    "Sandi" "Alright, so last year we had about 400 customers total."
+    "Jenny" "We should probably expect that to increase to at most 550 this time."
+    "Sandi" "Yeah, that sounds good."
+    "Sandi" "Do you know what places on campus can tolerate that crowd?"
+    "Sandi" "I don't think a classroom is gonna cut it..."
+    "Jenny" "We can also see if hosting outside is an option..."
+    "Sandi" "..."
+    "I don't think that's a good idea..."
+    "I feel like allergies are gonna be a big concern if you host outside."
+    "Jenny" "Ah shit, you're right."
+    "???" "Sorry guys, me class ran late today!"
+    "Jenny" "Oh hey, Maple!"
+    "Jenny" "Do you happen to know any good locations on campus that we can use for the maid cafe?"
+    "Sandi" "We're thinking we should expect about 550 people this year."
+    "Maple" "Oh, if you're talking about that, then you must be [player_name]!"
+    "Maple" "Nice to meet you!"
+    "Haha, nice to meet you, too!"
+    "Maple" "Hmmm... maybe somewhere in Tepper?"
+    "Maple" "They have pretty big rooms, don't they?"
+    "Jenny" "Oh yeah!"
+    "You can probably talk to one of the admins to reserve it in advance."
+    "\"beep beep!\""
+    "Sandi" "Oh, I think that's my bread. Lemme go check on it."
+    "Sandi" "It was nice meeting you, [player_name]!"
+    "Maple" "So if we do somewhere in Tepper, we'll have to talk to the storage team to make sure they have enough tables, right?"
+    "Jenny" "Yeah, I don't fully know how that process works."
+    "I can give it a shot for you."
+    "Roxy probably has some connections that we can use for that."
+    "Jenny" "Oh, that would be great!"
+    "Maple" "Thank you so much!"
+    "How many tables do you think you'll need?"
+    "Jenny" "Hmm... maybe about 9 or 10? We'll need enough chairs too."
+    "Maple" "We can probably reuse the decorations and costumes from last year, so it should just be those two things."
+    "Alright, sounds good!"
+    "I'll go talk to the storage team, then."
+    "Jenny" "Yeah!"
+    "Maple" "Thanks for the help!"
+    "Jenny" "You should also definitely come by our cafe during the festival if you have the chance!"
+    "Yeah, definitely!"
+    "I'll see you later!"
+    "Jenny" "Bye!"
+    "Maple" "See you!"
+    return
 
