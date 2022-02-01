@@ -633,6 +633,8 @@ label vim_club:
     show evelyn normal at midright with dissolve
     "Evelyn" "Wait, but I didn't write a cheatsheet for my Vim commands..."
     "Rebecca" "That's pretty zesty, besty. You're too big brained."
+    "ADB" "Lol I just stole a cheatsheet from Google..."
+    "ADB" "Why do more work when someone else already did the work?" 
     hide rebecca normal with dissolve
     hide evelyn normal with dissolve
     show shell normal at midleft with move
@@ -686,10 +688,83 @@ label vim_club:
     pause 1.5
     hide text with dissolve
     show shell normal with dissolve
+    s "Ok, now we're gonna have a pop quiz!"
+    "Evelyn" "Awwww...."
+    "Rebecca" "Are there prizes?"
+    s "You get to bonk Steven."
+    show shell normal at midleft with move
+    show steven normal at midright with dissolve
+    "Steven" "Wait what"
+    "Steven" "I did not agree to this."
+    s "Yeah well, I just got a message from Roxy saying you're kicked from the student council, so..."
+    "Steven" "Huh?"
+    "Steven" "I'm literally sitting here approving member requests for them, though."
+    s "Too bad."
+    "Steven" "Huh..looks like I'll have to crash their next meeting..."
+    "ADB" "What does \"bonk\" mean in this context?"
+    s "You get to remap Steven's Vimrc key bindings."
+    "Steven" "Hold up."
+    "Steven" "Wut"
+    "ADB" "Hahaha!"
+    "ADB" "La bomba!"
+    "Steven" "Why is this happening?"
+    s "Do you have a better incentive for a pop quiz?"
+    "Steven" "..."
+    show shell normal at right with move
+    show steven normal at center with move
+    show evelyn normal at left with dissolve
+    "Evelyn" "Can we also actually bonk him?"
+    "Evelyn" "Does anyone have an inflatable baseball bat?"
+    "This is escalating pretty quickly..."
+    show steven normal at midright with move
+    show evelyn normal at midleft with move
+    show rebecca normal at left with dissolve
+    "Rebecca" "Oh I think I have one."
+    "Rebecca" "I can go get it, gimme a few minutes."
+    "Steven" "Why do you people find joy in physically hurting me?"
+    "Evelyn" "Because hurting you emotionally is bad." 
+    "ADB" "Good mental health is very poggers."
+    "Steven" "(Sigh...)"
+    "Steven" "Maybe if I didn't wear a cow onesie people wouldn't gang up on me like this..."
+    "Steven" "I'm gonna go tell Angela that I'm being bullied."
+    "Rebecca" "I found it!"
+    "Rebecca" "Let's get this zesty party started!"
+    s "Let's start the pop quiz!"
+    hide shell normal with dissolve
+    hide steven normal with dissolve
+    hide evelyn normal with dissolve
+    hide rebecca normal with dissolve
+    show text "The club goes through a Vim pop quiz, and Steven gets bonked multiple times." with dissolve
+    pause 1.5
+    show text "His Vimrc key bindings also get remapped, so overall it's turning out to be a great day for Steven." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show shell normal with dissolve
+    "Evelyn" "That was pretty fun!"
+    show shell normal at midright with move
+    show steven normal at midleft with dissolve
+    "Steven" "No, it wasn't."
+    "ADB" "Now I have more stuff to put on that cheatsheet I stole haha"
+    "ADB" "Time to make a pull request..."
+    "Rebecca" "Bonk bonk"
+    "Steven" "Looks like I have to spend the next week fixing my key bindings..."
+    "Steven" "Coming here may have been a mistake."
+    "Evelyn" "What do you mean? This is the best club ever!"
+    "Rebecca" "All fax no printer."
     s "Alright everyone, that concludes today's meeting!"
     s "I hope everyone had a great time!"
-    s "Except you, Steven. You deserved sitting in the Emacs corner like a delinquent."
+    s "Except you, Steven. You deserved sitting in the Emacs corner like a delinquent while getting bonked."
     "Steven" "lok"
+    s "Now that you're no longer on the student council, do you want to join Vim club instead?"
+    "Steven" "(Sigh...)"
+    "Steven" "There goes the only leadership experience I could put on my LinkedIn profile..."
+    "Just put \"Professional Cow\" or something."
+    "That should get you a few interviews."
+    "Steven" "..."
+    "Steven" "I'm gonna leave before I lose anything else."
+    "Steven" "I've probably already lost all my brain cells..."
+    hide steven normal with dissolve
+    show shell normal at center with move
     show shell star with dissolve
     s "So, [player_name], how'd you enjoy your first meeting?"
     menu:
@@ -973,330 +1048,334 @@ label break_time:
             $ malloc_points += 30
             jump arcade
     
-    label arcade:
-        m "Hmm... I don't see why not."
-        m "Kalik, is that alright with you?"
-        clc "Sure!"
-        m "Alright, let's head out then."
-        clc "Big brother, who's that?"
-        m "Hmm?"
-        m "Oh, that looks like Faye and her sister."
-        show malloc normal at right with move
-        show calloc normal at midright with move
-        show bomb normal at left with dissolve
-        show gdb normal at midleft with dissolve
-        b "Oh, hello, Malek and [player_name]. Where are you all going today?"
-        "We're going to the arcade."
-        "I'm just tagging along, but Malek was taking his brother there for family visit day."
-        m "Hello, Blake. How are you doing?"
-        gdb "Uhh...ok...I guess..."
-        clc "Hello! I'm Kalik! Nice to meet you!"
-        gdb "Oh...hi...!"
-        gdb "..."
-        gdb "I'm Blake...!"
-        gdb "Nice to meet you too...!"
-        #calloc nosebleed
-        "Kalik, are you okay?"
-        $ malloc_points += 30
-        clc "Huh?"
-        clc "Oh! I'm fine!"
-        clc "I don't know why my nose started bleeding like this!"
-        "(Wow, looks like someone has a crush...)"
-        "(I shouldn't tell Faye, should I?)"
-        m "Well, we should head out."
-        m "It was nice seeing both of you."
-        m "Tell Cash I said hello."
-        b "Oh, I sure will!"
-        "(...)"
-        clc "Bye, Blake!"
-        gdb "Goodbye...!"
-        if join_stuco:
-            jump after_break_stuco
-        jump second_intro
+label arcade:
+    m "Hmm... I don't see why not."
+    m "Kalik, is that alright with you?"
+    clc "Sure!"
+    m "Alright, let's head out then."
+    clc "Big brother, who's that?"
+    m "Hmm?"
+    m "Oh, that looks like Faye and her sister."
+    show malloc normal at right with move
+    show calloc normal at midright with move
+    show bomb normal at left with dissolve
+    show gdb normal at midleft with dissolve
+    b "Oh, hello, Malek and [player_name]. Where are you all going today?"
+    "We're going to the arcade."
+    "I'm just tagging along, but Malek was taking his brother there for family visit day."
+    m "Hello, Blake. How are you doing?"
+    gdb "Uhh...ok...I guess..."
+    clc "Hello! I'm Kalik! Nice to meet you!"
+    gdb "Oh...hi...!"
+    gdb "..."
+    gdb "I'm Blake...!"
+    gdb "Nice to meet you too...!"
+    #calloc nosebleed
+    "Kalik, are you okay?"
+    $ malloc_points += 30
+    clc "Huh?"
+    clc "Oh! I'm fine!"
+    clc "I don't know why my nose started bleeding like this!"
+    "(Wow, looks like someone has a crush...)"
+    "(I shouldn't tell Faye, should I?)"
+    m "Well, we should head out."
+    m "It was nice seeing both of you."
+    m "Tell Cash I said hello."
+    b "Oh, I sure will!"
+    "(...)"
+    clc "Bye, Blake!"
+    gdb "Goodbye...!"
+    if join_stuco:
+        jump after_break_stuco
+    jump second_intro
 
 
-    label second_intro:
-        "Hmm.. it's been a while since I've seen Cash or Bitsy."
-        menu:
-            "I should go visit Cash.":
-                jump meet_cache
-            "I should go visit Bitsy.":
-                $ data_points += 30
-                jump meet_bitsy
-    
-    label meet_cache:
-        "..."
-        "He should be around here somewhere..."
-        "Ah, there he is."
-        "Looks like he's getting ready to go somewhere."
-        "Hey, Cash!"
-        show cache normal with dissolve
-        c "Oh, hey, [player_name]."
-        c "What's up?"
-        "Nothing much."
-        "Just glad to finally have some sort of break from classes."
-        c "Yeah, I hear you."
-        c "I'm about to go get dinner soon, if you want to join?"
-        "..."
-        "You're getting dinner now? It's only 4."
-        c "Yeah, but there's a really good nightclub I want to go to later."
-        c "It's tough to get in because it gets crowded quickly, so I wanted to get there early."
-        "Oh, that sounds fun!"
-        "Sure, I'd be down."
-        c "Great!"
-        c "Let's take the 61D down this way."
-        hide cache normal with dissolve
-        show text "You and Cash get on the 61D bus down to the Waterfront." with dissolve
-        pause 1.5
-        hide text with dissolve
-        show cache normal with dissolve
-        "So Cash, how's your relationship going?"
-        c "Oh it's..."
-        c "Going, I guess."
-        "What does that mean?"
-        c "Uhh..."
-        c "(Lemme just make sure she's not here...)"
-        c "(...)"
-        c "Alright you've gotta help me out here."
-        "Huh...?"
-        c "Faye is actually crazy."
-        "Wut"
-        c "The other day, she almost pulled a knife on Flo when she tried to talk to me."
-        "Nani"
-        c "Yeah, that was my reaction!"
-        "(Are you sure you reacted with \"nani\"?"
-        c "She gets way too jealous about these kinds of things."
-        c "She's even smiling while she does this, so there's clearly something wrong..."
-        c "It's not like I'd start dating Flo again!"
-        "Hold up, you used to date Flo?"
-        "Why'd you break up?"
-        c "Uhh..."
-        c "It's complicated."
-        "Pretty sure it's not as complicated as why you're trying to get away from Faye."
-        c "..."
-        c "Ok, fair."
-        c "Basically, we were both too busy with work to be able to get a relationship to work."
-        c "She also felt that I didn't give her enough attention and that I only cared about myself..."
-        c "But we're in college, you know? It was hard to care about my grades and be committed to a relationship!"
-        c "I don't get how people can make it work so easily during just their freshman year!"
-        c "Or maybe I just took too many programming classes which killed my free time..."
-        c "Either way, it didn't work out."
-        c "So here we are."
-        "So is Faye your rebound or something?"
-        c "What? Of course not!"
-        c "I genuinely liked her before I found out she was like this."
-        c "I didn't expect Flo to take me back once I had enough time to commit to a relationship, so I figured I'd just move on."
-        "(Damn, I thought this guy just liked whatever girl was hot, but he's actually pretty emotionally complicated.)"
-        c "..."
-        c "So, will you help me break up with Faye?"
-        "..."
-        "I mean sure, but won't it hurt your reputation?"
-        "Something something \"Cash can't commit to a relationship and breaks two girls' hearts\"..."
-        c "Honestly, I don't care about that anymore."
-        c "I just don't want her to pull a knife on me or anything, you know?"
-        "(I feel like she's going to anyway, if you try to break up with her...)"
-        c "I'd rather feel safe than have a good reputation..."
-        "..."
-        "Alright, I'll help."
-        "When are you doing this?"
-        c "Ah, thank you so much!"
-        c "I owe you one."
-        c "I just need you there for emotional support."
-        "(This dude needs more than just emotional support...)"
-        c "Maybe if I do it at the school festival, there'll be enough people there that she doesn't go off..."
-        "..."
-        "Uh, ok."
-        "(Terrible plan, but ok.)"
-        "(Isn't she more likely to go off if you break up during the festival?)"
-        "I guess I can help when I'm free..."
-        c "Ah, thank you thank you thank you thank you"
-        "Don't worry about it."
-        c "Oop, here's our stop!"
-        hide cache normal with dissolve
-        show text "You and Cash enjoy a nice meal at a nearby restaurant and head to the nightclub." with dissolve
-        pause 2.0
-        hide text with dissolve
-        show cache normal with dissolve
-        c "Ok, here we are."
-        "Bouncer" "Can I see your ID?"
-        c "Here you go."
-        "Here's mine."
-        "Bouncer" "..."
-        "Bouncer" "Ok, these are acceptable."
-        "Bouncer" "Enjoy your evening."
-        "Thanks!"
-        c "Oh, we got here just in time! The show's about to start."
-        hide cache normal with dissolve
-        show jason normal with dissolve
-        "lil mem sbrk" "Yo yo, it's your boi lil mem sbrk here with our opening act for this evening:"
-        "lil mem sbrk" "Please welcome [duo_name] to the stage!"
-        hide jason normal with dissolve
-        if join_stuco:
-            jump after_break_stuco
-        return
+label second_intro:
+    "Hmm.. it's been a while since I've seen Cash or Bitsy."
+    menu:
+        "I should go visit Cash.":
+            jump meet_cache
+        "I should go visit Bitsy.":
+            $ data_points += 30
+            jump meet_bitsy
+
+label meet_cache:
+    "..."
+    "He should be around here somewhere..."
+    "Ah, there he is."
+    "Looks like he's getting ready to go somewhere."
+    "Hey, Cash!"
+    show cache normal with dissolve
+    c "Oh, hey, [player_name]."
+    c "What's up?"
+    "Nothing much."
+    "Just glad to finally have some sort of break from classes."
+    c "Yeah, I hear you."
+    c "I'm about to go get dinner soon, if you want to join?"
+    "..."
+    "You're getting dinner now? It's only 4."
+    c "Yeah, but there's a really good nightclub I want to go to later."
+    c "It's tough to get in because it gets crowded quickly, so I wanted to get there early."
+    "Oh, that sounds fun!"
+    "Sure, I'd be down."
+    c "Great!"
+    c "Let's take the 61D down this way."
+    hide cache normal with dissolve
+    show text "You and Cash get on the 61D bus down to the Waterfront." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show cache normal with dissolve
+    "So Cash, how's your relationship going?"
+    c "Oh it's..."
+    c "Going, I guess."
+    "What does that mean?"
+    c "Uhh..."
+    c "(Lemme just make sure she's not here...)"
+    c "(...)"
+    c "Alright you've gotta help me out here."
+    "Huh...?"
+    c "Faye is actually crazy."
+    "Wut"
+    c "The other day, she almost pulled a knife on Flo when she tried to talk to me."
+    "Nani"
+    c "Yeah, that was my reaction!"
+    "(Are you sure you reacted with \"nani\"?"
+    c "She gets way too jealous about these kinds of things."
+    c "She's even smiling while she does this, so there's clearly something wrong..."
+    c "It's not like I'd start dating Flo again!"
+    "Hold up, you used to date Flo?"
+    "Why'd you break up?"
+    c "Uhh..."
+    c "It's complicated."
+    "Pretty sure it's not as complicated as why you're trying to get away from Faye."
+    c "..."
+    c "Ok, fair."
+    c "Basically, we were both too busy with work to be able to get a relationship to work."
+    c "She also felt that I didn't give her enough attention and that I only cared about myself..."
+    c "But we're in college, you know? It was hard to care about my grades and be committed to a relationship!"
+    c "I don't get how people can make it work so easily during just their freshman year!"
+    c "Or maybe I just took too many programming classes which killed my free time..."
+    c "Either way, it didn't work out."
+    c "So here we are."
+    "So is Faye your rebound or something?"
+    c "What? Of course not!"
+    c "I genuinely liked her before I found out she was like this."
+    c "I didn't expect Flo to take me back once I had enough time to commit to a relationship, so I figured I'd just move on."
+    "(Damn, I thought this guy just liked whatever girl was hot, but he's actually pretty emotionally complicated.)"
+    c "..."
+    c "So, will you help me break up with Faye?"
+    "..."
+    "I mean sure, but won't it hurt your reputation?"
+    "Something something \"Cash can't commit to a relationship and breaks two girls' hearts\"..."
+    c "Honestly, I don't care about that anymore."
+    c "I just don't want her to pull a knife on me or anything, you know?"
+    "(I feel like she's going to anyway, if you try to break up with her...)"
+    c "I'd rather feel safe than have a good reputation..."
+    "..."
+    "Alright, I'll help."
+    "When are you doing this?"
+    c "Ah, thank you so much!"
+    c "I owe you one."
+    c "I just need you there for emotional support."
+    "(This dude needs more than just emotional support...)"
+    c "Maybe if I do it at the school festival, there'll be enough people there that she doesn't go off..."
+    "..."
+    "Uh, ok."
+    "(Terrible plan, but ok.)"
+    "(Isn't she more likely to go off if you break up during the festival?)"
+    "I guess I can help when I'm free..."
+    c "Ah, thank you thank you thank you thank you"
+    "Don't worry about it."
+    c "Oop, here's our stop!"
+    hide cache normal with dissolve
+    show text "You and Cash enjoy a nice meal at a nearby restaurant and head to the nightclub." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show cache normal with dissolve
+    c "Ok, here we are."
+    "Bouncer" "Can I see your ID?"
+    c "Here you go."
+    "Here's mine."
+    "Bouncer" "..."
+    "Bouncer" "Ok, these are acceptable."
+    "Bouncer" "Enjoy your evening."
+    "Thanks!"
+    c "Oh, we got here just in time! The show's about to start."
+    hide cache normal with dissolve
+    show jason normal with dissolve
+    "lil mem sbrk" "Yo yo, it's your boi lil mem sbrk here with our opening act for this evening:"
+    "lil mem sbrk" "Please welcome [duo_name] to the stage!"
+    hide jason normal with dissolve
+    if join_stuco:
+        jump after_break_stuco
+    return
 
 
-    label meet_bitsy:
-        "She should be somewhere around the track team area..."
-        "Ah, there she is."
-        show data normal with dissolve
-        d "No no not like that, Nex."
-        d "You have to make sure your arms don't move when you curl back down."
-        "Nex" "You mean like this?"
-        d "Yeah, that's a lot better!"
-        "Nex" "Ah, ok. Thanks, captain!"
-        d "No prob!"
-        d "Oh hey, [player_name]!"
-        d "What brings you to this part of campus?"
-        "Ah, I was just wandering around and thought that it'd been a while."
-        "Are you not doing anything special for family weekend?"
-        d "Nah, my family is backpacking through Europe right now, so they can't really come."
-        d "So I thought I'd use the extra time to work on getting some good exercise in before the regional track meet."
-        "Ooh, that sounds fun!"
-        d "Haha yeah!"
-        d "I'm hoping I can get the entire team into the top 10 this time."
-        "Is that why you're coaching him?"
-        d "Oh, yeah."
-        d "I don't think you guys have met yet!"
-        d "[player_name], this is Nex. Nex, this is [player_name]."
-        "Hello!"
-        "Nex" "Hey!"
-        "Those are some pretty impressive biceps!"
-        "Are you on the track team too?"
-        "Nex" "Yeah! I'm trying to make sure I don't just exercise my legs."
-        "Ah, that makes sense."
-        "Nex" "I'm also trying to grow my fitness channel, if you're interested, haha."
-        "Nex" "Subtle flex."
-        "Oh sure, I'll check it out! What's it called?"
-        "Nex" "It's called \"SaidoChesto22\"."
-        "(Hmm...that somehow sounds familiar...)"
-        d "So, [player_name], since you're here, do you want to race?"
-        "Wut"
-        d "Haha, I just want to see how fast you are!"
-        "Uh, ok...?"
-        d "No pressure!"
-        "Sure, I guess."
-        "Though you're probably going to be disappointed."
-        d "Nah, don't worry about that!"
-        d "I'm sure you're pretty fast!"
-        "Alright how do we do this?"
-        d "Nex, can you do a countdown from 5?" 
-        "Nex" "Sure!"
-        d "(Float like a butterfly, float like a butterfly....)"
-        "What's she muttering?"
-        hide data normal with dissolve
-        "Nex" "5!"
-        "Nex" "4!"
-        "Nex" "3!"
-        "Nex" "2!"
-        "Nex" "1!"
-        "Nex" "Go!" with hpunch
-        "...!"
-        "......!"
-        "Oh wow, she's pretty fast, but somehow I'm able to keep up!"
-        "...!"
-        d "Wow, you're pretty quick!"
-        "(Sounds like she's gonna say something like how this isn't her top speed...)"
-        d "But guess what, this isn't my final form!"
-        "(Yup, close enough...)"
-        "!"
-        "Holy shit, she just took off!"
-        "She's like a horse!"
-        "{i}panting noises{/i}"
-        "..."
-        "{i}more panting noises{/i}"
-        "Finally....made...it...!"
-        d "Hey, you really surprised me there!"
-        "Well....my lungs....are dead...."
-        "Nex" "You should be fine if you sit down for a while, but still, that was pretty fast!"
-        "I...need some....water...."
-        d "Right right, let's head back inside and find a water fountain."
-        show text "The three of you head inside and find the nearest water fountain to hydrate." with dissolve
-        pause 2.0
-        hide text with dissolve
-        d "Ah, that hit's the spot!"
-        "(My lungs are definitely dead now...)"
-        "Nex" "You should definitely join the track team, [player_name]!"
-        "No thanks."
-        "I don't think I can do that again..."
-        d "Still, you did great!"
-        "..."
-        "Wait..."
-        "What's that music?"
-        d "We're near the music room, so maybe someone's practicing in there..."
-        "Nex" "This sounds like an anime song..."
-        "I'm pretty sure it is an anime song..."
-        "I'm gonna go see who's playing it."
-        "I'll be right back."
-        "..."
-        "...."
-        "...!"
-        "Hello!"
-        show paperbag life with dissolve
-        "Oh, hello."
-        "Why are you wearing a paperbag on your head?"
-        "???" "Uh..."
-        "???" "Why aren't you wearing a paperbag on your head?"
-        "Wut"
-        "???" "Uno reverse card!"
-        "...!"
-        "???" "Nah..."
-        "???" "I'm trying to see how well I can play violin without looking."
-        "..."
-        "That sounds difficult..."
-        "???" "I'm also trying to practice before I record this for my music channel, so I kinda need the bag."
-        "Do you wear that when you record videos too?"
-        "(Wow, looks like everyone has a channel for something nowadays...)"
-        "???" "Yeah, it started as a joke, but then I just went with it because people thought it was funny, haha."
-        "So what song were you playing earlier?"
-        "It sounded like the new HIRUASOBI song."
-        "???" "Haha, yeah, it was HIRUASOBI."
-        "???" "It's from a game I play called Herrscher Impact."
-        "Oh, nice nice!"
-        "Oh shoot, I didn't introduce myself did I?"
-        "This must be kinda awkward..."
-        "???" "Haha, don't worry about it."
-        "Anyway, I'm [player_name], nice to meet you."
-        "Ricky" "I'm Ricky. Yoroshiku onegaishimasu!"
-        "What's your music channel called?"
-        "Ricky" "It's called Paperbag Life, lol."
-        "(I should have guessed...)"
-        "Anyway, it was nice to meet you! Good luck on the channel!"
-        "Ricky" "Arigatou gozaimasu!"
-        hide paperbag life with dissolve
-        "..."
-        show data normal with dissolve
-        d "Oh, you're back!"
-        "Nex" "We were gonna go and run a few more laps before coming back inside again, if you wanted to come with us?"
-        "Uhhh...."
-        "I think that was enough exercise for me for today..."
-        "I'm gonna go sit down somewhere."
-        d "Haha, no worries!"
-        "Nex" "See you later!"
-        hide data normal with dissolve
-        if join_stuco: 
-            jump after_break_stuco
-        return
+label meet_bitsy:
+    "She should be somewhere around the track team area..."
+    "Ah, there she is."
+    show data normal with dissolve
+    d "No no not like that, Nex."
+    d "You have to make sure your arms don't move when you curl back down."
+    "Nex" "You mean like this?"
+    d "Yeah, that's a lot better!"
+    "Nex" "Ah, ok. Thanks, captain!"
+    d "No prob!"
+    d "Oh hey, [player_name]!"
+    d "What brings you to this part of campus?"
+    "Ah, I was just wandering around and thought that it'd been a while."
+    "Are you not doing anything special for family weekend?"
+    d "Nah, my family is backpacking through Europe right now, so they can't really come."
+    d "So I thought I'd use the extra time to work on getting some good exercise in before the regional track meet."
+    "Ooh, that sounds fun!"
+    d "Haha yeah!"
+    d "I'm hoping I can get the entire team into the top 10 this time."
+    "Is that why you're coaching him?"
+    d "Oh, yeah."
+    d "I don't think you guys have met yet!"
+    d "[player_name], this is Nex. Nex, this is [player_name]."
+    "Hello!"
+    "Nex" "Hey!"
+    "Those are some pretty impressive biceps!"
+    "Are you on the track team too?"
+    "Nex" "Yeah! I'm trying to make sure I don't just exercise my legs."
+    "Ah, that makes sense."
+    "Nex" "I'm also trying to grow my fitness channel, if you're interested, haha."
+    "Nex" "Subtle flex."
+    "Oh sure, I'll check it out! What's it called?"
+    "Nex" "It's called \"SaidoChesto22\"."
+    "(Hmm...that somehow sounds familiar...)"
+    d "So, [player_name], since you're here, do you want to race?"
+    "Wut"
+    d "Haha, I just want to see how fast you are!"
+    "Uh, ok...?"
+    d "No pressure!"
+    "Sure, I guess."
+    "Though you're probably going to be disappointed."
+    d "Nah, don't worry about that!"
+    d "I'm sure you're pretty fast!"
+    "Alright how do we do this?"
+    d "Nex, can you do a countdown from 5?" 
+    "Nex" "Sure!"
+    d "(Float like a butterfly, float like a butterfly....)"
+    "What's she muttering?"
+    hide data normal with dissolve
+    "Nex" "5!"
+    "Nex" "4!"
+    "Nex" "3!"
+    "Nex" "2!"
+    "Nex" "1!"
+    "Nex" "Go!" with hpunch
+    "...!"
+    "......!"
+    "Oh wow, she's pretty fast, but somehow I'm able to keep up!"
+    "...!"
+    d "Wow, you're pretty quick!"
+    "(Sounds like she's gonna say something like how this isn't her top speed...)"
+    d "But guess what, this isn't my final form!"
+    "(Yup, close enough...)"
+    "!"
+    "Holy shit, she just took off!"
+    "She's like a horse!"
+    "{i}panting noises{/i}"
+    "..."
+    "{i}more panting noises{/i}"
+    "Finally....made...it...!"
+    d "Hey, you really surprised me there!"
+    "Well....my lungs....are dead...."
+    "Nex" "You should be fine if you sit down for a while, but still, that was pretty fast!"
+    "I...need some....water...."
+    d "Right right, let's head back inside and find a water fountain."
+    show text "The three of you head inside and find the nearest water fountain to hydrate." with dissolve
+    pause 2.0
+    hide text with dissolve
+    d "Ah, that hit's the spot!"
+    "(My lungs are definitely dead now...)"
+    "Nex" "You should definitely join the track team, [player_name]!"
+    "No thanks."
+    "I don't think I can do that again..."
+    d "Still, you did great!"
+    "..."
+    "Wait..."
+    "What's that music?"
+    d "We're near the music room, so maybe someone's practicing in there..."
+    "Nex" "This sounds like an anime song..."
+    "I'm pretty sure it is an anime song..."
+    "I'm gonna go see who's playing it."
+    "I'll be right back."
+    "..."
+    "...."
+    "...!"
+    "Hello!"
+    show paperbag life with dissolve
+    "Oh, hello."
+    "Why are you wearing a paperbag on your head?"
+    "???" "Uh..."
+    "???" "Why aren't you wearing a paperbag on your head?"
+    "Wut"
+    "???" "Uno reverse card!"
+    "...!"
+    "???" "Nah..."
+    "???" "I'm trying to see how well I can play violin without looking."
+    "..."
+    "That sounds difficult..."
+    "???" "I'm also trying to practice before I record this for my music channel, so I kinda need the bag."
+    "Do you wear that when you record videos too?"
+    "(Wow, looks like everyone has a channel for something nowadays...)"
+    "???" "Yeah, it started as a joke, but then I just went with it because people thought it was funny, haha."
+    "So what song were you playing earlier?"
+    "It sounded like the new HIRUASOBI song."
+    "???" "Haha, yeah, it was HIRUASOBI."
+    "???" "It's from a game I play called Herrscher Impact."
+    "Oh, nice nice!"
+    "Oh shoot, I didn't introduce myself did I?"
+    "This must be kinda awkward..."
+    "???" "Haha, don't worry about it."
+    "Anyway, I'm [player_name], nice to meet you."
+    "Ricky" "I'm Ricky. Yoroshiku onegaishimasu!"
+    "What's your music channel called?"
+    "Ricky" "It's called Paperbag Life, lol."
+    "(I should have guessed...)"
+    "Anyway, it was nice to meet you! Good luck on the channel!"
+    "Ricky" "Arigatou gozaimasu!"
+    hide paperbag life with dissolve
+    "..."
+    show data normal with dissolve
+    d "Oh, you're back!"
+    "Nex" "We were gonna go and run a few more laps before coming back inside again, if you wanted to come with us?"
+    "Uhhh...."
+    "I think that was enough exercise for me for today..."
+    "I'm gonna go sit down somewhere."
+    d "Haha, no worries!"
+    "Nex" "See you later!"
+    hide data normal with dissolve
+    if join_stuco: 
+        jump after_break_stuco
+    return
 
 
-    label after_break_stuco:
-        show text "A few days later..." with dissolve
-        pause 1.0
-        hide text with dissolve
-        "Ah, that was a nice break."
-        "I guess I should actually get to that task I needed to do for the student council."
-        "Hmm... let's see..."
-        if stuco_task == 0:
-            "Ah, I need to go talk to the sysadmin."
-            jump sysadmin
-        elif stuco_task == 1:
-            "Ah, I need to go talk to the cooking club."
-            jump cooking_club
-        else:
-            "Ah, I need to find someone to make festival posters."
-        return
+label after_break_stuco:
+    show text "A few days later..." with dissolve
+    pause 1.0
+    hide text with dissolve
+    "Ah, that was a nice break."
+    "I guess I should actually get to that task I needed to do for the student council."
+    "Hmm... let's see..."
+    if stuco_task == 0:
+        "Ah, I need to go talk to the sysadmin."
+        jump sysadmin
+    elif stuco_task == 1:
+        "Ah, I need to go talk to the cooking club."
+        jump cooking_club
+    else:
+        "Ah, I need to find someone to make festival posters."
+        jump gaming_club
+    return
     
 label sysadmin:
+    show text "You make your way to the IT building and find the server room." with dissolve
+    pause 1.0
+    hide text with dissolve
     "..."
     "Hmm, this seems like the place."
     "Hello?"
@@ -1425,5 +1504,75 @@ label cooking_club:
     "I'll see you later!"
     "Jenny" "Bye!"
     "Maple" "See you!"
+    return
+
+
+label gaming_club:
+    show text "You make your way to the Graphics Lounge to find the contact Roxy provided you with." with dissolve
+    pause 1.5
+    hide text with dissolve
+    "Wow, this place is pretty nice.."
+    "???" "Andy, what are you doing? Can you come help gank bot?"
+    "Andy" "Bruh I just respawned! Lemme stock up on potion first."
+    "???" "How did you die!? Did the chickens kill you?"
+    "???" "No, it looks like he went AFK..."
+    "???" "Dammit Andy, are you playing Herrscher on your phone while playing Legends again?"
+    "Andy" "Legends gets too boring, man."
+    "Andy" "No one ever wants to help me kill dragon so there's nothing to do here..."
+    "What are they even talking about..."
+    "Andy" "I already killed the wolves like five times!"
+    "???" "If you'd help us push back, then maybe we'd have time to fight dragon!"
+    "Andy" "..."
+    "Andy" "Meh..."
+    "???" "Oh, I think someone's here, Rae."
+    "Rae" "Oh!"
+    "Rae" "Gimme a sec, we're about to lose, anyway..."
+    "Andy" "Haha gottem"
+    "Andy" "I took their turret."
+    "Rae" "Wait what"
+    "Andy" "Oho we're boutta win now."
+    "Rae" "I can't believe you've just done this..."
+    "Rae" "Daniel, how is this happening?"
+    "Daniel" "He went and hid in a bush and then went AFK."
+    "Rae" "How did they not catch him I don't understand..."
+    "Andy" "I'm just too good at this game."
+    "Andy" "Wow we won ez!"
+    "Andy" "Peak komedy."
+    "Rae" "Alright, please don't troll next time, Andy..."
+    "Andy" "Oho no promises."
+    "Rae" "Hello!"
+    "Hey! I'm [player_name], I'm here from the student council. Did Roxy send you an email about what she wanted?"
+    "Rae" "Oh, yeah. I got it."
+    "Rae" "You needed a logo, right?"
+    "Rae" "What's the theme for the festival this year?"
+    "It's \"Light mode vs. Dark mode\"."
+    "Daniel" ":thinking:"
+    "Rae" "Ooh interesting..."
+    "Rae" "Yeah, I can probably come up with a logo for that."
+    "Rae" "You just need the SCS dragon to be in it, right?"
+    "Rae" "Do you need it by your next meeting?"
+    "Yeah, I think the dragon needs to be in it."
+    "We don't really need it by our next meeting, but we do need it so that we can send out emails and stuff."
+    "No rush though."
+    "We also need some poster designs."
+    "Rae" "Oh, Daniel, can you make the posters?"
+    "Rae" "You still have that fancy generative script, don't you?"
+    "Daniel" "Yeah, I still have it."
+    "Daniel" "I'll probably have to reconfigure it, but it shouldn't take long :thinking:"
+    "Daniel" "I can change it later after my Tetris class."
+    "Rae" "Alright, sounds good."
+    "Wait, you're taking a Tetris class?"
+    "Daniel" "No, I'm teaching it actually haha."
+    "Damn."
+    "That's pretty cool."
+    "Daniel" "Pog"
+    "Is that why you're wearing a Tetris costume?"
+    "Daniel" "Yeah, today's their midterm, so I wanted to make the class more fun."
+    "Ah ok, haha."
+    "Alright, so I guess I'll check back in again to see how the posters and logo are coming along."
+    "Rae" "Yeah sounds good!"
+    "Rae" "Maybe Andy will stop trolling us in every Legends game by then."
+    "Andy" "No chance, this is peak komedy."
+    "Rae" "(Sigh...)"
     return
 
