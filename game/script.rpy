@@ -37,7 +37,8 @@ label start:
     # directory.
 
     $ player_name = renpy.input("What is your name?", length=32)
-    $ player_name = player_name.strip().capitalize()
+    $ player_name = player_name.strip()
+    $ player_name = player_name[0].upper() + player_name[1:]
     show malloc normal with moveinright
     $ vim_user = False
     # These display lines of dialogue.
@@ -140,9 +141,11 @@ label shell_prologue_bad:
     menu:
         "It's not like I'm using Vim...":
             $ vim_user = False
+            $ join_stuco = True
             jump shell_intro_bad2
         "People who forget semicolons probably don't even use Vim, like me, an intellectual.":
             $ vim_user = True
+            $ join_stuco = True
             jump shell_intro_bad
 
 label heapcheck:
@@ -208,11 +211,11 @@ label unsure_heapcheck:
     menu:
         "After all, I don't use Vim.":
             $ vim_user = False
-            $ join_vimclub = True
+            $ join_stuco = True
             jump shell_intro_bad2
         "After all, I set up my own fancy Vimrc all by myself.":
             "There's nothing that could possibly be more difficult than that."
-            $ join_vimclub = True
+            $ join_stuco = True
             jump shell_intro_bad
 
 label shell_intro_bad:
@@ -434,6 +437,9 @@ label proxy_good_req_den:
     
 
 label proxy_join_stuco:
+    show text "A few days later..." with dissolve
+    pause 1.0
+    hide text with dissolve
     show malloc normal with dissolve
     $ s.name = "Michelle"
     m "Hello, [player_name], are you doing well?"
@@ -633,10 +639,12 @@ label vim_club:
     show evelyn normal at midright with dissolve
     "Evelyn" "Wait, but I didn't write a cheatsheet for my Vim commands..."
     "Rebecca" "That's pretty zesty, besty. You're too big brained."
+    show adb normal at left with dissolve
     "ADB" "Lol I just stole a cheatsheet from Google..."
     "ADB" "Why do more work when someone else already did the work?" 
     hide rebecca normal with dissolve
     hide evelyn normal with dissolve
+    hide adb normal with dissolve
     show shell normal at midleft with move
     show steven normal at midright with dissolve
     "Steven" "I have a question. How do I exit Vim?"
@@ -705,25 +713,30 @@ label vim_club:
     s "You get to remap Steven's Vimrc key bindings."
     "Steven" "Hold up."
     "Steven" "Wut"
+    show adb normal at left with dissolve
     "ADB" "Hahaha!"
     "ADB" "La bomba!"
+    hide adb normal with dissolve
     "Steven" "Why is this happening?"
     s "Do you have a better incentive for a pop quiz?"
     "Steven" "..."
-    show shell normal at right with move
-    show steven normal at center with move
-    show evelyn normal at left with dissolve
+    show shell normal at midright with move
+    show steven normal at right with move
+    show evelyn normal at midleft with dissolve
     "Evelyn" "Can we also actually bonk him?"
     "Evelyn" "Does anyone have an inflatable baseball bat?"
     "This is escalating pretty quickly..."
-    show steven normal at midright with move
-    show evelyn normal at midleft with move
-    show rebecca normal at left with dissolve
+    #show steven normal at midright with move
+    show evelyn normal at center with move
+    show rebecca normal at midleft with dissolve
+    #show adb normal at left with dissolve
     "Rebecca" "Oh I think I have one."
     "Rebecca" "I can go get it, gimme a few minutes."
     "Steven" "Why do you people find joy in physically hurting me?"
-    "Evelyn" "Because hurting you emotionally is bad." 
+    "Evelyn" "Because hurting you emotionally is bad."
+    show adb normal at left with dissolve 
     "ADB" "Good mental health is very poggers."
+    hide adb with dissolve
     "Steven" "(Sigh...)"
     "Steven" "Maybe if I didn't wear a cow onesie people wouldn't gang up on me like this..."
     "Steven" "I'm gonna go tell Angela that I'm being bullied."
@@ -734,6 +747,7 @@ label vim_club:
     hide steven normal with dissolve
     hide evelyn normal with dissolve
     hide rebecca normal with dissolve
+    #hide adb normal with dissolve
     show text "The club goes through a Vim pop quiz, and Steven gets bonked multiple times." with dissolve
     pause 1.5
     show text "His Vimrc key bindings also get remapped, so overall it's turning out to be a great day for Steven." with dissolve
@@ -795,7 +809,9 @@ label vim_club:
     jump break_time
 
 label stuco_good:
-    
+    show text "The next day..." with dissolve
+    pause 1.0
+    hide text with dissolve
     "I think this is the right room..."
     show proxy normal with dissolve
     p "Hello, [player_name]! How are you doing today?"
@@ -907,6 +923,9 @@ label stuco_good:
     jump break_time
 
 label stuco_bad:
+    show text "The next day, you make your way to the student council room." with dissolve
+    pause 2.0
+    hide text with dissolve
     $ stuco_task = -1
     "Hmm... I think this is the right room."
     "Hopefully no one's here, so I don't have to be stuck in this stupid meeting."
@@ -1208,7 +1227,7 @@ label meet_cache:
     hide jason normal with dissolve
     if join_stuco:
         jump after_break_stuco
-    return
+    jump after_break_other
 
 
 label meet_bitsy:
@@ -1351,7 +1370,7 @@ label meet_bitsy:
     hide data normal with dissolve
     if join_stuco: 
         jump after_break_stuco
-    return
+    jump after_break_other
 
 
 label after_break_stuco:
@@ -1371,6 +1390,61 @@ label after_break_stuco:
         "Ah, I need to find someone to make festival posters."
         jump gaming_club
     return
+
+label after_break_other:
+    show text "A few days later..." with dissolve
+    pause 1.0
+    hide text with dissolve
+    "Ah, that was a nice break."
+    "I guess I should go take a walk before burying myself in studying for my midterms."
+    "..."
+    show text "You go on a long walk around campus, and find some students working in the park next to the school." with dissolve
+    pause 2.0
+    hide text with dissolve
+    "???" "Wait, what are you doing?"
+    "???" "I'm pruning my trees!"
+    "???" "No, that's my tree, Minnie!"
+    "Minnie" "What...?"
+    "???" "Do you see any plums on that one?"
+    "Minnie" "..."
+    "Minnie" "Ah, shit."
+    "Minnie" "Sorry, Harmony."
+    "Minnie" "Welp, hopefully I didn't cut off too much..."
+    "Harmony" "..."
+    "Are you two planting trees?"
+    "Harmony" "Oh, hello!"
+    "Minnie" "Hello!"
+    "Harmony" "We're just maintaining them so that they don't overgrow."
+    "Harmony" "But Minnie here gets a bit overexcited when using the pruner..."
+    "Minnie" "Hehe"
+    "Harmony" "...!"
+    "Harmony" "I don't think we've met."
+    "Harmony" "I'm Harmony, and this is Minnie."
+    "Minnie" "Hello!"
+    "Harmony" "So what's your name?"
+    "I'm [player_name]! Nice to meet you!"
+    "Minnie" "You too!"
+    "So what kind of trees are these?"
+    "Minnie" "Mine are the plum trees."
+    "Minnie" "Harmony's are the decision trees over here."
+    "Harmony" "They're called deciduous trees, Minnie."
+    "Minnie" "Oops."
+    "Minnie" "Anyway, the plums should be ripe soon!"
+    "Harmony" "We need to pluck them before the Pigeon Man shows up..."
+    "Who's the Pigeon Man?"
+    "Minnie" "Sshh! He'll hear you!"
+    "What?"
+    "How will he hear us? There's no one here."
+    "Pigeon Man" "Did someone call for me?"
+    "Harmony" "Ah shit, he showed up."
+    "The plot thickens..."
+    "Why does he have a pigeon head?"
+    "Harmony" "I'll go get the birdfeed, you two distract him!"
+    "Distract him how?"
+    
+
+    
+
     
 label sysadmin:
     show text "You make your way to the IT building and find the server room." with dissolve
@@ -1421,7 +1495,7 @@ label sysadmin:
     "FanPu" "Bruh, why do you keep calling me out like this?"
     "FanPu" "If you played this game, you'd understand!"
     "Ether" "I highly doubt that."
-    "FanPu" "Where are those who share the memory...?"
+    "FanPu" "Rej rej!"
     "Ether" "Anyway, [player_name], you can tell Roxy we've got the situation handled."
     "Alright, sounds good."
     "Ether" "Enjoy the rest of your day!"
@@ -1538,8 +1612,9 @@ label gaming_club:
     "Andy" "I'm just too good at this game."
     "Andy" "Wow we won ez!"
     "Andy" "Peak komedy."
-    "Rae" "Alright, please don't troll next time, Andy..."
+    "Rae" "Alright, don't troll next time, Andy..."
     "Andy" "Oho no promises."
+    "Rae" "..."
     "Rae" "Hello!"
     "Hey! I'm [player_name], I'm here from the student council. Did Roxy send you an email about what she wanted?"
     "Rae" "Oh, yeah. I got it."
@@ -1565,12 +1640,12 @@ label gaming_club:
     "Daniel" "No, I'm teaching it actually haha."
     "Damn."
     "That's pretty cool."
-    "Daniel" "Pog"
     "Is that why you're wearing a Tetris costume?"
     "Daniel" "Yeah, today's their midterm, so I wanted to make the class more fun."
     "Ah ok, haha."
     "Alright, so I guess I'll check back in again to see how the posters and logo are coming along."
     "Rae" "Yeah sounds good!"
+    "Daniel" "Pog"
     "Rae" "Maybe Andy will stop trolling us in every Legends game by then."
     "Andy" "No chance, this is peak komedy."
     "Rae" "(Sigh...)"
