@@ -4,7 +4,7 @@
 # name of the character.
 
 define d = Character("Bitsy")
-define a = Character("Flo")
+define a = Character("Buffy")
 define b = Character("Faye")
 define gdb = Character("Blake")
 define m = Character("Malek")
@@ -14,17 +14,18 @@ define s = Character(name="???")
 define p = Character("Roxy")
 
 init:
-    $ player_name = ""
+    #$ player_name = ""
     $ duo_name = "Mr. SCS"
     $ join_stuco = False
     $ malloc_points = 0
     $ shell_points = 0
     $ proxy_points = 0
     $ data_points = 0
+    $ attack_points = 0
     $ stuco_task = -1
 # The game starts here.
 
-label start:
+label malloc_oh:
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -36,15 +37,15 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    $ player_name = renpy.input("What is your name?", length=32)
-    $ player_name = player_name.strip()
-    $ player_name = player_name[0].upper() + player_name[1:]
-    show malloc normal with moveinright
+    #$ player_name = renpy.input("What is your name?", length=32)
+    #$ player_name = player_name.strip()
+    #$ player_name = player_name[0].upper() + player_name[1:]
+    show malloc normal with dissolve
     $ vim_user = False
     # These display lines of dialogue.
 
-    m "Hello, [player_name]."
-    m "I heard you had some issues with your dynamic memory homework."
+    m "Hello, [player_name]. You're next on the queue."
+    m "Looks like you're having some issues with your memory allocation functions."
     m "I can take a look at it, but you'll need to answer my question first."
     
     show malloc eyes with dissolve
@@ -161,6 +162,10 @@ label heapcheck:
     show malloc eyes with dissolve
     m "Free the memory!!" with hpunch
     show malloc normal with dissolve
+    m "And don't even get me started on people who double free their memory."
+    m "They're arguably even worse!"
+    m "If you give someone too much freedom, they'll never get their work done!"
+    m "This is why taking naps in the middle of the day never works!"
     "..."
     m "..."
     m "Sorry about that."
@@ -513,7 +518,7 @@ label proxy_join_stuco:
                 show text "A few weeks later..." with dissolve
                 pause 1.0
                 hide text with dissolve
-                jump second_intro
+                jump review_session1
     p "Great!"
     p "Let me get the paperwork sorted out, then."
     p "(Damn that Steven, he's probably off stealing food from other clubs somewhere...)"
@@ -530,7 +535,9 @@ label proxy_join_stuco:
     hide malloc normal with dissolve
     jump stuco_good
 
+label review_session1:
 
+    jump break_time
 
 label proxy_bad_req_den:
     show text "A few days later..." with dissolve
@@ -613,14 +620,14 @@ label vim_club:
             s "Oh, I'm sorry to hear that."
             s "Hopefully your first Vim club meeting cheers you up!"
     show shell star with dissolve
-    s "Welcome to the first Vim club meeting of the semester, everyone!"
+    s "Hey, everyone!"
     show shell normal with dissolve
     s "This is our newest member, [player_name]."
     "Uh, ... hello."
     s "Don't be shy!"
     s "All these people like Vim just as much as you and me!"
     "..."
-    s "So, before we get started, does anyone know what the first rule of Vim club is?"
+    s "So, before we get started, does anyone remember what the first rule of Vim club is?"
     "Is it..."
     menu:
         "Don't talk about Vim club?":
@@ -635,12 +642,12 @@ label vim_club:
             s "Haha, you don't need a fancy Vimrc to join this club."
     show shell normal at right with move
     show rebecca normal at midleft with dissolve
-    "Rebecca" "Is it to write a cheatsheet?"
+    "Rebecca" "Isn't it to write a cheatsheet?"
     show evelyn normal at midright with dissolve
-    "Evelyn" "Wait, but I didn't write a cheatsheet for my Vim commands..."
+    "Evelyn" "Wait, but I don't use a cheatsheet for my Vim commands..."
     "Rebecca" "That's pretty zesty, besty. You're too big brained."
     show adb normal at left with dissolve
-    "ADB" "Lol I just stole a cheatsheet from Google..."
+    "ADB" "Hehe I just stole a cheatsheet from Google..."
     "ADB" "Why do more work when someone else already did the work?" 
     hide rebecca normal with dissolve
     hide evelyn normal with dissolve
@@ -832,59 +839,68 @@ label stuco_good:
     "(Sounds like a real character...)"
     p "Anyway, let's head inside."
     "Packet" "mrroww"
-    "Rudeus" "Heyo!"
-    p "Hey, Rudeus."
+    "Halten" "Heyo!"
+    p "Hey, Halten."
     p "Is everyone else here yet?"
-    "Rudeus" "Well, everyone except Steven."
-    "Connor" "Which was definitely expected."
-    "Rudeus" "Oh, and your brother's here taking coffee again, as usual."
-    "Paxton" "What do you mean, \"as usual\"?"
-    p "Paxton, please just fix your coffee machine."
-    "Paxton" "See I would, but that requires actual effort."
-    "Paxton" "My free time is already distributed too thin, you know?"
+    "Halten" "Well, everyone except Steven."
+    show critical normal at right with dissolve
+    "Graff" "Which was definitely expected."
+    "Halten" "Oh, and your brother's here taking coffee again, as usual."
+    show distr normal at left with dissolve
+    "Pax" "What do you mean, \"as usual\"?"
+    p "Pax, please just fix your coffee machine."
+    "Pax" "See I would, but that requires actual effort."
+    "Pax" "My free time is already distributed too thin, you know?"
     p "(Sigh...)"
+    hide distr normal with dissolve
     p "Anyway, do we want to wait a few minutes for Steven, or should I just kick him out now?"
-    "Rudeus" "Yes, I am down for punishing Steven."
-    "Connor" "Seconded."
-    "Rudeus" "The other day, he wouldn't shut up about how his Vimrc was better than mine."
-    "Rudeus" "I don't even know what that is!"
-    "Connor" "Yeah, that sounds like a Steven thing to do."
-    "Connor" "He also somehow dug up my embarrassing middle school pictures and started spreading rumors about me again."
-    "Connor" "(Sigh...)"
+    "Halten" "Yes, I am down for punishing Steven."
+    "Graff" "Seconded."
+    "Halten" "The other day, he wouldn't shut up about how his Vimrc was better than mine."
+    "Halten" "I don't even know what that is!"
+    "Graff" "Yeah, that sounds like a Steven thing to do."
+    "Graff" "He also somehow dug up my embarrassing middle school pictures and started spreading rumors about me again."
+    "Graff" "Which I don't understand how people believed him, because he was wearing that obnoxious cow onesie again..."
+    "Graff" "(Sigh...)"
     p "..."
     p "So, [player_name], how would you like to be the new secretary of the student council?"
     "Sure, I guess."
     $ proxy_points += 30
-    "Rudeus" "Wait, hold on. Don't we have to do some kind of vote?"
-    "Rudeus" "Or have some pool of candidates to consider first?"
-    "Connor" "Dude, there's literally no one else here."
-    "Paxton" "(Slurp...)"
-    p "Paxton, can you take your coffee and slurp somewhere else?"
-    "Paxton" "Hold on, this is just getting interesting."
-    "Paxton" "What if Steven pops in right now?"
+    "Halten" "Wait, hold on. Don't we have to do some kind of vote?"
+    "Halten" "Or have some pool of candidates to consider first?"
+    "Graff" "Dude, there's literally no one else here."
+    show distr normal at left with dissolve
+    "Pax" "(Slurp...)"
+    p "Pax, can you take your coffee and slurp somewhere else?"
+    "Pax" "Hold on, this is just getting interesting."
+    "Pax" "What if Steven pops in right now?"
     p "That's probably not going to happen."
-    "Connor" "With high probability."
-    "Paxton" "..."
-    "Paxton" "Alright, alright, you can stop glaring at me. I'll leave now."
+    "Graff" "With high probability."
+    "Pax" "..."
+    "Pax" "Alright, alright, you can stop glaring at me. I'll leave now."
+    hide distr normal with dissolve
     p "..."
     p "Let's {i}officially{/i} start the meeting now, then."
     p "[player_name], can you take down the meeting notes?"
     "Sure, I can do that."
     p "So, we have quite a bit of tasks to get through today."
     p "I guess the first thing to ask is how the budgeting for the festival is going?"
-    "Rudeus" "I think I already verified most of the club budgets and allocated funds, so we should be good to go on that end."
-    "Connor" "Damn, this man just reduced all of his work for the rest of the semester."
-    "Rudeus" "I mean, it's easy to finish my work when I'm not TAing a class and lowering students' grades, \"Destroyer of Dreams\"."
-    "Connor" "..."
-    "Connor" "How do you know about that name?"
-    "Rudeus" "hehe"
+    "Halten" "I think I already verified most of the club budgets and allocated funds, so we should be good to go on that end."
+    "Graff" "Damn, this man just reduced all of his work for the rest of the semester."
+    "Halten" "I mean, it's easy to finish my work when I'm not TAing a class and lowering students' grades, \"Destroyer of Dreams\"."
+    "Graff" "..."
+    "Graff" "How do you know about that name?"
+    "Halten" "hehe"
     p "Can we get back on topic, please?"
-    "Connor" "Oops..."
+    "Graff" "..."
+    "Graff" "(Hopefully my middle school chuuni pictures aren't being spread around...)"
     hide proxy normal with dissolve
+    hide critical normal with dissolve
     show text "Roxy goes over some of the menial tasks, which are trivial and left to interpretation by the player." with dissolve
     pause 2.0
     hide text with dissolve
     show proxy normal with dissolve
+    show critical normal at right with dissolve
     p "So the three main things we have to do now are talk to the sysadmin to make sure the WiFi bandwidth is enough for the expected crowd,..."
     p "check that the cooking club has a big enough space for their festival activities,..."
     p "ask someone to create a logo and some posters for the festival,..."
@@ -895,30 +911,31 @@ label stuco_good:
         "I can talk to the sysadmin.":
             $ stuco_task = 0
             $ proxy_points += 30
-            "Rudeus" "I can go talk to the cooking club then."
-            "Connor" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
+            "Halten" "I can go talk to the cooking club then."
+            "Graff" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
         "I can talk to the cooking club.":
             $ stuco_task = 1
             $ proxy_points += 30
-            "Rudeus" "I can go talk to the sysadmin then."
-            "Connor" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
+            "Halten" "I can go talk to the sysadmin then."
+            "Graff" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
         "I can find someone to make posters.":
             $ stuco_task = 2
             $ proxy_points += 30
-            "Rudeus" "I can go talk to the cooking club then."
-            "Connor" "I'll talk the sysadmin, I guess."
+            "Halten" "I can go talk to the cooking club then."
+            "Graff" "I'll talk the sysadmin, I guess."
             p "Okay, cool. [player_name], you may want to go find someone in the gaming club for posters."
             p "If I recall correctly, the club president was the one who drew the logo last year."
             "Sounds good."
     p "Alright, then. We have our next meeting in a month, so let me know how your tasks are going then."
-    "Rudeus" "For sure."
-    "Connor" "Ciao!"
+    "Halten" "For sure."
+    "Graff" "Ciao!"
     p "So, [player_name], did you enjoy your first student council meeting?"
     "It was..."
     "Interesting."
     p "I hope that's meant in a good way, haha."
     p "Good luck. I'll see you at our next meeting."
     "Bye!"
+    hide critical normal with dissolve
     hide proxy normal with dissolve
     jump break_time
 
@@ -937,43 +954,48 @@ label stuco_bad:
     p "If you're lucky, you may be promoted from probationary student today."
     "(What does that mean?)"
     "Packet" "mrroww"
-    "Rudeus" "Heyo!"
-    p "Hey, Rudeus."
+    "Halten" "Heyo!"
+    p "Hey, Halten."
     p "Is everyone else here yet?"
-    "Rudeus" "Well, everyone except Steven."
-    "Connor" "Which was definitely expected."
-    "Rudeus" "Oh, and your brother's here taking coffee again, as usual."
-    "Paxton" "What do you mean, \"as usual\"?"
-    p "Paxton, please just fix your coffee machine."
-    "Paxton" "See I would, but that requires actual effort."
-    "Paxton" "My free time is already distributed too thin, you know?"
+    "Halten" "Well, everyone except Steven."
+    show critical normal at right with dissolve
+    "Graff" "Which was definitely expected."
+    "Halten" "Oh, and your brother's here taking coffee again, as usual."
+    show distr normal at left with dissolve
+    "Pax" "What do you mean, \"as usual\"?"
+    p "Pax, please just fix your coffee machine."
+    "Pax" "See I would, but that requires actual effort."
+    "Pax" "My free time is already distributed too thin, you know?"
     p "(Sigh...)"
+    hide distr normal with dissolve
     p "Anyway, do we want to wait a few minutes for Steven, or should I just kick him out now?"
-    "Rudeus" "Yes, I am down for punishing Steven."
-    "Connor" "Seconded."
-    "Rudeus" "The other day, he wouldn't shut up about how his Vimrc was better than mine."
-    "Rudeus" "I don't even know what that is!"
-    "Connor" "Yeah, that sounds like a Steven thing to do."
-    "Connor" "He also somehow dug up my embarrassing middle school pictures and started spreading rumors about me again."
-    "Connor" "Which I don't understand how people believed him, because he was wearing that obnoxious cow onesie again..."
-    "Connor" "(Sigh...)"
+    "Halten" "Yes, I am down for punishing Steven."
+    "Graff" "Seconded."
+    "Halten" "The other day, he wouldn't shut up about how his Vimrc was better than mine."
+    "Halten" "I don't even know what that is!"
+    "Graff" "Yeah, that sounds like a Steven thing to do."
+    "Graff" "He also somehow dug up my embarrassing middle school pictures and started spreading rumors about me again."
+    "Graff" "Which I don't understand how people believed him, because he was wearing that obnoxious cow onesie again..."
+    "Graff" "(Sigh...)"
     p "..."
     p "So, [player_name], how would you like to be the new secretary of the student council?"
     p "Looks like you got lucky, after all."
     "Uh, well... it's better than being a probationary student, no?"
     p "That is correct."
     $ proxy_points += 30
-    "Rudeus" "Wait, hold on. Don't we have to do some kind of vote?"
-    "Rudeus" "Or have some pool of candidates to consider first?"
-    "Connor" "Dude, there's literally no one else here."
-    "Paxton" "(Slurp...)"
-    p "Paxton, can you take your coffee and slurp somewhere else?"
-    "Paxton" "Hold on, this is just getting interesting."
-    "Paxton" "What if Steven pops in right now?"
+    "Halten" "Wait, hold on. Don't we have to do some kind of vote?"
+    "Halten" "Or have some pool of candidates to consider first?"
+    "Graff" "Dude, there's literally no one else here."
+    show distr normal at left with dissolve
+    "Pax" "(Slurp...)"
+    p "Pax, can you take your coffee and slurp somewhere else?"
+    "Pax" "Hold on, this is just getting interesting."
+    "Pax" "What if Steven pops in right now?"
     p "That's probably not going to happen."
-    "Connor" "With high probability."
-    "Paxton" "..."
-    "Paxton" "Alright, alright, you can stop glaring at me. I'll leave now."
+    "Graff" "With high probability."
+    "Pax" "..."
+    "Pax" "Alright, alright, you can stop glaring at me. I'll leave now."
+    hide distr normal with dissolve
     p "..."
     p "Let's {i}officially{/i} start the meeting now, then."
     p "[player_name], can you take down the meeting notes?"
@@ -981,19 +1003,22 @@ label stuco_bad:
     "(This is going surprisingly better than I expected...)"
     p "So, we have quite a bit of tasks to get through today."
     p "I guess the first thing to ask is how the budgeting for the festival is going?"
-    "Rudeus" "I think I already verified most of the club budgets and allocated funds, so we should be good to go on that end."
-    "Connor" "Damn, this man just reduced all of his work for the rest of the semester."
-    "Rudeus" "I mean, it's easy to finish my work when I'm not TAing a class and lowering students' grades, Mr. \"Destroyer of Dreams\"."
-    "Connor" "..."
-    "Connor" "How do you know about that name?"
-    "Rudeus" "hehe"
+    "Halten" "I think I already verified most of the club budgets and allocated funds, so we should be good to go on that end."
+    "Graff" "Damn, this man just reduced all of his work for the rest of the semester."
+    "Halten" "I mean, it's easy to finish my work when I'm not TAing a class and lowering students' grades, Mr. \"Destroyer of Dreams\"."
+    "Graff" "..."
+    "Graff" "How do you know about that name?"
+    "Halten" "hehe"
     p "Can we get back on topic, please?"
-    "Connor" "Oops..."
+    "Graff" "..."
+    "Graff" "(Hopefully my middle school chuuni pictures aren't being spread around...)"
     hide proxy normal with dissolve
+    hide critical normal with dissolve
     show text "Roxy goes over some of the menial tasks, which are trivial and left to interpretation by the player." with dissolve
     pause 2.0
     hide text with dissolve
     show proxy normal with dissolve
+    show critical normal at right with dissolve
     p "So the four main things we have to do now are talk to the sysadmin to make sure the WiFi bandwidth is enough for the expected crowd,..."
     p "check that the cooking club has a big enough space for their festival activities,..."
     p "ask someone to create a logo and some posters for the festival,..."
@@ -1004,24 +1029,24 @@ label stuco_bad:
         "I can talk to the sysadmin.":
             $ stuco_task = 0
             $ proxy_points += 30
-            "Rudeus" "I can go talk to the cooking club then."
-            "Connor" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
+            "Halten" "I can go talk to the cooking club then."
+            "Graff" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
         "I can talk to the cooking club.":
             $ stuco_task = 1
             $ proxy_points += 30
-            "Rudeus" "I can go talk to the sysadmin then."
-            "Connor" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
+            "Halten" "I can go talk to the sysadmin then."
+            "Graff" "I'll go ask someone to make some posters. I think I have someone in mind who can do that."
         "I can find someone to make posters.":
             $ stuco_task = 2
             $ proxy_points += 30
-            "Rudeus" "I can go talk to the cooking club then."
-            "Connor" "I'll talk the sysadmin, I guess."
+            "Halten" "I can go talk to the cooking club then."
+            "Graff" "I'll talk the sysadmin, I guess."
             p "Okay, cool. [player_name], you may want to go find someone in the gaming club for posters."
             p "If I recall correctly, the club president was the one who drew the logo last year."
             "Sounds good."
     p "Alright, then. We have our next meeting in a month, so let me know how your tasks are going then."
-    "Rudeus" "For sure."
-    "Connor" "Ciao!"
+    "Halten" "For sure."
+    "Graff" "Ciao!"
     p "So, [player_name], how was your first student council meeting?"
     p "Don't be like Steven, or I'll have to punish you for real, like Malek wanted."
     p "But if you get your tasks done well, I'll look the other way."
@@ -1030,6 +1055,7 @@ label stuco_bad:
     p "I hope that's meant in a good way, haha."
     p "Good luck. I'll see you at our next meeting."
     "Goodbye!"
+    hide critical normal with dissolve
     hide proxy normal with dissolve
     jump break_time
 
@@ -1104,8 +1130,10 @@ label arcade:
     "(...)"
     clc "Bye, Blake!"
     gdb "Goodbye...!"
-    if join_stuco:
-        jump after_break_stuco
+    hide malloc normal with dissolve
+    hide calloc normal with dissolve
+    hide bomb normal with dissolve
+    hide gdb normal with dissolve
     jump second_intro
 
 
@@ -1155,14 +1183,14 @@ label meet_cache:
     "Huh...?"
     c "Faye is actually crazy."
     "Wut"
-    c "The other day, she almost pulled a knife on Flo when she tried to talk to me."
+    c "The other day, she almost pulled a knife on Buffy when she tried to talk to me."
     "Nani"
     c "Yeah, that was my reaction!"
     "(Are you sure you reacted with \"nani\"?"
     c "She gets way too jealous about these kinds of things."
     c "She's even smiling while she does this, so there's clearly something wrong..."
-    c "It's not like I'd start dating Flo again!"
-    "Hold up, you used to date Flo?"
+    c "It's not like I'd start dating Buffy again!"
+    "Hold up, you used to date Buffy?"
     "Why'd you break up?"
     c "Uhh..."
     c "It's complicated."
@@ -1179,7 +1207,7 @@ label meet_cache:
     "So is Faye your rebound or something?"
     c "What? Of course not!"
     c "I genuinely liked her before I found out she was like this."
-    c "I didn't expect Flo to take me back once I had enough time to commit to a relationship, so I figured I'd just move on."
+    c "I didn't expect Buffy to take me back once I had enough time to commit to a relationship, so I figured I'd just move on."
     "(Damn, I thought this guy just liked whatever girl was hot, but he's actually pretty emotionally complicated.)"
     c "..."
     c "So, will you help me break up with Faye?"
@@ -1212,12 +1240,12 @@ label meet_cache:
     hide text with dissolve
     show cache normal with dissolve
     c "Ok, here we are."
-    "Bouncer" "Can I see your ID?"
+    "Decider" "Can I see your ID?"
     c "Here you go."
     "Here's mine."
-    "Bouncer" "..."
-    "Bouncer" "Ok, these are acceptable."
-    "Bouncer" "Enjoy your evening."
+    "Decider" "..."
+    "Decider" "Ok, these are acceptable."
+    "Decider" "Enjoy your evening."
     "Thanks!"
     c "Oh, we got here just in time! The show's about to start."
     hide cache normal with dissolve
@@ -1225,6 +1253,22 @@ label meet_cache:
     "lil mem sbrk" "Yo yo, it's your boi lil mem sbrk here with our opening act for this evening:"
     "lil mem sbrk" "Please welcome [duo_name] to the stage!"
     hide jason normal with dissolve
+    "Shalin" "Hey, everyone!"
+    "Albert" "I'm Albert, and this is Shalin, and we're [duo_name]!"
+    "Shalin" "Hope you all enjoy our song!"
+    show text "You listen to the opening acts and the rest of the comedy show, and enjoy a night of laughs and fun." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show cache normal with dissolve
+    c "So, [player_name], did you enjoy the show?"
+    "Yeah!"
+    "I had a great time!"
+    c "We should do this again, maybe after midterms and festival prep dies down a bit.."
+    "For sure!"
+    c "Well, I'll see you later, then."
+    c "Good night."
+    "Good night!"
+    hide cache normal with dissolve
     if join_stuco:
         jump after_break_stuco
     jump after_break_other
@@ -1234,11 +1278,11 @@ label meet_bitsy:
     "She should be somewhere around the track team area..."
     "Ah, there she is."
     show data normal with dissolve
-    d "No no not like that, Nex."
+    d "No no not like that, Root."
     d "You have to make sure your arms don't move when you curl back down."
-    "Nex" "You mean like this?"
+    "Root" "You mean like this?"
     d "Yeah, that's a lot better!"
-    "Nex" "Ah, ok. Thanks, captain!"
+    "Root" "Ah, ok. Thanks, captain!"
     d "No prob!"
     d "Oh hey, [player_name]!"
     d "What brings you to this part of campus?"
@@ -1251,40 +1295,41 @@ label meet_bitsy:
     d "I'm hoping I can get the entire team into the top 10 this time."
     "Is that why you're coaching him?"
     d "Oh, yeah."
-    d "I don't think you guys have met yet!"
-    d "[player_name], this is Nex. Nex, this is [player_name]."
+    d "I don't think you two have met yet!"
+    d "[player_name], this is Root. Root, this is [player_name]."
     "Hello!"
-    "Nex" "Hey!"
+    "Root" "Hey!"
     "Those are some pretty impressive biceps!"
     "Are you on the track team too?"
-    "Nex" "Yeah! I'm trying to make sure I don't just exercise my legs."
+    "Root" "Yeah! I'm trying to make sure I don't just exercise my legs."
     "Ah, that makes sense."
-    "Nex" "I'm also trying to grow my fitness channel, if you're interested, haha."
-    "Nex" "Subtle flex."
+    "Root" "I'm also trying to grow my fitness channel, if you're interested, haha."
+    "Root" "Subtle flex."
     "Oh sure, I'll check it out! What's it called?"
-    "Nex" "It's called \"SaidoChesto22\"."
+    "Root" "It's called \"SaidoChesto22\"."
     "(Hmm...that somehow sounds familiar...)"
     d "So, [player_name], since you're here, do you want to race?"
     "Wut"
     d "Haha, I just want to see how fast you are!"
     "Uh, ok...?"
     d "No pressure!"
+    $ data_points += 30
     "Sure, I guess."
     "Though you're probably going to be disappointed."
     d "Nah, don't worry about that!"
     d "I'm sure you're pretty fast!"
     "Alright how do we do this?"
-    d "Nex, can you do a countdown from 5?" 
-    "Nex" "Sure!"
+    d "Root, can you do a countdown from 5?" 
+    "Root" "Sure!"
     d "(Float like a butterfly, float like a butterfly....)"
     "What's she muttering?"
     hide data normal with dissolve
-    "Nex" "5!"
-    "Nex" "4!"
-    "Nex" "3!"
-    "Nex" "2!"
-    "Nex" "1!"
-    "Nex" "Go!" with hpunch
+    "Root" "5!"
+    "Root" "4!"
+    "Root" "3!"
+    "Root" "2!"
+    "Root" "1!"
+    "Root" "Go!" with hpunch
     "...!"
     "......!"
     "Oh wow, she's pretty fast, but somehow I'm able to keep up!"
@@ -1302,15 +1347,15 @@ label meet_bitsy:
     "Finally....made...it...!"
     d "Hey, you really surprised me there!"
     "Well....my lungs....are dead...."
-    "Nex" "You should be fine if you sit down for a while, but still, that was pretty fast!"
+    "Root" "You should be fine if you sit down for a while, but still, that was pretty fast!"
     "I...need some....water...."
     d "Right right, let's head back inside and find a water fountain."
     show text "The three of you head inside and find the nearest water fountain to hydrate." with dissolve
     pause 2.0
     hide text with dissolve
-    d "Ah, that hit's the spot!"
+    d "Ah, that hits the spot!"
     "(My lungs are definitely dead now...)"
-    "Nex" "You should definitely join the track team, [player_name]!"
+    "Root" "You should definitely join the track team, [player_name]!"
     "No thanks."
     "I don't think I can do that again..."
     d "Still, you did great!"
@@ -1318,7 +1363,7 @@ label meet_bitsy:
     "Wait..."
     "What's that music?"
     d "We're near the music room, so maybe someone's practicing in there..."
-    "Nex" "This sounds like an anime song..."
+    "Root" "This sounds like an anime song..."
     "I'm pretty sure it is an anime song..."
     "I'm gonna go see who's playing it."
     "I'll be right back."
@@ -1361,13 +1406,16 @@ label meet_bitsy:
     "..."
     show data normal with dissolve
     d "Oh, you're back!"
-    "Nex" "We were gonna go and run a few more laps before coming back inside again, if you wanted to come with us?"
+    "Root" "We were gonna go and run a few more laps before coming back inside again, if you wanted to come with us?"
     "Uhhh...."
     "I think that was enough exercise for me for today..."
     "I'm gonna go sit down somewhere."
     d "Haha, no worries!"
-    "Nex" "See you later!"
+    "Root" "See you later!"
     hide data normal with dissolve
+    "You have [shell_points] points for shell."
+    "You have [data_points] points for data."
+    "You have [malloc_points] points for malloc."
     if join_stuco: 
         jump after_break_stuco
     jump after_break_other
@@ -1377,6 +1425,7 @@ label after_break_stuco:
     show text "A few days later..." with dissolve
     pause 1.0
     hide text with dissolve
+    "You have [proxy_points] points for proxy."
     "Ah, that was a nice break."
     "I guess I should actually get to that task I needed to do for the student council."
     "Hmm... let's see..."
@@ -1435,6 +1484,7 @@ label after_break_other:
     "Minnie" "Sshh! He'll hear you!"
     "What?"
     "How will he hear us? There's no one here."
+    show pigeon hole with dissolve
     "Pigeon Man" "Did someone call for me?"
     "Harmony" "Ah shit, he showed up."
     "The plot thickens..."
@@ -1456,6 +1506,8 @@ label after_break_other:
     "(What is happening here?)"
     "(I was not aware that Pigeon people existed...)"
     "Harmony" "Alright, I got Berry!"
+    show pigeon hole at right with move
+    show berry esseen at left with dissolve
     "Berry-Esseen" "Oh no, not this guy again."
     "Pigeon Man" "nom nom nom"
     "Pigeon Man" "nom nom no-"
@@ -1473,13 +1525,15 @@ label after_break_other:
     "Pigeon Man" "After I get my tasty plums, there's nothing you can do to stop me."
     "..."
     "(I've deviated way too far from the main storyline now.)"
-    "Pigeon Man" "Or-"
+    "(Did I get teleported to Theoretical CS Land?)"
+    "(How do I get back to Systems Land?)"
+    "Pigeon Man" "Mud-"
     "Berry-Esseen" "Too slow!"
     "Berry-Esseen" "Central Limit Platinum! Tsukure toolkitto o!"
     "Pigeon Man" "Nani!?!"
     "(What the fuck is going on?)"
     "Berry-Esseen" "Yare yare."
-    "Is that copyrighted?"
+    "Isn't that copyrighted?"
     "Berry-Esseen" "If I'd gotten here a few minutes later, he would have powered up with those plums, and never left school property."
     "Berry-Esseen" "Time to teach him a lesson."
     "Harmony" "Brace yourself, [player_name]!"
@@ -1494,14 +1548,17 @@ label after_break_other:
     "Berry-Esseen" "Ora ora ora ora ora ora ora ora ora ora!"
     "Berry-Esseen" "..."
     "Berry-Esseen" "Probability has begun to work again."
+    "This is definitely a Jojo's reference."
     "Pigeon Man" "Aalsfsajfakdlmfa;slaw;!!!1!!Lasasfl!"
-    "Berry-Esseen" "QED."
+    hide pigeon hole with dissolve
+    "Berry-Esseen" "QED!"
     "Minnie" "That was amazing, Berry!"
     "Berry-Esseen" "Don't worry about it."
     "Berry-Esseen" "I'll go take this guy to the police station, now."
     "Berry-Esseen" "You all be careful, now. You never know what kind of suspicious characters are lurking around out here."
     "(But you seem pretty suspicious to me...)"
     "Berry-Esseen" "Farewell."
+    hide berry esseen with dissolve
     "Harmony" "Wow, he protected our trees!"
     "Minnie" "We should celebrate!"
     "Harmony" "[player_name], do you want to help us get the fruits down?"
@@ -1511,7 +1568,7 @@ label after_break_other:
     "See you later."
     "Harmony" "Bye!"
     "Minnie" "See you!"
-    "I think I just witnessed a hate crime."
+    "I think I just witnessed a hato crime."
     return
     
 label sysadmin:
@@ -1557,7 +1614,7 @@ label sysadmin:
     "FanPu" "This is clearly worth the money!"
     "Ether" "(Sigh....)"
     "..."
-    "Ok so I understood none of that, but do you guys have it under control?"
+    "Ok so I understood none of that, but do you have it under control?"
     "Ether" "Yeah, I think we should be able to handle the traffic."
     "Ether" "If FanPu stops streaming his games and actually does work for once."
     "FanPu" "Bruh, why do you keep calling me out like this?"
@@ -1572,10 +1629,10 @@ label sysadmin:
     "Ether" "(Sigh...)"
     "Ether" "You need serious help, man."
     "FanPu" "Nuuuu I need to grind more Freemogems now!"
-    "FanPu" "Toki ga kieta!!"
+    "FanPu" "Demo jikan ga nai!!"
     "Ether" "(Sigh...)"
     "Ether" "I'm gonna have to do most of this by myself, aren't I?"
-    "Yeah, I'm just gonna leave now..."
+    "Yeah, so I'm just gonna leave now..."
     hide fanpu normal with dissolve
     return
 
@@ -1599,25 +1656,25 @@ label cooking_club:
     "Jenny" "We just finalized the menu too, so we should be good to look at other logistics."
     "Ooh, that sounds fun!"
     "So do you have an expected number of customers?"
-    "Jenny" "Yeah, lemme just ask Sandi."
-    "Jenny" "Hey, Sandi, can you get the binder for last year's logistics?"
-    "Sandi" "Yeah, sure, this bread's about to finish proofing so lemme stick it in the oven first..."
-    "Sandi" "..."
-    "Sandi" "Ok, there we go."
-    "Sandi" "Alright, so last year we had about 400 customers total."
+    "Jenny" "Yeah, lemme just ask Sandie."
+    "Jenny" "Hey, Sandie, can you get the binder for last year's logistics?"
+    "Sandie" "Yeah, sure, this bread's about to finish proofing so lemme stick it in the oven first..."
+    "Sandie" "..."
+    "Sandie" "Ok, there we go."
+    "Sandie" "Alright, so last year we had about 400 customers total."
     "Jenny" "We should probably expect that to increase to at most 550 this time."
-    "Sandi" "Yeah, that sounds good."
-    "Sandi" "Do you know what places on campus can tolerate that crowd?"
-    "Sandi" "I don't think a classroom is gonna cut it..."
+    "Sandie" "Yeah, that sounds good."
+    "Sandie" "Do you know what places on campus can tolerate that crowd?"
+    "Sandie" "I don't think a classroom is gonna cut it..."
     "Jenny" "We can also see if hosting outside is an option..."
-    "Sandi" "..."
+    "Sandie" "..."
     "I don't think that's a good idea..."
     "I feel like allergies are gonna be a big concern if you host outside."
     "Jenny" "Ah shit, you're right."
-    "???" "Sorry guys, me class ran late today!"
+    "???" "Sorry guys, my class ran late today!"
     "Jenny" "Oh hey, Maple!"
     "Jenny" "Do you happen to know any good locations on campus that we can use for the maid cafe?"
-    "Sandi" "We're thinking we should expect about 550 people this year."
+    "Sandie" "We're thinking we should expect about 550 people this year."
     "Maple" "Oh, if you're talking about that, then you must be [player_name]!"
     "Maple" "Nice to meet you!"
     "Haha, nice to meet you, too!"
@@ -1625,9 +1682,9 @@ label cooking_club:
     "Maple" "They have pretty big rooms, don't they?"
     "Jenny" "Oh yeah!"
     "You can probably talk to one of the admins to reserve it in advance."
-    "\"beep beep!\""
-    "Sandi" "Oh, I think that's my bread. Lemme go check on it."
-    "Sandi" "It was nice meeting you, [player_name]!"
+    "\"beep boop!\""
+    "Sandie" "Oh, I think that's my bread. Lemme go check on it."
+    "Sandie" "It was nice meeting you, [player_name]!"
     "Maple" "So if we do somewhere in Tepper, we'll have to talk to the storage team to make sure they have enough tables, right?"
     "Jenny" "Yeah, I don't fully know how that process works."
     "I can give it a shot for you."
@@ -1655,6 +1712,7 @@ label gaming_club:
     hide text with dissolve
     "Wow, this place is pretty nice.."
     "???" "Andy, what are you doing? Can you come help gank bot?"
+    show andy normal with dissolve
     "Andy" "Bruh I just respawned! Lemme stock up on potion first."
     "???" "How did you die!? Did the chickens kill you?"
     "???" "No, it looks like he went AFK..."
@@ -1675,13 +1733,16 @@ label gaming_club:
     "Andy" "Oho we're boutta win now."
     "Rae" "I can't believe you've just done this..."
     "Rae" "Daniel, how is this happening?"
+    show daniel normal at left with dissolve
     "Daniel" "He went and hid in a bush and then went AFK."
+    hide daniel normal with dissolve
     "Rae" "How did they not catch him I don't understand..."
     "Andy" "I'm just too good at this game."
     "Andy" "Wow we won ez!"
     "Andy" "Peak komedy."
     "Rae" "Alright, don't troll next time, Andy..."
     "Andy" "Oho no promises."
+    hide andy normal with dissolve
     "Rae" "..."
     "Rae" "Hello!"
     "Hey! I'm [player_name], I'm here from the student council. Did Roxy send you an email about what she wanted?"
@@ -1689,7 +1750,9 @@ label gaming_club:
     "Rae" "You needed a logo, right?"
     "Rae" "What's the theme for the festival this year?"
     "It's \"Light mode vs. Dark mode\"."
+    show daniel normal at midleft with dissolve
     "Daniel" ":thinking:"
+    hide daniel with dissolve
     "Rae" "Ooh interesting..."
     "Rae" "Yeah, I can probably come up with a logo for that."
     "Rae" "You just need the SCS dragon to be in it, right?"
@@ -1699,6 +1762,7 @@ label gaming_club:
     "No rush though."
     "We also need some poster designs."
     "Rae" "Oh, Daniel, can you make the posters?"
+    show daniel normal at midleft with dissolve
     "Rae" "You still have that fancy generative script, don't you?"
     "Daniel" "Yeah, I still have it."
     "Daniel" "I'll probably have to reconfigure it, but it shouldn't take long :thinking:"
@@ -1715,7 +1779,10 @@ label gaming_club:
     "Rae" "Yeah sounds good!"
     "Daniel" "Pog"
     "Rae" "Maybe Andy will stop trolling us in every Legends game by then."
+    show andy normal at right with dissolve
     "Andy" "No chance, this is peak komedy."
+    hide andy normal with dissolve
     "Rae" "(Sigh...)"
+    hide daniel normal with dissolve
     return
 
