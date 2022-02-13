@@ -64,13 +64,13 @@ label start:
 
 label no_heapcheck:
     show malloc eyes2 with dissolve
-    m "A Segmentation Fault is too kind of a punishment for scum like you."
-    m "Come back when you've learned how to debug your code yourself."
-    m "Or maybe I should tell Roxy to deal with you somehow."
-    "Bam!!" with hpunch
+    m "A Segmentation Fault is too kind of a punishment for {i}scum{/i} like you."
+    m "Come back when you've learned how to debug your code {i}yourself{/i}."
+    m "Or maybe, I should tell Roxy to deal with you somehow."
+    "{b}Bam!!{/b}" with hpunch
     hide malloc eyes2 with dissolve
-    "D...Did he just punch me?"
-    "Who needs a heap checker when I have my own two eyes?"
+    "D...Did he just {i}punch{/i} me?"
+    "Who needs a heap checker when I have {i}my own{/i} two eyes?"
     "And who's Roxy?"
     "Whatever. That guy needs serious help..."
     # few hours later
@@ -84,25 +84,22 @@ label no_heapcheck:
     "..."
     
     menu:
-        "Maybe I should just write a heapchecker...":
+        "Maybe I should just write a heap checker...":
             $ malloc_points += 30
             jump shell_prologue_good
         "Maybe I should just give up...":
-            "There's no way I forgot a semicolon or something stupid like that."
+            "There's no way I forgot a semicolon or something {i}stupid{/i} like that."
             "I'm too smart for those kinds of mistakes."
             "..."
             jump shell_prologue_bad
 
 label malloc_epilogue:
-    "I have other work to finish anyway, so hopefully this finds the bugs..."
-    "..."
-    "...."
-    "..."
+    "I have other work to finish anyway, so hopefully this finds the bugs."
     "Alright, time to test this out..."
     "..."
-    "Okay, so my heapchecker says there's something wrong in this part of the memory..."
+    "My heap checker says there's something wrong in this part of the memory..."
     "But what could it be...?"
-    "Hmm... I'm probably missing something dumb."
+    "I'm probably missing something dumb."
     "Maybe I should go ask Malek again."
     scene black
     show text "You find Malek ranting about freeing memory to some frightened freshmen." with dissolve
@@ -111,19 +108,17 @@ label malloc_epilogue:
     scene bg classroom
     show malloc normal with dissolve
     m "Oh, hello [player_name]. What brings you back here?"
-    "I wrote a heapchecker, but I still can't figure out my issue."
+    "I wrote a heap checker, but I still can't figure out my issue."
     m "I see you've learned from your mistakes."
     $ malloc_points += 20
     m "Good for you. Sorry if I was too harsh earlier, but being able to write software that backs you up is very important."
-    "Yeah, no worries, I understand."
+    "No worries, I understand."
     m "Let me take a look..."
-    m "..."
-    m "...."
     m "..."
     m "Ah, I see the issue."
     "Wow, that was fast."
-    m "If you look at this part here, when you get rid of this memory block, you're missing a step."
-    m "You should be able to figure it out from there."
+    m "When you're releasing this memory block here, you're forgetting a step."
+    m "You should be able to figure it out from here."
     m "Good luck!"
     hide malloc normal with dissolve
     jump shell_prologue_good
@@ -131,7 +126,7 @@ label malloc_epilogue:
 label shell_prologue_good:
     "Hmm.. what am I forgetting here?"
     "..."
-    "...."
+    "..."
     "...!"
     "Damn, I forgot to free that variable..."
     menu:
@@ -148,7 +143,7 @@ label shell_prologue_bad:
             $ vim_user = False
             $ join_stuco = True
             jump shell_intro_bad2
-        "People who forget semicolons probably don't even use Vim, like me, an intellectual.":
+        "People who forget semicolons probably don't even use Vim, like me, an intellectual.": #confusing sentence
             $ vim_user = True
             $ join_stuco = True
             jump shell_intro_bad
@@ -157,30 +152,29 @@ label heapcheck:
     show malloc normal with dissolve
     
     m "Looks like you actually know what you're doing."
-    m "The number of people who answer \"no\" to that question is astounding."
-    m "..."
-    m "Well anyway, you may want to check that you're freeing variables."
+    m "The number of people who answer \"no\" to that question is {i}astounding{/i}."
+    m "Anyway, you may want to check that you're freeing variables."
     m "Memory leaks are one of the most prominent threats to freedom these days."
-    m "Everyone wants to take up memory, but no one wants to give it up."
+    m "Everyone wants to {i}take{/i} memory, but no one wants to {i}give it up{/i}."
     m "Don't be one of those scummy people, taking what's not yours and refusing to give it up."
     show malloc eyes with dissolve
-    m "Free the memory!!" with hpunch
+    m "{b}Free the memory!!{/b}" with hpunch
     show malloc normal with dissolve
-    m "And don't even get me started on people who double-free their memory."
-    m "They're arguably even worse!"
+    m "And don't even get me {i}started{/i} on people who double-free their memory."
+    m "They're arguably even {i}worse{/i}!"
     m "If you give someone too much freedom, they'll never get their work done!"
     m "This is why taking naps in the middle of the day never works!"
     "..."
     m "..."
     m "Sorry about that."
     m "I tend to rant when I talk about things like this."
-    m "That should fix your problem, but if not, I have faith in your programming abilities."
+    m "That should fix your problem. If not, I have faith in your programming abilities."
     m "Hope this helps!"
     hide malloc normal with dissolve
 
     "..."
-    "What the heck was that?"
-    "That guy probably has a few loose screws or something."
+    "What the heck was {i}that{/i}?"
+    "That guy probably has a few loose screws."
     "I should look at my code though, just to check what he said."
     "..."
     "...."
@@ -197,9 +191,9 @@ label heapcheck:
 label unsure_heapcheck:
     
     show malloc normal with dissolve
-    m "Are you serious?"
+    m "Are you {i}serious{/i}?"
     m "How do you not know what that is?"
-    m "Do you not pay attention during lecture or something?"
+    m "Do you not pay attention during lecture?"
     "..."
     m "Ah, I get it. You must be one of those people who think they're too good to go to lectures, aren't you?"
     m "All you \"pro-gamer\" scum are the same, thinking you can get by watching recordings at 2x speed." 
@@ -212,7 +206,7 @@ label unsure_heapcheck:
     hide malloc eyes2 with dissolve
 
     "..."
-    "What just happened?"
+    "What just {i}happened{/i}?"
     "And who the frick is Roxy?"
     "Am I supposed to be scared?"
     "..."
@@ -223,28 +217,28 @@ label unsure_heapcheck:
             $ join_stuco = True
             jump shell_intro_bad2
         "After all, I set up my own fancy Vimrc all by myself.":
-            "There's nothing that could possibly be more difficult than that."
+            "There's nothing that could {i}possibly{/i} be more difficult than that."
             $ join_stuco = True
             jump shell_intro_bad
 
 label shell_intro_bad:
     show shell angry with dissolve
-    s "Let me stop you right there. Show me your Vimrc."
+    s "Let me stop you right there. {b}Show me your Vimrc.{/b}"
     "Huh?"
-    s "I heard you bragging about your Vim setup, but you couldn't even get your heapchecker working."
+    s "I heard you bragging about your Vim setup, but you couldn't even get your heap checker working."
     "How do you know that? And who are you?"
     s "I'm Shell."
     $ s.name = "Michelle"
-    s "Malek seemed to be in a pretty bad mood after talking to you, and there's only one way that can happen."
+    s "Malek seemed to be in a pretty bad mood after talking to you, and there's only one way {i}that{/i} can happen."
     "(I guess that dude really did have a few loose screws.)"
-    "(Imagine only getting angry when other people can't fix their code.)"
-    s "Yeah, this Vimrc is kinda fancy, but it's still pretty trash. No wonder your code didn't work."
+    "(Imagine getting angry when other people can't fix their code.)"
+    s "Yeah, this Vimrc is fancy, but it's still pretty {i}trash{/i}. No wonder your code didn't work."
     "What does having a bad setup have to do with not having working code?"
     s "Damn, you really are clueless, aren't you?"
     show shell normal with dissolve
-    s "Maybe you should join my Vim club. Someone like you could clearly use the help."
+    s "Maybe you should join my Vim club. Someone like you could {i}clearly{/i} use the help."
     "..."
-    "(So this girl just showed up in a penguin hoodie, trashed my Vimrc, and now she wants me to join her club?)"
+    "(So this girl just shows up in a penguin hoodie, trashes my Vimrc, and now she wants me to join her club?)"
     "(She can't be serious...)"
     "Actually, I think I'll pass."
     show shell angry with dissolve
@@ -252,7 +246,7 @@ label shell_intro_bad:
     "(Ah shit, I should have guessed. The ones with the weird hoodies are always like this.)"
     show shell normal with dissolve
     s "See you at 5 in the activity room. If you don't show up, I know where to find you, [player_name]."
-    "(Alright, so she knows my name too. This day is going great.)"
+    "(Alright, she knows my name too. This day is going great.)"
     hide shell normal with dissolve
     "(...)"
     $ s.name = "???"
@@ -260,9 +254,9 @@ label shell_intro_bad:
 
 label shell_intro_bad2:
     show shell angry with dissolve
-    s "Let me stop you right there, [player_name]. What did you just say about Vim?"
+    s "Let me stop you right there, [player_name]. {b}What did you just say about Vim?{/b}"
     "Uhh.. that it's bad? Why do people even prefer it to other text editors? And how do you know my name?"
-    s "You take that back!" with hpunch
+    s "{b}You take that back!{/b}" with hpunch
     s "You can't go around bashing Vim like this!"
     "(Okay, so this girl is clearly crazy too.)"
     "Alright, I'll keep that in mind."
@@ -270,15 +264,15 @@ label shell_intro_bad2:
     s "My name is Shell."
     $ s.name = "Michelle"
     "Cool. I'm gonna go this way now."
-    s "You think I'm gonna let you go after you made fun of Vim?"
+    s "You think I'm gonna {i}let you go{/i} after you made fun of Vim?"
     "(Shit... She's not gonna slap me or something, is she?)"
     s "I'm signing you up to join my Vim club!"
-    "Hold up, hold up. There's a club just for Vim?"
+    "Hold up, hold up. There's a club {i}just{/i} for Vim?"
     "Why does that exist?"
-    s "You take that back!" with hpunch
-    "(Yup, I'm probably gonna get slapped.)"
-    s "I'll see you in the activity room at 5. If you don't show up, I'll tell the student council president to expel you!"
-    "(Welp, that's definitely worse than getting slapped.)"
+    s "{b}You take that back!{/b}" with hpunch
+    "(Yup, I'm gonna get slapped.)"
+    s "I'll see you in the activity room at 5. If you don't show up, I'll tell the student council president to {i}expel{/i} you!"
+    "(Welp, that's definitely {i}worse{/i} than getting slapped.)"
     "(This day is going great.)"
     hide shell angry with dissolve
     $ s.name = "???"
@@ -288,9 +282,9 @@ label shell_intro_bad2:
 
 label shell_intro_good:
     show shell star with dissolve
-    s "Did someone say Vim?"
+    s "Did someone say {i}Vim{/i}?"
     "Uh...yes?"
-    s "No one likes Vim more than I do!"
+    s "{i}No one{/i} likes Vim more than I do!"
     show shell normal with dissolve
     s "Do you want to join my Vim club?"
     "(Vim \"club\"?)"
@@ -301,11 +295,11 @@ label shell_intro_good:
     "Wait, but I don't even know who you are!"
     show shell normal with dissolve
     s "..."
-    s "Sorry about that. I've been trying to get people to join my club for a long time, 
+    s "Sorry about that. I've been trying to get new club members for a long time, 
         but no one's really interested."
-    s "I thought another Vimp like you could help me with finding members."
+    s "I thought another Vimp like you could help me."
     if vim_user:
-        "(\"Vimp\"? I call myself a Vim connoisseur. I don't think I'm at \"Vimp\" level...)"
+        "(\"Vimp\"? I consider myself a {i}Vim connoisseur{/i}. I don't think I'm at {i}\"Vimp\"{/i} level...)"
     else:
         "(\"Vimp\"? I don't even use Vim though...)"
     s "Anyway, I'm Michelle, but you can call me Shell. What's your name?"
@@ -340,7 +334,7 @@ label shell_intro_good:
     if join_vimclub:
         s "Here's the club form. Fill it out and put it in the box at the end of the hallway."
         "Why can't I just give it to the student council directly?"
-        s "They're typically very busy, so they make Packet deliver up students' requests from that box."
+        s "They're typically very busy, so they make Packet deliver students' requests from that box."
         s "Just so they don't get too many people trying to talk to them."
         "(Who's Packet?)"
     s "See you later, [player_name]!"
