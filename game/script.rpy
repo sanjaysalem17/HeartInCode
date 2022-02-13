@@ -14,7 +14,7 @@ define s = Character(name="???")
 define p = Character("Roxy")
 
 init:
-    #$ player_name = ""
+    $ player_name = ""
     $ duo_name = "Mr. SCS"
     $ join_stuco = False
     $ malloc_points = 0
@@ -25,21 +25,21 @@ init:
     $ stuco_task = -1
 # The game starts here.
 
-label malloc_oh:
+label start:
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
     #scene bg nighttime
-
+    scene bg classroom
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    #$ player_name = renpy.input("What is your name?", length=32)
-    #$ player_name = player_name.strip()
-    #$ player_name = player_name[0].upper() + player_name[1:]
+    $ player_name = renpy.input("What is your name?", length=32)
+    $ player_name = player_name.strip()
+    $ player_name = player_name[0].upper() + player_name[1:] if len(player_name) > 0 else player_name.capitalize()
     show malloc normal with dissolve
     $ vim_user = False
     # These display lines of dialogue.
@@ -74,9 +74,11 @@ label no_heapcheck:
     "And who's Roxy?"
     "Whatever. That guy needs serious help..."
     # few hours later
+    scene black
     show text "After a few hours of debugging..." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     "Hmm... my code still doesn't seem to work."
     "What the heck am I doing wrong here?"
     "..."
@@ -102,9 +104,11 @@ label malloc_epilogue:
     "But what could it be...?"
     "Hmm... I'm probably missing something dumb."
     "Maybe I should go ask Malek again."
+    scene black
     show text "You find Malek ranting about freeing memory to some frightened freshmen." with dissolve
     pause 2.0
     hide text with dissolve
+    scene bg classroom
     show malloc normal with dissolve
     m "Oh, hello [player_name]. What brings you back here?"
     "I wrote a heapchecker, but I still can't figure out my issue."
@@ -351,9 +355,11 @@ label shell_intro_good:
 
 label proxy_good_req_den:
     # the next day
+    scene black
     show text "The next day..." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     show shell normal with dissolve
     $ s.name = "Michelle"
     s "Hey, [player_name]! Did you submit your club form?"
@@ -442,9 +448,11 @@ label proxy_good_req_den:
     
 
 label proxy_join_stuco:
+    scene black
     show text "A few days later..." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     show malloc normal with dissolve
     $ s.name = "Michelle"
     m "Hello, [player_name], are you doing well?"
@@ -515,6 +523,7 @@ label proxy_join_stuco:
                 p "Hopefully we'll cross paths again in the future."
                 hide proxy normal with dissolve
                 hide malloc normal with dissolve
+                scene black
                 show text "A few weeks later..." with dissolve
                 pause 1.0
                 hide text with dissolve
@@ -540,9 +549,11 @@ label review_session1:
     jump break_time
 
 label proxy_bad_req_den:
+    scene black
     show text "A few days later..." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     show shell angry with dissolve
     $ s.name = "Michelle"
     s "So, Vim hater, did you submit your club form?"
@@ -604,9 +615,11 @@ label proxy_bad_req_den:
 
 
 label vim_club:
+    scene black
     show text "The next day..." with dissolve
     pause 1.0
-    hide text
+    hide text with dissolve
+    scene bg classroom
     "..."
     "I think this is the right room..."
     show shell normal with dissolve
@@ -699,9 +712,11 @@ label vim_club:
     "Rebecca" "That's very pog, Evelyn."
     s "So does anyone have some obscure Vim commands they want to share for other people's cheatsheets?"
     hide shell normal with dissolve
+    scene black
     show text "The club members spend some time sharing their favorite obscure Vim commands." with dissolve
     pause 1.5
     hide text with dissolve
+    scene bg classroom
     show shell normal with dissolve
     s "Ok, now we're gonna have a pop quiz!"
     "Evelyn" "Awwww...."
@@ -755,11 +770,13 @@ label vim_club:
     hide evelyn normal with dissolve
     hide rebecca normal with dissolve
     #hide adb normal with dissolve
+    scene black
     show text "The club goes through a Vim pop quiz, and Steven gets bonked multiple times." with dissolve
     pause 1.5
     show text "His Vimrc key bindings also get remapped, so overall it's turning out to be a great day for Steven." with dissolve
     pause 1.5
     hide text with dissolve
+    scene bg classroom
     show shell normal with dissolve
     "Evelyn" "That was pretty fun!"
     show shell normal at midright with move
@@ -816,9 +833,11 @@ label vim_club:
     jump break_time
 
 label stuco_good:
+    scene black
     show text "The next day..." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     "I think this is the right room..."
     show proxy normal with dissolve
     p "Hello, [player_name]! How are you doing today?"
@@ -896,9 +915,11 @@ label stuco_good:
     "Graff" "(Hopefully my middle school chuuni pictures aren't being spread around...)"
     hide proxy normal with dissolve
     hide critical normal with dissolve
+    scene black
     show text "Roxy goes over some of the menial tasks, which are trivial and left to interpretation by the player." with dissolve
     pause 2.0
     hide text with dissolve
+    scene bg classroom
     show proxy normal with dissolve
     show critical normal at right with dissolve
     p "So the three main things we have to do now are talk to the sysadmin to make sure the WiFi bandwidth is enough for the expected crowd,..."
@@ -940,9 +961,11 @@ label stuco_good:
     jump break_time
 
 label stuco_bad:
+    scene black
     show text "The next day, you make your way to the student council room." with dissolve
     pause 2.0
     hide text with dissolve
+    scene bg classroom
     $ stuco_task = -1
     "Hmm... I think this is the right room."
     "Hopefully no one's here, so I don't have to be stuck in this stupid meeting."
@@ -1014,9 +1037,11 @@ label stuco_bad:
     "Graff" "(Hopefully my middle school chuuni pictures aren't being spread around...)"
     hide proxy normal with dissolve
     hide critical normal with dissolve
+    scene black
     show text "Roxy goes over some of the menial tasks, which are trivial and left to interpretation by the player." with dissolve
     pause 2.0
     hide text with dissolve
+    scene bg classroom
     show proxy normal with dissolve
     show critical normal at right with dissolve
     p "So the four main things we have to do now are talk to the sysadmin to make sure the WiFi bandwidth is enough for the expected crowd,..."
@@ -1061,9 +1086,11 @@ label stuco_bad:
 
 
 label break_time:
+    scene black
     show text "One week later..." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     "(Finally, I get a long weekend!)"
     "(Hmm... what should I do?)"
     "(Oh wait, is that Malek?)"
@@ -1138,13 +1165,16 @@ label arcade:
 
 
 label second_intro:
-    "Hmm.. it's been a while since I've seen Cash or Bitsy."
+    "Hmm.. it's been a while since I've seen Cash, Bitsy, or Buffy."
     menu:
-        "I should go visit Cash.":
+        "I should go find Cash.":
             jump meet_cache
-        "I should go visit Bitsy.":
+        "I should go find Bitsy.":
             $ data_points += 30
             jump meet_bitsy
+        "I should go find Buffy.":
+            $ attack_points += 30
+            jump meet_buffy
 
 label meet_cache:
     "..."
@@ -1168,9 +1198,11 @@ label meet_cache:
     c "Great!"
     c "Let's take the 61D down this way."
     hide cache normal with dissolve
+    scene black
     show text "You and Cash get on the 61D bus down to the Waterfront." with dissolve
     pause 1.5
     hide text with dissolve
+    scene bg classroom
     show cache normal with dissolve
     "So Cash, how's your relationship going?"
     c "Oh it's..."
@@ -1235,9 +1267,11 @@ label meet_cache:
     "Don't worry about it."
     c "Oop, here's our stop!"
     hide cache normal with dissolve
+    scene black
     show text "You and Cash enjoy a nice meal at a nearby restaurant and head to the nightclub." with dissolve
     pause 2.0
     hide text with dissolve
+    scene bg classroom
     show cache normal with dissolve
     c "Ok, here we are."
     "Decider" "Can I see your ID?"
@@ -1256,9 +1290,11 @@ label meet_cache:
     "Shalin" "Hey, everyone!"
     "Albert" "I'm Albert, and this is Shalin, and we're [duo_name]!"
     "Shalin" "Hope you all enjoy our song!"
+    scene black
     show text "You listen to the opening acts and the rest of the comedy show, and enjoy a night of laughs and fun." with dissolve
     pause 2.0
     hide text with dissolve
+    scene bg classroom
     show cache normal with dissolve
     c "So, [player_name], did you enjoy the show?"
     "Yeah!"
@@ -1350,9 +1386,11 @@ label meet_bitsy:
     "Root" "You should be fine if you sit down for a while, but still, that was pretty fast!"
     "I...need some....water...."
     d "Right right, let's head back inside and find a water fountain."
+    scene black
     show text "The three of you head inside and find the nearest water fountain to hydrate." with dissolve
     pause 2.0
     hide text with dissolve
+    scene bg classroom
     d "Ah, that hits the spot!"
     "(My lungs are definitely dead now...)"
     "Root" "You should definitely join the track team, [player_name]!"
@@ -1420,11 +1458,18 @@ label meet_bitsy:
         jump after_break_stuco
     jump after_break_other
 
+label meet_buffy:
+    if join_stuco:
+        jump after_break_stuco
+    jump after_break_other
+
 
 label after_break_stuco:
+    scene black
     show text "A few days later..." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     "You have [proxy_points] points for proxy."
     "Ah, that was a nice break."
     "I guess I should actually get to that task I needed to do for the student council."
@@ -1441,15 +1486,19 @@ label after_break_stuco:
     return
 
 label after_break_other:
+    scene black
     show text "A few days later..." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     "Ah, that was a nice break."
     "I guess I should go take a walk before burying myself in studying for my midterms."
     "..."
+    scene black
     show text "You go on a long walk around campus, and find some students working in the park next to the school." with dissolve
     pause 2.0
     hide text with dissolve
+    scene bg classroom
     "???" "Wait, what are you doing?"
     "???" "I'm pruning my trees!"
     "???" "No, that's my tree, Minnie!"
@@ -1572,9 +1621,11 @@ label after_break_other:
     return
     
 label sysadmin:
+    scene black
     show text "You make your way to the IT building and find the server room." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     "..."
     "Hmm, this seems like the place."
     "Hello?"
@@ -1637,9 +1688,11 @@ label sysadmin:
     return
 
 label cooking_club:
+    scene black
     show text "After contacting the cooking club, you set up a time to talk during one of their meetings." with dissolve
     pause 1.5
     hide text with dissolve
+    scene bg classroom
     "So the club president is someone named Jenny..."
     "I think it's this room, right?"
     "..."
@@ -1707,9 +1760,11 @@ label cooking_club:
 
 
 label gaming_club:
+    scene black
     show text "You make your way to the Graphics Lounge to find the contact Roxy provided you with." with dissolve
     pause 1.5
     hide text with dissolve
+    scene bg classroom
     "Wow, this place is pretty nice.."
     "???" "Andy, what are you doing? Can you come help gank bot?"
     show andy normal with dissolve

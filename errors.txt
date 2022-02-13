@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/script2.rpy", line 83: expected 'image_name_component' not found.
-    hide 
-         ^
+The label start is defined twice, at File "game/script.rpy", line 28:
+label start:
+and File "game/script2.rpy", line 17:
+label start:
+
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Wed Feb  9 00:12:52 2022
+Wed Feb  9 19:51:21 2022

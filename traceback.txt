@@ -1,66 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00keymap.rpy", line 469, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 469, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 469, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-AttributeError: 'NoneType' object has no attribute 'stores'
+  File "game/script.rpy", line 42, in script
+    $ player_name = player_name[0].upper() + player_name[1:]
+  File "game/script.rpy", line 42, in <module>
+    $ player_name = player_name[0].upper() + player_name[1:]
+IndexError: string index out of range
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/bootstrap.py", line 331, in bootstrap
-    renpy.main.main()
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/main.py", line 550, in main
-    if renpy.parser.report_parse_errors():
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/parser.py", line 3015, in report_parse_errors
-    renpy.display.error.report_parse_errors(full_text, error_fn)
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/display/error.py", line 198, in report_parse_errors
-    error_fn=error_fn,
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/game.py", line 284, in invoke_in_new_context
-    return callable(*args, **kwargs)
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/display/error.py", line 46, in call_exception_screen
-    return renpy.ui.interact(mouse="screen", type="screen", suppress_overlay=True, suppress_underlay=True)
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/display/core.py", line 3325, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/display/core.py", line 3800, in interact_core
-    renpy.loader.check_autoreload()
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/loader.py", line 1132, in check_autoreload
-    renpy.exports.reload_script()
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/exports.py", line 1867, in reload_script
-    renpy.game.call_in_new_context("_save_reload_game")
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/game.py", line 344, in call_in_new_context
-    return renpy.execution.run_context(False)
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/execution.py", line 922, in run_context
-    context.run()
-  File "renpy/common/00keymap.rpy", line 469, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 469, in script
-    python hide:
+  File "game/script.rpy", line 42, in script
+    $ player_name = player_name[0].upper() + player_name[1:]
   File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/ast.py", line 928, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/python.py", line 2245, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "renpy/common/00keymap.rpy", line 469, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/loadsave.py", line 394, in save
-    roots = renpy.game.log.freeze(None)
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/python.py", line 2142, in freeze
-    self.complete(False)
-  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/python.py", line 1726, in complete
-    self.current.stores[name], self.current.delta_ebc[name] = sd.get_changes(begin)
-AttributeError: 'NoneType' object has no attribute 'stores'
+  File "game/script.rpy", line 42, in <module>
+    $ player_name = player_name[0].upper() + player_name[1:]
+IndexError: string index out of range
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 HeartInCode 1.0
-Wed Feb  2 10:32:24 2022
+Sat Feb 12 00:03:03 2022
