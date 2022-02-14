@@ -49,7 +49,7 @@ label start:
     m "I can take a look at it, but you'll need to answer my question first."
     
     show malloc eyes with dissolve
-    m "Did you write a heap checker?"
+    m "{b}Did you write a heap checker?{/b}"
     menu:
         "Yes.":
             $ malloc_points += 30
@@ -332,7 +332,7 @@ label shell_intro_good:
     show shell normal at midleft with dissolve
     s "Oh shoot, I gotta run!"
     if join_vimclub:
-        s "Here's the club form. Fill it out and put it in the box at the end of the hallway."
+        s "Here's the club form. Fill it out and submit in the box at the end of the hallway."
         "Why can't I just give it to the student council directly?"
         s "They're typically very busy, so they make Packet deliver students' requests from that box."
         s "Just so they don't get too many people trying to talk to them."
@@ -359,61 +359,57 @@ label proxy_good_req_den:
     s "Hey, [player_name]! Did you submit your club form?"
     "Yeah, I'm going to check out the result now."
     s "Cool, I'll come with you!"
-    s "So, did you fix the issue with your dynamic memory homework?"
-    "..."
+    s "Did you fix the issue with your dynamic memory homework?"
     "Yeah, I just forgot a semicolon. Dumb mistakes go brrr.."
-    s "Oh, don't worry about that!"
-    s "At least you wrote a heapchecker!"
-    s "It would have taken much longer if you didn't write one."
-    "Hmm, maybe you're right..."
+    s "Don't worry about that!"
+    s "At least you wrote a heap checker!"
+    s "It would have taken {i}much{/i} longer if you didn't write one."
+    "Maybe you're right..."
     "..."
-    s "..."
     "Ah, here's my form..."
     s "What does it say?"
     "Request denied?"
     s "Huh? Let me see that..."
     s "..."
-    s "..."
-    s "Hmm, maybe we should go talk to the student council president."
+    s "We should go talk to the student council president."
     "Uhh, alright...?"
     "I thought you said they didn't like random people barging in."
     s "Don't worry, Roxy's a good friend of mine. She'll talk to us if I'm with you."
-    s "There's gotta be some reason why she would reject your form. Maybe something on here is wrong."
+    s "There's gotta be a reason why she would reject your form. Maybe there's a mistake on the form."
     "..."
     s "Let's go ask her!"
     
 
-    s "Hey, look, she's over there!"
+    s "Hey, she's over there!"
     show shell star with dissolve
     s "Roxy!"
     show shell star at midright with move
     show proxy normal at midleft with dissolve
-    p "Oh, hello, Shell. How are you?"
+    p "Oh, hello Shell. How are you?"
     s "I'm doing great!"
     s "Is that Packet with you?"
-    p "Yes, I just returned from the storage closet to refill Packet's food bowl."
+    p "Yes, I just refilled Packet's food bowl."
     "(So, Packet is a cat...)"
-    s "Ah, that makes sense..."
-    p "So, who's this with you?"
+    p "Who's this with you?"
     show shell normal at midright with dissolve
-    s "This is [player_name]. We wanted to ask why you denied their request to join my Vim club."
-    p "Oh, you're [player_name]? I wanted to talk to you about something, anyway."
+    s "This is [player_name]. We wanted to ask why you denied their Vim club member application."
+    p "You're [player_name]? I wanted to talk to you about something, anyway."
     p "Your club member request got denied? That's odd."
     p "Let's go back to the council room and talk there."
 
-    p "Hmm... let me see..."
+    p "Hmm... Let me see..."
     p "Ah, here it is."
     p "Looks like Steven accidentally rejected it."
-    p "I'll have to yell at him later..."
+    p "I'll have to yell at him later."
     p "Anyway, what I wanted to ask you was..."
     p "Are you interested in joining the student council?"
     p "I know this is very sudden, but you seem to be in good academic standing and have good interpersonal skills."
-    p "Malek especially was very impressed by your programming skills."
+    p "Malek especially was especially impressed by your programming skills."
     s "Oooh that's great! You should definitely join! I've heard it's super fun!"
     s "You also get to plan the school festival!"
-    p "That is correct. But keep in mind, it's not all fun."
+    p "That is correct. But keep in mind, it's not all fun and games."
     p "The student council has to deal with important matters as well."
-    p "It will involve a lot of time commitment, but I do believe the rewards are worth it."
+    p "It will involve a large time commitment, but I do believe the rewards are worth it."
     p "So, what do you say?"
     menu:
         "I'm definitely interested!":
@@ -430,7 +426,7 @@ label proxy_good_req_den:
     "..."
     "...."
     "..."
-    "Hmm, looks good to me."
+    "Looks good to me."
     p "Great!"
     p "You should be good to go, then."
     hide shell normal with dissolve
@@ -449,49 +445,47 @@ label proxy_join_stuco:
     scene bg classroom
     show malloc normal with dissolve
     $ s.name = "Michelle"
-    m "Hello, [player_name], are you doing well?"
+    m "Hello [player_name], are you doing well?"
     "Yeah, how about you?"
     m "Likewise."
     "So, why'd you ambush me first thing in the morning today?"
     m "There's a friend of mine who'd like to meet you."
-    "Oh really? Who?"
-    m "Roxy, the student council president. She wants to ask if you're interested in joining the student council."
+    "Really? Who?"
+    m "Roxy, the student council president. She wants to recruit you for the student council."
     menu:
-        "(Hmm, I'm not really interested, but I'll hear her out.)":
+        "(I'm not really interested, but I'll hear her out.)":
             "So where is the student council room?"
         "(Yes! Something to add to my LinkedIn profile!)":
             $ proxy_points += 30
             $ malloc_points += 30
             $ join_stuco = True
-            "Oooh yes, I'm definitely interested!"
+            "Yes, I'm definitely interested!"
     m "It's just down this way."
-    m "..."
-    m "Here we are."
     m "Roxy, I've brought [player_name]."
     show malloc normal at midright with move
     show proxy normal at midleft with dissolve
-    p "Just a second, I'm trying to get Packet to eat his food."
-    p "Come on, Packet. I know this food isn't as good, but if you don't finish it then I can't get you the one you like."
+    p "Just a second, I'm persuading Packet to eat his food."
+    p "Come on, Packet. I know this isn't your favorite, but if you don't finish it then I can't get you the one you like."
     "Packet" "nyan nyan"
     p "There we go..."
     "Packet" "mrrrroww"
-    "(So Packet is a cat...)"
-    p "So, [player_name], did Malek tell you why I wanted to talk to you?"
-    "Yeah, he said you wanted me to join the student council?"
-    "But why me, though?"
+    "(So, Packet is a cat...)"
+    p "[player_name], did Malek explain why I wanted to talk to you?"
+    "Yeah, he said you wanted to recruit me for the student council?"
+    "Why me, though?"
     m "I recommended you."
-    p "Malek here was pretty outspoken about your interpersonal and technical skills, so I thought I'd ask you to join, since we need an additional member."
+    p "Malek here was pretty outspoken about your interpersonal and technical skills, so I thought I'd ask you to join, since we also need an additional member."
     "(Why does this feel like some kind of anime plot...?)"
     p "So, what do you say?"
     if join_stuco:
         $ proxy_points += 30
         "I'd love to join!"
     else:
-        "Hmm... I'm not really sure if I want to..."
+        "I'm not really sure if I want to..."
         "What do I get out of being on the student council?"
         p "You get to help us plan the School Festival."
-        "Hmmm....."
-        p "You also get free food vouchers for the festival. Does that interest you?"
+        "Hmmm..."
+        p "You will also receive free food vouchers for the festival. Does that interest you?"
         menu:
             "Yes!":
                 $ proxy_points += 30
@@ -507,11 +501,11 @@ label proxy_join_stuco:
                 "..."
                 "Hmm, looks good to me."
                 p "Great!"
-                p "You should be good to go, then."
+                p "You should be good to go."
                 hide proxy normal with dissolve
                 hide malloc normal with dissolve
                 jump stuco_good
-            "Actually, I'm good, thanks.":
+            "Actually, I'm good. Thanks.":
                 p "No worries, I understand."
                 p "Enjoy the rest of your day!"
                 p "Hopefully, we'll cross paths again in the future."
