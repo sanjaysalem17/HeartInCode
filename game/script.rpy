@@ -1107,7 +1107,7 @@ label review_session1:
     hide attack normal with dissolve
     hide data normal with dissolve
     scene black
-    show text "The four of you go over some of the earlier Systems concepts, so that you don't have to cram before the midterm." with with dissolve
+    show text "The four of you go over some of the earlier Systems concepts, so that you don't have to cram before the midterm." with dissolve
     pause 1.5
     hide text with dissolve
     scene classroom
