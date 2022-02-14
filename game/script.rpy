@@ -1070,11 +1070,10 @@ label review_session1:
     pause 1.0
     hide text with dissolve
     scene bg classroom
-    "I'm glad I did the programming homeworks on time, but there's no way I'm gonna remember anything that was taught in lecture..."
-    "I couldn't study because debugging took {i}way{/} too long."
+    "I'm glad I finished the programming homeworks on time, but there's no way I'm gonna remember anything that was taught in lecture..."
+    "I didn't have time to study because debugging took {i}way{/} too long."
     "Ishan" "That's because this course doesn't use Rust, smh."
-    "Huh?"
-    "Wait, who are you?"
+    "Huh? Who are you?"
     "Ishan" "I'm a Rust main. We scale late game."
     "That in no way answers my question, but whatever."
     "Ishan" "If this course used Rust, the safety checks would make sure you don't waste time debugging."
@@ -1087,31 +1086,28 @@ label review_session1:
     "No worries."
     "Do you know how struct padding works for this scenario?"
     "Ishan" "Hmm, lemme take a look."
-    "Ishan" "..."
-    "Ishan" "Oh yeah, you'd have to round the total size to a multiple of 8 because the long is the largest type here."
-    "Ah, that makes sense."
+    "Ishan" "You'd have to round the total size to a multiple of 8 because the long is the largest type here."
+    "That makes sense."
     show data normal at midleft with dissolve
     d "Hey, [player_name]! Hey, Ishan!"
-    "Ishan" "Hello hello"
+    "Ishan" "Hello hello."
     "Hey!"
     d "Are you going over the review problems?"
     d "We still have a few weeks before the midterm, right?"
-    "Ishan" "Yes, but none of understand what's going on in lecture."
+    "Ishan" "Yes, but none of us understand what's going on in lecture."
     "(Good, so it's not just me.)"
-    d "Ah, ok."
-    d "I should probably review some too, then."
+    d "Ah, ok. I should probably review some too, then."
     d "How does the stack pointer stuff work again?"
     show data normal at left with move
     show attack normal at right with dissolve
-    a "Hey!"
-    a "Did someone say \"stack pointer\"?"
+    a "Hey! Did someone say \"stack pointer\"?"
     "Yes."
     "Ishan" "All this %rsp stuff is confusing."
-    a "Oh, I think I can help explain it."
+    a "I think I can help explain it."
     hide attack normal with dissolve
     hide data normal with dissolve
     scene black
-    show text "The four of you go over some of the earlier Systems concepts, so that you don't have to heavy cram before the midterm." with with dissolve
+    show text "The four of you go over some of the earlier Systems concepts, so that you don't have to cram before the midterm." with with dissolve
     pause 1.5
     hide text with dissolve
     scene classroom
@@ -1119,10 +1115,9 @@ label review_session1:
     show data normal at right with dissolve
     "Ishan" "So then this part of the heap has external fragmentation."
     d "Yeah, you'll have to coalesce some of the memory together to make sure that doesn't happen."
-    a "Yup!"
     "Hmm.. I think I get most of this now."
     d "Yeah, me too!"
-    a "This was a pretty spontaneously \"review session\", haha."
+    a "This was a pretty spontaneous \"review session\", haha."
     a "I'll see you all later! I have to get to my Calc recitation."
     d "Oh shoot, me too. See you!"
     "Ishan" "Well, this was fun."
