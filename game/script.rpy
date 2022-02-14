@@ -49,7 +49,7 @@ label start:
     m "I can take a look at it, but you'll need to answer my question first."
     
     show malloc eyes with dissolve
-    m "Did you write a heap checker?"
+    m "{b}Did you write a heap checker?{/b}"
     menu:
         "Yes.":
             $ malloc_points += 30
@@ -332,7 +332,7 @@ label shell_intro_good:
     show shell normal at midleft with dissolve
     s "Oh shoot, I gotta run!"
     if join_vimclub:
-        s "Here's the club form. Fill it out and put it in the box at the end of the hallway."
+        s "Here's the club form. Fill it out and submit in the box at the end of the hallway."
         "Why can't I just give it to the student council directly?"
         s "They're typically very busy, so they make Packet deliver students' requests from that box."
         s "Just so they don't get too many people trying to talk to them."
@@ -359,61 +359,57 @@ label proxy_good_req_den:
     s "Hey, [player_name]! Did you submit your club form?"
     "Yeah, I'm going to check out the result now."
     s "Cool, I'll come with you!"
-    s "So, did you fix the issue with your dynamic memory homework?"
-    "..."
+    s "Did you fix the issue with your dynamic memory homework?"
     "Yeah, I just forgot a semicolon. Dumb mistakes go brrr.."
-    s "Oh, don't worry about that!"
-    s "At least you wrote a heapchecker!"
-    s "It would have taken much longer if you didn't write one."
-    "Hmm, maybe you're right..."
+    s "Don't worry about that!"
+    s "At least you wrote a heap checker!"
+    s "It would have taken {i}much{/i} longer if you didn't write one."
+    "Maybe you're right..."
     "..."
-    s "..."
     "Ah, here's my form..."
     s "What does it say?"
     "Request denied?"
     s "Huh? Let me see that..."
     s "..."
-    s "..."
-    s "Hmm, maybe we should go talk to the student council president."
+    s "We should go talk to the student council president."
     "Uhh, alright...?"
     "I thought you said they didn't like random people barging in."
     s "Don't worry, Roxy's a good friend of mine. She'll talk to us if I'm with you."
-    s "There's gotta be some reason why she would reject your form. Maybe something on here is wrong."
+    s "There's gotta be a reason why she would reject your form. Maybe there's a mistake on the form."
     "..."
     s "Let's go ask her!"
     
 
-    s "Hey, look, she's over there!"
+    s "Hey, she's over there!"
     show shell star with dissolve
     s "Roxy!"
     show shell star at midright with move
     show proxy normal at midleft with dissolve
-    p "Oh, hello, Shell. How are you?"
+    p "Oh, hello Shell. How are you?"
     s "I'm doing great!"
     s "Is that Packet with you?"
-    p "Yes, I just returned from the storage closet to refill Packet's food bowl."
+    p "Yes, I just refilled Packet's food bowl."
     "(So, Packet is a cat...)"
-    s "Ah, that makes sense..."
-    p "So, who's this with you?"
+    p "Who's this with you?"
     show shell normal at midright with dissolve
-    s "This is [player_name]. We wanted to ask why you denied their request to join my Vim club."
-    p "Oh, you're [player_name]? I wanted to talk to you about something, anyway."
+    s "This is [player_name]. We wanted to ask why you denied their Vim club member application."
+    p "You're [player_name]? I wanted to talk to you about something, anyway."
     p "Your club member request got denied? That's odd."
     p "Let's go back to the council room and talk there."
 
-    p "Hmm... let me see..."
+    p "Hmm... Let me see..."
     p "Ah, here it is."
     p "Looks like Steven accidentally rejected it."
-    p "I'll have to yell at him later..."
+    p "I'll have to yell at him later."
     p "Anyway, what I wanted to ask you was..."
     p "Are you interested in joining the student council?"
     p "I know this is very sudden, but you seem to be in good academic standing and have good interpersonal skills."
-    p "Malek especially was very impressed by your programming skills."
+    p "Malek was especially impressed by your programming skills."
     s "Oooh that's great! You should definitely join! I've heard it's super fun!"
     s "You also get to plan the school festival!"
-    p "That is correct. But keep in mind, it's not all fun."
+    p "That is correct. But keep in mind, it's not all fun and games."
     p "The student council has to deal with important matters as well."
-    p "It will involve a lot of time commitment, but I do believe the rewards are worth it."
+    p "It will involve a large time commitment, but I do believe the rewards are worth it."
     p "So, what do you say?"
     menu:
         "I'm definitely interested!":
@@ -430,7 +426,7 @@ label proxy_good_req_den:
     "..."
     "...."
     "..."
-    "Hmm, looks good to me."
+    "Looks good to me."
     p "Great!"
     p "You should be good to go, then."
     hide shell normal with dissolve
@@ -449,49 +445,47 @@ label proxy_join_stuco:
     scene bg classroom
     show malloc normal with dissolve
     $ s.name = "Michelle"
-    m "Hello, [player_name], are you doing well?"
+    m "Hello [player_name], are you doing well?"
     "Yeah, how about you?"
     m "Likewise."
     "So, why'd you ambush me first thing in the morning today?"
     m "There's a friend of mine who'd like to meet you."
-    "Oh really? Who?"
-    m "Roxy, the student council president. She wants to ask if you're interested in joining the student council."
+    "Really? Who?"
+    m "Roxy, the student council president. She wants to recruit you for the student council."
     menu:
-        "(Hmm, I'm not really interested, but I'll hear her out.)":
+        "(I'm not really interested, but I'll hear her out.)":
             "So where is the student council room?"
         "(Yes! Something to add to my LinkedIn profile!)":
             $ proxy_points += 30
             $ malloc_points += 30
             $ join_stuco = True
-            "Oooh yes, I'm definitely interested!"
+            "Yes, I'm definitely interested!"
     m "It's just down this way."
-    m "..."
-    m "Here we are."
     m "Roxy, I've brought [player_name]."
     show malloc normal at midright with move
     show proxy normal at midleft with dissolve
-    p "Just a second, I'm trying to get Packet to eat his food."
-    p "Come on, Packet. I know this food isn't as good, but if you don't finish it then I can't get you the one you like."
+    p "Just a second, I'm persuading Packet to eat his food."
+    p "Come on, Packet. I know this isn't your favorite, but if you don't finish it then I can't get you the one you like."
     "Packet" "nyan nyan"
     p "There we go..."
     "Packet" "mrrrroww"
-    "(So Packet is a cat...)"
-    p "So, [player_name], did Malek tell you why I wanted to talk to you?"
-    "Yeah, he said you wanted me to join the student council?"
-    "But why me, though?"
+    "(So, Packet is a cat...)"
+    p "[player_name], did Malek explain why I wanted to talk to you?"
+    "Yeah, he said you wanted to recruit me for the student council?"
+    "Why me, though?"
     m "I recommended you."
-    p "Malek here was pretty outspoken about your interpersonal and technical skills, so I thought I'd ask you to join, since we need an additional member."
+    p "Malek here was pretty outspoken about your interpersonal and technical skills, so I thought I'd ask you to join, since we also need an additional member."
     "(Why does this feel like some kind of anime plot...?)"
     p "So, what do you say?"
     if join_stuco:
         $ proxy_points += 30
         "I'd love to join!"
     else:
-        "Hmm... I'm not really sure if I want to..."
+        "I'm not really sure if I want to..."
         "What do I get out of being on the student council?"
         p "You get to help us plan the School Festival."
-        "Hmmm....."
-        p "You also get free food vouchers for the festival. Does that interest you?"
+        "Hmmm..."
+        p "You will also receive free food vouchers for the festival. Does that interest you?"
         menu:
             "Yes!":
                 $ proxy_points += 30
@@ -507,11 +501,11 @@ label proxy_join_stuco:
                 "..."
                 "Hmm, looks good to me."
                 p "Great!"
-                p "You should be good to go, then."
+                p "You should be good to go."
                 hide proxy normal with dissolve
                 hide malloc normal with dissolve
                 jump stuco_good
-            "Actually, I'm good, thanks.":
+            "Actually, I'm good. Thanks.":
                 p "No worries, I understand."
                 p "Enjoy the rest of your day!"
                 p "Hopefully, we'll cross paths again in the future."
@@ -546,20 +540,19 @@ label proxy_bad_req_den:
     scene bg classroom
     show shell angry with dissolve
     $ s.name = "Michelle"
-    s "So, Vim hater, did you submit your club form?"
-    "..."
+    s "So, {i}Vim hater{/i}, did you submit your club form?"
     "...Yes."
     s "Great! Let's go check its status!"
     "(Sigh...)"
     "(Why did life have to turn out this way?)"
-    "(If only I never met that Malek dude, I wouldn't be in this mess...)"
+    "(If only I never met that Malek dude, I wouldn't be in this mess.)"
     s "Hmm..."
     "What is it?"
     s "It says request denied..."
     "(Yes! This is great!)"
-    "Haha, well, if it got denied, then there's nothing else that can be done!"
+    "Haha, if it got denied then there's nothing else that can be done!"
     show shell normal with dissolve
-    s "Nope, we're gonna go talk to the student council president."
+    s "Just kidding, we're gonna go talk to the student council president."
     "(Damn, I should've known it wouldn't be that easy!)"
     s "Roxy probably had some reason for rejecting your member form."
     s "We can just ask her directly."
@@ -569,37 +562,37 @@ label proxy_bad_req_den:
     s "Roxy! Why did you reject [player_name]'s club member form?"
     show shell normal at midleft with move
     show proxy normal at midright with dissolve
-    p "Oh, hello, Shell."
+    p "Hello, Shell."
     "Packet" "mrroww!"
     p "Is this [player_name]?"
     p "I actually wanted to talk to you about that."
     p "Malek told me about how much of a troublemaker you are, so I decided to keep a closer eye on you."
     p "Please sign at the bottom of this form."
-    "(\"Troublemaker\"? All I did was not write a heapchecker.)"
+    "(\"Troublemaker\"? All I did was not write a heap checker.)"
     "(Is that all it takes to be a troublemaker here?)"
     "..."
     "(Wait a second... \"probationary student council member\")?"
-    "You can't make me do that! This has to be against the rules or something!"
+    "You can't make me do that! This has to be against the rules!"
     "I refuse!"
     show proxy okawaii at midright with dissolve
     p "How cute."
-    p "You do understand that I am the student council president, do you not?"
-    p "You have to do whatever I say, or I can get you expelled from this institution."
+    p "You understand that I am the student council president, do you not?"
+    p "You have to do whatever I say, or I can get you expeled from this institution."
     p "For I have the power to do so."
     "..."
     "(Ah shit...)"
     "..."
     "(End my suffering...)"
-    "(All these idiots with their heapchecker complexities can go to hell for all I care.)"
+    "(All these idiots with their heap checker complexities can go to hell for all I care.)"
     show proxy normal at midright with dissolve
     p "Thank you for your cooperation."
     p "I'll see you tomorrow at 3 in the student council office."
     hide proxy normal with dissolve
     show shell normal at center with move
     "..."
-    s "Haha, looks like Roxy thought of an even worse punishment for you, Vim hater!"
+    s "Haha, looks like Roxy thought of an even worse punishment for you, {i}Vim hater{/i}!"
     "Please stop calling me that."
-    s "Have fun suffering!"
+    s "Have fun {i}suffering{/i}!"
     hide shell normal with dissolve
     jump stuco_bad
 
@@ -610,7 +603,6 @@ label vim_club:
     pause 1.0
     hide text with dissolve
     scene bg classroom
-    "..."
     "I think this is the right room..."
     show shell normal with dissolve
     s "Hey, [player_name]!"
@@ -618,7 +610,7 @@ label vim_club:
     menu:
         "I'm doing well!":
             s "That's great!"
-            s "Hopefully you enjoy your first Vim club meeting!"
+            s "Hopefully you'll enjoy your first Vim club meeting!"
         "Not that well, actually...":
             s "Oh, I'm sorry to hear that."
             s "Hopefully your first Vim club meeting cheers you up!"
@@ -628,18 +620,17 @@ label vim_club:
     s "This is our newest member, [player_name]."
     "Uh, ... hello."
     s "Don't be shy!"
-    s "All these people like Vim just as much as you and me!"
-    "..."
+    s "Everyone here likes Vim just as much as you and me!"
     s "So, before we get started, does anyone remember what the first rule of Vim club is?"
     "Is it..."
     menu:
         "Don't talk about Vim club?":
             $ shell_points += 30
             s "Haha, you're pretty funny!"
-        "Write a heapchecker?":
+        "Write a heap checker?":
             $ shell_points += 20
             s "Haha, you're pretty funny!"
-            s "We don't really need heapcheckers when we use Vim."
+            s "We don't really need heap checkers when we use Vim."
         "Have a fancy Vimrc?":
             $ shell_points += 30
             s "Haha, you don't need a fancy Vimrc to join this club."
@@ -651,7 +642,7 @@ label vim_club:
     "Rebecca" "That's pretty zesty, besty. You're too big brained."
     show adb normal at left with dissolve
     "ADB" "Hehe I just stole a cheatsheet from Google..."
-    "ADB" "Why do more work when someone else already did the work?" 
+    "ADB" "Why do more work when someone else already did it?" 
     hide rebecca normal with dissolve
     hide evelyn normal with dissolve
     hide adb normal with dissolve
@@ -659,7 +650,7 @@ label vim_club:
     show steven normal at midright with dissolve
     "Steven" "I have a question. How do I exit Vim?"
     show shell angry at midleft with dissolve
-    s "Steven, what are you doing here?"
+    s "Steven, what are {i}you{/i} doing here?"
     s "Shouldn't you be at the student council meeting?"
     "Steven" "Well, they ran out of food, so I came here instead."
     "Steven" "Have the snacks arrived yet?"
@@ -669,28 +660,27 @@ label vim_club:
     hide rebecca normal with dissolve
     "Who is this guy?"
     s "Steven's {i}supposed{/i} to be the secretary of the student council."
-    "Steven" "That is correct, but it's not like many people are joining new clubs right now."
-    "Steven" "So I don't really have anything to do there."
+    "Steven" "That's correct, but it's not like many people are joining new clubs right now."
+    "Steven" "I don't really have anything to do there."
     "Steven" "I'd rather come here and flex my fancy Vimrc on you peasants."
     "Wait, hold up."
     "You have a fancy Vimrc, but you don't know how to exit Vim?"
     "Are you serious?"
     s "What are you talking about, Steven?"
-    s "Of course people are trying to join clubs right now, it's the start of the semester!"
+    s "{i}Of course{/i} people are trying to join clubs right now, it's the start of the semester!"
     s "When was the last time you checked your school email?"
     "Steven" "Uhh..."
-    s "That's what I thought."
+    s "That's what I thought!"
     s "Now go sit in the Emacs corner while you approve all those member requests."
     "Steven" "(Sigh...)"
     hide steven normal with moveoutright
     show shell normal at center with move
-    s "..."
     "Damn, Shell, you almost sound like an actual member of the student council."
     "More so than Steven, anyway."
-    "Why did you not join?"
-    s "Well, my sister used to run this club, but she let me do it because she needed to focus on applying to jobs before graduation."
+    "Why are you not a part of it?"
+    s "Well, my sister used to run this club, but she let me do it instead because she needed to focus on job applications before graduation."
     s "She also has a bunch of time management issues..."
-    s "So I don't think I'd be able to run the Vim club and be on the student council at the same time."
+    s "So I don't think I'd be able to run the Vim club {i}and{/i} be on the student council at the same time."
     menu:
         "Ah, I see.":
             $ shell_points += 10
@@ -700,10 +690,10 @@ label vim_club:
     s "So, like Rebecca said, having a cheatsheet is going to really save your butt when it comes to Vim."
     s "Unless you're as big brained as Evelyn over here."
     "Rebecca" "That's very pog, Evelyn."
-    s "So does anyone have some obscure Vim commands they want to share for other people's cheatsheets?"
+    s "So does anyone have any obscure Vim commands they want to share for other people's cheatsheets?"
     hide shell normal with dissolve
     scene black
-    show text "The club members spend some time sharing their favorite obscure Vim commands." with dissolve
+    show text "The club spends some time sharing favorite obscure Vim commands." with dissolve
     pause 1.5
     hide text with dissolve
     scene bg classroom
@@ -714,7 +704,7 @@ label vim_club:
     s "You get to bonk Steven."
     show shell normal at midleft with move
     show steven normal at midright with dissolve
-    "Steven" "Wait what"
+    "Steven" "Wait what."
     "Steven" "I did not agree to this."
     s "Yeah well, I just got a message from Roxy saying you're kicked from the student council, so..."
     "Steven" "Huh?"
@@ -724,7 +714,7 @@ label vim_club:
     "ADB" "What does \"bonk\" mean in this context?"
     s "You get to remap Steven's Vimrc key bindings."
     "Steven" "Hold up."
-    "Steven" "Wut"
+    "Steven" "Wut."
     show adb normal at left with dissolve
     "ADB" "Hahaha!"
     "ADB" "La bomba!"
@@ -742,8 +732,7 @@ label vim_club:
     show evelyn normal at center with move
     show rebecca normal at midleft with dissolve
     #show adb normal at left with dissolve
-    "Rebecca" "Oh I think I have one."
-    "Rebecca" "I can go get it, gimme a few minutes."
+    "Rebecca" "Oh I think I have one, gimme a few minutes."
     "Steven" "Why do you people find joy in physically hurting me?"
     "Evelyn" "Because hurting you emotionally is bad."
     show adb normal at left with dissolve 
@@ -763,7 +752,7 @@ label vim_club:
     scene black
     show text "The club goes through a Vim pop quiz, and Steven gets bonked multiple times." with dissolve
     pause 1.5
-    show text "His Vimrc key bindings also get remapped, so overall it's turning out to be a great day for Steven." with dissolve
+    show text "His Vimrc key bindings also get remapped, so overall it's turning out to be a {i}great{/i} day for Steven." with dissolve
     pause 1.5
     hide text with dissolve
     scene bg classroom
@@ -772,25 +761,25 @@ label vim_club:
     show shell normal at midright with move
     show steven normal at midleft with dissolve
     "Steven" "No, it wasn't."
-    "ADB" "Now I have more stuff to put on that cheatsheet I stole haha"
+    "ADB" "Now I have more stuff to put on that cheatsheet I stole haha."
     "ADB" "Time to make a pull request..."
-    "Rebecca" "Bonk bonk"
+    "Rebecca" "Bonk bonk."
     "Steven" "Looks like I have to spend the next week fixing my key bindings..."
     "Steven" "Coming here may have been a mistake."
     "Evelyn" "What do you mean? This is the best club ever!"
     "Rebecca" "All fax no printer."
     s "Alright everyone, that concludes today's meeting!"
-    s "I hope everyone had a great time!"
+    s "I hope you all had a great time!"
     s "Except you, Steven. You deserved sitting in the Emacs corner like a delinquent while getting bonked."
-    "Steven" "lok"
-    s "Now that you're no longer on the student council, do you want to join Vim club instead?"
+    "Steven" "lok."
+    s "Now that you're no longer on the student council, do you want to join the Vim club instead?"
     "Steven" "(Sigh...)"
     "Steven" "There goes the only leadership experience I could put on my LinkedIn profile..."
     "Just put \"Professional Cow\" or something."
     "That should get you a few interviews."
     "Steven" "..."
-    "Steven" "I'm gonna leave before I lose anything else."
     "Steven" "I've probably already lost all my brain cells..."
+    "Steven" "I'm gonna leave before I lose anything else."
     hide steven normal with dissolve
     show shell normal at center with move
     show shell star with dissolve
@@ -805,7 +794,7 @@ label vim_club:
             $ shell_points += 30
             show shell sad with dissolve
             s "Aw, that's too bad..."
-            s "Hopefully our next meeting is more interesting for you, since we'll be planning for the school festival."
+            s "Hopefully our next meeting is more interesting for you. We'll be planning for the school festival."
             show shell normal with dissolve
     "What does Vim club usually do for the festival?"
     s "Oh, we usually set up a minigolf booth."
@@ -957,10 +946,10 @@ label stuco_bad:
     hide text with dissolve
     scene bg classroom
     $ stuco_task = -1
-    "Hmm... I think this is the right room."
-    "Hopefully no one's here, so I don't have to be stuck in this stupid meeting."
+    "I think this is the right room."
+    "Hopefully no one's here, so I'm not stuck in this stupid meeting."
     show proxy okawaii with dissolve
-    p "Ah, hello troublemaker."
+    p "Hello, troublemaker."
     "Ah shit."
     show proxy normal with dissolve
     p "Let's head in."
@@ -981,23 +970,23 @@ label stuco_bad:
     "Pax" "My free time is already distributed too thin, you know?"
     p "(Sigh...)"
     hide distr normal with dissolve
-    p "Anyway, do we want to wait a few minutes for Steven, or should I just kick him out now?"
-    "Halten" "Yes, I am down for punishing Steven."
+    p "Anyway, do we want to wait for Steven, or should I just kick him out now?"
+    "Halten" "Yes, I'm down for punishing Steven."
     "Graff" "Seconded."
     "Halten" "The other day, he wouldn't shut up about how his Vimrc was better than mine."
     "Halten" "I don't even know what that is!"
     "Graff" "Yeah, that sounds like a Steven thing to do."
     "Graff" "He also somehow dug up my embarrassing middle school pictures and started spreading rumors about me again."
-    "Graff" "Which I don't understand how people believed him, because he was wearing that obnoxious cow onesie again..."
+    "Graff" "I don't understand how people believed him. He was wearing that {i}obnoxious cow onesie{/i} again..."
     "Graff" "(Sigh...)"
     p "..."
-    p "So, [player_name], how would you like to be the new secretary of the student council?"
-    p "Looks like you got lucky, after all."
+    p "So, [player_name], looks like you got lucky."
+    p "How would you like to be the new secretary of the student council?"
     "Uh, well... it's better than being a probationary student, no?"
-    p "That is correct."
+    p "Correct."
     $ proxy_points += 30
-    "Halten" "Wait, hold on. Don't we have to do some kind of vote?"
-    "Halten" "Or have some pool of candidates to consider first?"
+    "Halten" "Wait, hold on. Don't we have to hold some kind of vote?"
+    "Halten" "Or have a pool of candidates to consider first?"
     "Graff" "Dude, there's literally no one else here."
     show distr normal at left with dissolve
     "Pax" "(Slurp...)"
@@ -1014,32 +1003,33 @@ label stuco_bad:
     p "[player_name], can you take down the meeting notes?"
     "Sure, I can do that, I guess."
     "(This is going surprisingly better than I expected...)"
-    p "So, we have quite a bit of tasks to get through today."
-    p "I guess the first thing to ask is how the budgeting for the festival is going?"
-    "Halten" "I think I already verified most of the club budgets and allocated funds, so we should be good to go on that end."
+    p "So, we have quite the agenda to get through today."
+    p "Our first task on today's agenda is budgeting for the festival. How is that going?"
+    "Halten" "I think I've already verified most of the club budgets and allocated funds, so we should be good on that end."
     "Graff" "Damn, this man just reduced all of his work for the rest of the semester."
     "Halten" "I mean, it's easy to finish my work when I'm not TAing a class and lowering students' grades, Mr. \"Destroyer of Dreams\"."
     "Graff" "..."
     "Graff" "How do you know about that name?"
-    "Halten" "hehe"
+    "Halten" "Hehe."
     p "Can we get back on topic, please?"
     "Graff" "..."
     "Graff" "(Hopefully my middle school chuuni pictures aren't being spread around...)"
     hide proxy normal with dissolve
     hide critical normal with dissolve
     scene black
-    show text "Roxy goes over some of the menial tasks, which are trivial and left to interpretation by the player." with dissolve
+    show text "Roxy goes over some menial tasks. These are trivial and left to interpretation by the player." with dissolve
     pause 2.0
     hide text with dissolve
     scene bg classroom
     show proxy normal with dissolve
     show critical normal at right with dissolve
-    p "So the four main things we have to do now are talk to the sysadmin to make sure the WiFi bandwidth is enough for the expected crowd,..."
-    p "check that the cooking club has a big enough space for their festival activities,..."
-    p "ask someone to create a logo and some posters for the festival,..."
-    p "and find some music artist to perform the opener."
-    p "Does anyone have a preference on which one they want to do?"
-    p "The music artist isn't as high priority, so if you happen to find someone, just let me know."
+    p "So the four main things we have to do now are..."
+    p "talk to the sysadmin to ensure that the WiFi bandwidth is enough for the expected crowd,..."
+    p "check that the cooking club has a large enough space for their festival activities,..."
+    p "ask someone to create logos and posters for the festival,..."
+    p "and find some musician to perform the opener."
+    p "Does anyone have a preference on which task they want to take?"
+    p "The musician isn't as high priority, so if you happen to find someone, just let me know."
     menu:
         "I can talk to the sysadmin.":
             $ stuco_task = 0
@@ -1059,15 +1049,15 @@ label stuco_bad:
             p "Okay, cool. [player_name], you may want to go find someone in the gaming club for posters."
             p "If I recall correctly, the club president was the one who drew the logo last year."
             "Sounds good."
-    p "Alright, then. We have our next meeting in a month, so let me know how your tasks are going then."
+    p "Alright, then. We have our next meeting in a month. Let me know how your tasks are going then."
     "Halten" "For sure."
     "Graff" "Ciao!"
     p "So, [player_name], how was your first student council meeting?"
-    p "Don't be like Steven, or I'll have to punish you for real, like Malek wanted."
-    p "But if you get your tasks done well, I'll look the other way."
+    p "Don't be like Steven, or I'll have to punish you for {i}real{/i}, like Malek wanted."
+    p "But if you perform your duty well, I'll look the other way."
     "Uh...okay?"
     "I'll make sure to finish my tasks while not prancing around in a cow onesie."
-    p "I hope that's meant in a good way, haha."
+    p "I hope that's meant in a good way."
     p "Good luck. I'll see you at our next meeting."
     "Goodbye!"
     hide critical normal with dissolve
@@ -1155,8 +1145,8 @@ label break_time:
     "(Oh wait, is that Malek?)"
     "Hey, Malek!"
     show malloc normal with dissolve
-    m "Oh, hello, [player_name]."
-    m "How are you doing?"
+    m "Hello, [player_name]."
+    m "How are you?"
     "Pretty good, how about you?"
     m "I'm doing well, thank you."
     "Who's this with you?"
@@ -1166,11 +1156,11 @@ label break_time:
     "Nice to meet you, Kalik!"
     "I'm [player_name]!"
     "So, Malek, what are you doing this long weekend?"
-    m "I'm on my way to take Kalik to the arcade for family weekend."
-    "Oh, that sounds nice!"
+    m "I'm taking Kalik to the arcade for family weekend."
+    "That sounds nice!"
     menu:
         "You two have fun!":
-            m "Thanks. I hope you enjoy your weekend, as well."
+            m "Thanks. I hope you enjoy your weekend as well."
             clc "See you later!"
             hide malloc normal with dissolve
             hide calloc normal with dissolve
@@ -1180,7 +1170,7 @@ label break_time:
             jump arcade
     
 label arcade:
-    m "Hmm... I don't see why not."
+    m "I don't see why not."
     m "Kalik, is that alright with you?"
     clc "Sure!"
     m "Alright, let's head out then."
@@ -1191,7 +1181,7 @@ label arcade:
     show calloc normal at midright with move
     show bomb normal at left with dissolve
     show gdb normal at midleft with dissolve
-    b "Oh, hello, Malek and [player_name]. Where are you all going today?"
+    b "Hello, Malek and [player_name]. Where are you all going today?"
     "We're going to the arcade."
     "I'm just tagging along, but Malek was taking his brother there for family visit day."
     m "Hello, Blake. How are you doing?"
@@ -1212,7 +1202,7 @@ label arcade:
     m "Well, we should head out."
     m "It was nice seeing both of you."
     m "Tell Cash I said hello."
-    b "Oh, I sure will!"
+    b "I sure will!"
     "(...)"
     clc "Bye, Blake!"
     gdb "Goodbye...!"
@@ -1236,24 +1226,22 @@ label second_intro:
             jump meet_buffy
 
 label meet_cache:
-    "..."
     "He should be around here somewhere..."
-    "Ah, there he is."
-    "Looks like he's getting ready to go somewhere."
+    "There he is."
+    "Looks like he's preparing to go somewhere."
     "Hey, Cash!"
     show cache normal with dissolve
-    c "Oh, hey, [player_name]."
+    c "Hey, [player_name]."
     c "What's up?"
     "Nothing much."
-    "Just glad to finally have some sort of break from classes."
+    "Just glad to finally have a break from classes."
     c "Yeah, I hear you."
-    c "I'm about to go get dinner soon, if you want to join?"
+    c "I'm about to get dinner soon, if you want to join?"
     "..."
-    "You're getting dinner now? It's only 4."
+    "You're getting dinner {i}now{/i}? It's only 4."
     c "Yeah, but there's a really good nightclub I want to go to later."
-    c "It's tough to get in because it gets crowded quickly, so I wanted to get there early."
-    "Oh, that sounds fun!"
-    "Sure, I'd be down."
+    c "It's tough to get in once it's crowded, so I wanted to get there early."
+    "That sounds fun! I'd be down."
     c "Great!"
     c "Let's take the 61D down this way."
     hide cache normal with dissolve
@@ -1273,12 +1261,12 @@ label meet_cache:
     c "Alright you've gotta help me out here."
     "Huh...?"
     c "Faye is actually crazy."
-    "Wut"
+    "Wut."
     c "The other day, she almost pulled a knife on Buffy when she tried to talk to me."
-    "Nani"
+    "Nani."
     c "Yeah, that was my reaction!"
-    "(Are you sure you reacted with \"nani\"?"
-    c "She gets way too jealous about these kinds of things."
+    "(Are you {i}sure{/i} you reacted with \"nani\"?"
+    c "She gets {i}way{/i} too jealous about these kinds of things."
     c "She's even smiling while she does this, so there's clearly something wrong..."
     c "It's not like I'd start dating Buffy again!"
     "Hold up, you used to date Buffy?"
@@ -1288,10 +1276,10 @@ label meet_cache:
     "Pretty sure it's not as complicated as why you're trying to get away from Faye."
     c "..."
     c "Ok, fair."
-    c "Basically, we were both too busy with work to be able to get a relationship to work."
-    c "She also felt that I didn't give her enough attention and that I only cared about myself..."
-    c "But we're in college, you know? It was hard to care about my grades and be committed to a relationship!"
-    c "I don't get how people can make it work so easily during just their freshman year!"
+    c "Basically, we were both too busy with work for a relationship."
+    c "She also felt that I didn't give her enough attention and said I only cared about myself..."
+    c "But we're in college, you know? It's hard to care about my grades {i}and{/i} be committed to a relationship!"
+    c "I don't get how people can make it work so easily during their {i}freshman year{/i}!"
     c "Or maybe I just took too many programming classes which killed my free time..."
     c "Either way, it didn't work out."
     c "So here we are."
@@ -1312,45 +1300,44 @@ label meet_cache:
     "..."
     "Alright, I'll help."
     "When are you doing this?"
-    c "Ah, thank you so much!"
+    c "Thank you so much!"
     c "I owe you one."
     c "I just need you there for emotional support."
-    "(This dude needs more than just emotional support...)"
+    "(This dude needs more than just emotional support.)"
     c "Maybe if I do it at the school festival, there'll be enough people there that she doesn't go off..."
-    "..."
-    "Uh, ok."
+    "Sure..."
     "(Terrible plan, but ok.)"
-    "(Isn't she more likely to go off if you break up during the festival?)"
+    "(Isn't she {i}more{/i} likely to go off if you break up during the festival?)"
     "I guess I can help when I'm free..."
     c "Ah, thank you thank you thank you thank you"
     "Don't worry about it."
     c "Oop, here's our stop!"
     hide cache normal with dissolve
     scene black
-    show text "You and Cash enjoy a nice meal at a nearby restaurant and head to the nightclub." with dissolve
+    show text "You and Cash enjoy a nice meal at a nearby restaurant, then head to the nightclub." with dissolve
     pause 2.0
     hide text with dissolve
     scene bg classroom
     show cache normal with dissolve
-    c "Ok, here we are."
-    "Decider" "Can I see your ID?"
+    c "Here we are."
+    "Decider" "Show me your IDs."
     c "Here you go."
     "Here's mine."
     "Decider" "..."
-    "Decider" "Ok, these are acceptable."
+    "Decider" "These are acceptable."
     "Decider" "Enjoy your evening."
     "Thanks!"
-    c "Oh, we got here just in time! The show's about to start."
+    c "We got here just in time! The show's about to start."
     hide cache normal with dissolve
     show jason normal with dissolve
-    "lil mem sbrk" "Yo yo, it's your boi lil mem sbrk here with our opening act for this evening:"
+    "lil mem sbrk" "Yo yo, it's your boi lil mem sbrk here with our opening act for this evening!"
     "lil mem sbrk" "Please welcome [duo_name] to the stage!"
     hide jason normal with dissolve
     "Shalin" "Hey, everyone!"
     "Albert" "I'm Albert, and this is Shalin, and we're [duo_name]!"
     "Shalin" "Hope you all enjoy our song!"
     scene black
-    show text "You listen to the opening acts and the rest of the comedy show, and enjoy a night of laughs and fun." with dissolve
+    show text "You enjoy the opening act and the subsequent comedy show. Your night is full of laughter and fun." with dissolve
     pause 2.0
     hide text with dissolve
     scene bg classroom
