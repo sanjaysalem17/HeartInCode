@@ -554,9 +554,9 @@ label proxy_bad_req_den:
     "What is it?"
     s "It says request denied..."
     "(Yes! This is great!)"
-    "Haha, if it got denied, then there's nothing else that can be done!"
+    "Haha, if it got denied then there's nothing else that can be done!"
     show shell normal with dissolve
-    s "Nope, we're gonna go talk to the student council president."
+    s "Just kidding, we're gonna go talk to the student council president."
     "(Damn, I should've known it wouldn't be that easy!)"
     s "Roxy probably had some reason for rejecting your member form."
     s "We can just ask her directly."
@@ -566,37 +566,37 @@ label proxy_bad_req_den:
     s "Roxy! Why did you reject [player_name]'s club member form?"
     show shell normal at midleft with move
     show proxy normal at midright with dissolve
-    p "Oh, hello, Shell."
+    p "Hello, Shell."
     "Packet" "mrroww!"
     p "Is this [player_name]?"
     p "I actually wanted to talk to you about that."
     p "Malek told me about how much of a troublemaker you are, so I decided to keep a closer eye on you."
     p "Please sign at the bottom of this form."
-    "(\"Troublemaker\"? All I did was not write a heapchecker.)"
+    "(\"Troublemaker\"? All I did was not write a heap checker.)"
     "(Is that all it takes to be a troublemaker here?)"
     "..."
     "(Wait a second... \"probationary student council member\")?"
-    "You can't make me do that! This has to be against the rules or something!"
+    "You can't make me do that! This has to be against the rules!"
     "I refuse!"
     show proxy okawaii at midright with dissolve
     p "How cute."
-    p "You do understand that I am the student council president, do you not?"
-    p "You have to do whatever I say, or I can get you expelled from this institution."
+    p "You understand that I am the student council president, do you not?"
+    p "You have to do whatever I say, or I can get you expeled from this institution."
     p "For I have the power to do so."
     "..."
     "(Ah shit...)"
     "..."
     "(End my suffering...)"
-    "(All these idiots with their heapchecker complexities can go to hell for all I care.)"
+    "(All these idiots with their heap checker complexities can go to hell for all I care.)"
     show proxy normal at midright with dissolve
     p "Thank you for your cooperation."
     p "I'll see you tomorrow at 3 in the student council office."
     hide proxy normal with dissolve
     show shell normal at center with move
     "..."
-    s "Haha, looks like Roxy thought of an even worse punishment for you, Vim hater!"
+    s "Haha, looks like Roxy thought of an even worse punishment for you, {i}Vim hater{/i}!"
     "Please stop calling me that."
-    s "Have fun suffering!"
+    s "Have fun {i}suffering{/i}!"
     hide shell normal with dissolve
     jump stuco_bad
 
@@ -607,7 +607,6 @@ label vim_club:
     pause 1.0
     hide text with dissolve
     scene bg classroom
-    "..."
     "I think this is the right room..."
     show shell normal with dissolve
     s "Hey, [player_name]!"
@@ -615,7 +614,7 @@ label vim_club:
     menu:
         "I'm doing well!":
             s "That's great!"
-            s "Hopefully you enjoy your first Vim club meeting!"
+            s "Hopefully you'll enjoy your first Vim club meeting!"
         "Not that well, actually...":
             s "Oh, I'm sorry to hear that."
             s "Hopefully your first Vim club meeting cheers you up!"
@@ -625,18 +624,17 @@ label vim_club:
     s "This is our newest member, [player_name]."
     "Uh, ... hello."
     s "Don't be shy!"
-    s "All these people like Vim just as much as you and me!"
-    "..."
+    s "Everyone here likes Vim just as much as you and me!"
     s "So, before we get started, does anyone remember what the first rule of Vim club is?"
     "Is it..."
     menu:
         "Don't talk about Vim club?":
             $ shell_points += 30
             s "Haha, you're pretty funny!"
-        "Write a heapchecker?":
+        "Write a heap checker?":
             $ shell_points += 20
             s "Haha, you're pretty funny!"
-            s "We don't really need heapcheckers when we use Vim."
+            s "We don't really need heap checkers when we use Vim."
         "Have a fancy Vimrc?":
             $ shell_points += 30
             s "Haha, you don't need a fancy Vimrc to join this club."
@@ -648,7 +646,7 @@ label vim_club:
     "Rebecca" "That's pretty zesty, besty. You're too big brained."
     show adb normal at left with dissolve
     "ADB" "Hehe I just stole a cheatsheet from Google..."
-    "ADB" "Why do more work when someone else already did the work?" 
+    "ADB" "Why do more work when someone else already did it?" 
     hide rebecca normal with dissolve
     hide evelyn normal with dissolve
     hide adb normal with dissolve
@@ -656,7 +654,7 @@ label vim_club:
     show steven normal at midright with dissolve
     "Steven" "I have a question. How do I exit Vim?"
     show shell angry at midleft with dissolve
-    s "Steven, what are you doing here?"
+    s "Steven, what are {i}you{/i} doing here?"
     s "Shouldn't you be at the student council meeting?"
     "Steven" "Well, they ran out of food, so I came here instead."
     "Steven" "Have the snacks arrived yet?"
@@ -666,28 +664,27 @@ label vim_club:
     hide rebecca normal with dissolve
     "Who is this guy?"
     s "Steven's {i}supposed{/i} to be the secretary of the student council."
-    "Steven" "That is correct, but it's not like many people are joining new clubs right now."
-    "Steven" "So I don't really have anything to do there."
+    "Steven" "That's correct, but it's not like many people are joining new clubs right now."
+    "Steven" "I don't really have anything to do there."
     "Steven" "I'd rather come here and flex my fancy Vimrc on you peasants."
     "Wait, hold up."
     "You have a fancy Vimrc, but you don't know how to exit Vim?"
     "Are you serious?"
     s "What are you talking about, Steven?"
-    s "Of course people are trying to join clubs right now, it's the start of the semester!"
+    s "{i}Of course{/i} people are trying to join clubs right now, it's the start of the semester!"
     s "When was the last time you checked your school email?"
     "Steven" "Uhh..."
-    s "That's what I thought."
+    s "That's what I thought!"
     s "Now go sit in the Emacs corner while you approve all those member requests."
     "Steven" "(Sigh...)"
     hide steven normal with moveoutright
     show shell normal at center with move
-    s "..."
     "Damn, Shell, you almost sound like an actual member of the student council."
     "More so than Steven, anyway."
-    "Why did you not join?"
-    s "Well, my sister used to run this club, but she let me do it because she needed to focus on applying to jobs before graduation."
+    "Why are you not a part of it?"
+    s "Well, my sister used to run this club, but she let me do it instead because she needed to focus on job applications before graduation."
     s "She also has a bunch of time management issues..."
-    s "So I don't think I'd be able to run the Vim club and be on the student council at the same time."
+    s "So I don't think I'd be able to run the Vim club {i}and{/i} be on the student council at the same time."
     menu:
         "Ah, I see.":
             $ shell_points += 10
@@ -697,10 +694,10 @@ label vim_club:
     s "So, like Rebecca said, having a cheatsheet is going to really save your butt when it comes to Vim."
     s "Unless you're as big brained as Evelyn over here."
     "Rebecca" "That's very pog, Evelyn."
-    s "So does anyone have some obscure Vim commands they want to share for other people's cheatsheets?"
+    s "So does anyone have any obscure Vim commands they want to share for other people's cheatsheets?"
     hide shell normal with dissolve
     scene black
-    show text "The club members spend some time sharing their favorite obscure Vim commands." with dissolve
+    show text "The club spends some time sharing favorite obscure Vim commands." with dissolve
     pause 1.5
     hide text with dissolve
     scene bg classroom
@@ -711,7 +708,7 @@ label vim_club:
     s "You get to bonk Steven."
     show shell normal at midleft with move
     show steven normal at midright with dissolve
-    "Steven" "Wait what"
+    "Steven" "Wait what."
     "Steven" "I did not agree to this."
     s "Yeah well, I just got a message from Roxy saying you're kicked from the student council, so..."
     "Steven" "Huh?"
@@ -721,7 +718,7 @@ label vim_club:
     "ADB" "What does \"bonk\" mean in this context?"
     s "You get to remap Steven's Vimrc key bindings."
     "Steven" "Hold up."
-    "Steven" "Wut"
+    "Steven" "Wut."
     show adb normal at left with dissolve
     "ADB" "Hahaha!"
     "ADB" "La bomba!"
@@ -739,8 +736,7 @@ label vim_club:
     show evelyn normal at center with move
     show rebecca normal at midleft with dissolve
     #show adb normal at left with dissolve
-    "Rebecca" "Oh I think I have one."
-    "Rebecca" "I can go get it, gimme a few minutes."
+    "Rebecca" "Oh I think I have one, gimme a few minutes."
     "Steven" "Why do you people find joy in physically hurting me?"
     "Evelyn" "Because hurting you emotionally is bad."
     show adb normal at left with dissolve 
@@ -760,7 +756,7 @@ label vim_club:
     scene black
     show text "The club goes through a Vim pop quiz, and Steven gets bonked multiple times." with dissolve
     pause 1.5
-    show text "His Vimrc key bindings also get remapped, so overall it's turning out to be a great day for Steven." with dissolve
+    show text "His Vimrc key bindings also get remapped, so overall it's turning out to be a {i}great{/i} day for Steven." with dissolve
     pause 1.5
     hide text with dissolve
     scene bg classroom
@@ -769,25 +765,25 @@ label vim_club:
     show shell normal at midright with move
     show steven normal at midleft with dissolve
     "Steven" "No, it wasn't."
-    "ADB" "Now I have more stuff to put on that cheatsheet I stole haha"
+    "ADB" "Now I have more stuff to put on that cheatsheet I stole haha."
     "ADB" "Time to make a pull request..."
-    "Rebecca" "Bonk bonk"
+    "Rebecca" "Bonk bonk."
     "Steven" "Looks like I have to spend the next week fixing my key bindings..."
     "Steven" "Coming here may have been a mistake."
     "Evelyn" "What do you mean? This is the best club ever!"
     "Rebecca" "All fax no printer."
     s "Alright everyone, that concludes today's meeting!"
-    s "I hope everyone had a great time!"
+    s "I hope you all had a great time!"
     s "Except you, Steven. You deserved sitting in the Emacs corner like a delinquent while getting bonked."
-    "Steven" "lok"
-    s "Now that you're no longer on the student council, do you want to join Vim club instead?"
+    "Steven" "lok."
+    s "Now that you're no longer on the student council, do you want to join the Vim club instead?"
     "Steven" "(Sigh...)"
     "Steven" "There goes the only leadership experience I could put on my LinkedIn profile..."
     "Just put \"Professional Cow\" or something."
     "That should get you a few interviews."
     "Steven" "..."
-    "Steven" "I'm gonna leave before I lose anything else."
     "Steven" "I've probably already lost all my brain cells..."
+    "Steven" "I'm gonna leave before I lose anything else."
     hide steven normal with dissolve
     show shell normal at center with move
     show shell star with dissolve
@@ -802,7 +798,7 @@ label vim_club:
             $ shell_points += 30
             show shell sad with dissolve
             s "Aw, that's too bad..."
-            s "Hopefully our next meeting is more interesting for you, since we'll be planning for the school festival."
+            s "Hopefully our next meeting is more interesting for you. We'll be planning for the school festival."
             show shell normal with dissolve
     "What does Vim club usually do for the festival?"
     s "Oh, we usually set up a minigolf booth."
