@@ -14,7 +14,7 @@ init:
     $ data_points = 0
 
 
-label schoolstart:
+label start:
     $ player_name = renpy.input("What is your name?", length=32)
     $ player_name = player_name.strip()
     $ player_name = player_name[0].upper() + player_name[1:]
@@ -329,8 +329,89 @@ label calc_hw:
     scene black
     show text "You manage to hand in your homework submission a breaking 2 minutes before lecture starts." with dissolve
     pause 1.5
-    show text ""
+    show text "Unfortunately, this lecture made even less sense than the last one." with dissolve
+    pause 1.0
+    hide text with dissolve
+    show adb normal at midleft with dissolve
+    show data normal at midright with dissolve
+    "..."
+    "This lecture made even less sense than the last one."
+    "ADB" "That was some BS BS."
+    d "I never thought I'd have to do a quadruple integral..."
+    "Imagine if integration by parts shows up on the midterm."
+    "That would not be fun."
+    "ADB" "Yo reject reject!"
+    "ADB" "Integration by parts is very easy."
+    d "But we're not all big math brains like you, lol."
+    "ADB" "Baba"
+    "I need to eat something before my next class so I can actually pay attention, so I'll see you guys later!"
+    d "Bye!"
+    "ADB" "See ya!"
+    hide adb normal with dissolve
+    hide data normal with dissolve
+    jump lunch
+
+label lunch:
+    jump review_session1
+
+label review_session1:
+    jump midterm1
+
+label midterm1:
+    jump hackathon
+
+label hackathon:
+    jump sys_hw
+
+label sys_hw:
+    show text "You get started on your Memory allocation homework, but it's very confusing because you didn't pay attention in lecture." with dissolve
+    pause 1.0
+    show text "You manage to get a good chunk of it finished, but for some reason it doesn't seem to be working." with dissolve
+    pause 1.0
+    hide text with dissolve
+    "..."
+    "Why do I still have fragmentation?"
+    "I'm pretty sure I did this part correctly..."
+    "..."
+    "Maybe I should ask someone for help."
+    menu:
+        "I should ask Bitsy.":
+            jump bitsy_help
+        "I should ask Buffy.":
+            jump buffy_help
+
+label bitsy_help:
+    jump oh_intro
+
+label buffy_help:
+    jump oh_intro
+
+label oh_intro:
+    show text "You head to Office Hours to see if a TA can help debug your code." with dissolve
+    pause 1.0
+    hide text with dissolve
+    "Why is this interface so unintuitive now?"
+    "Did they change the host of the queue website?"
+    "..."
+    "Welp, whatever."
+    "Hopefully me being 25th in line is just a bug and not actually true."
+    show text "Wishful thinking has failed. You are actually 35th in line." with dissolve
+    pause 1.5
+    show text "But the new episode of Oni Killer is out, so you have something to kill the time while you wait." with dissolve
+    pause 1.5
+    show text "As usual, Unlimited Budget Works has managed to pull off top-quality animation." with dissolve
+    pause 1.5
+    hide text with dissolve
+    "Ah, that was a good episode."
+    "I bet it's already trending on Twotter."
+    "..."
+    "Oh, I think it's my turn."
+    "Where's the TA?"
     jump malloc_oh
 
-label malloc_oh:
-    return
+    
+            
+
+
+     
+
