@@ -25,7 +25,7 @@ init:
     $ stuco_task = -1
 # The game starts here.
 
-label start:
+label malloc_oh:
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -37,9 +37,9 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    $ player_name = renpy.input("What is your name?", length=32)
-    $ player_name = player_name.strip()
-    $ player_name = player_name[0].upper() + player_name[1:] if len(player_name) > 0 else player_name.capitalize()
+    #$ player_name = renpy.input("What is your name?", length=32)
+    #$ player_name = player_name.strip()
+    #$ player_name = player_name[0].upper() + player_name[1:] if len(player_name) > 0 else player_name.capitalize()
     show malloc normal with dissolve
     $ vim_user = False
     # These display lines of dialogue.
@@ -515,7 +515,7 @@ label proxy_join_stuco:
                 show text "A few weeks later..." with dissolve
                 pause 1.0
                 hide text with dissolve
-                jump review_session1
+                jump review_session2
     p "Great!"
     p "Let me get the paperwork sorted out, then."
     p "(Damn that Steven, he's probably off stealing food from other clubs somewhere...)"
@@ -809,7 +809,7 @@ label vim_club:
     "Bye!"
     hide shell star with dissolve
     #"You have [shell_points] points."
-    jump review_session1
+    jump review_session2
 
 label stuco_good:
     scene black
@@ -937,7 +937,7 @@ label stuco_good:
     "Bye!"
     hide critical normal with dissolve
     hide proxy normal with dissolve
-    jump review_session1
+    jump review_session2
 
 label stuco_bad:
     scene black
@@ -1062,9 +1062,9 @@ label stuco_bad:
     "Goodbye!"
     hide critical normal with dissolve
     hide proxy normal with dissolve
-    jump review_session1
+    jump review_session2
 
-label review_session1:
+label review_session2:
     scene black
     show text "After a few days of completely forgetting that you actually have exams, you begin your cramming ritual." with dissolve
     pause 1.0
@@ -1746,6 +1746,7 @@ label cooking_club:
     "I don't think that's a good idea..."
     "I feel like allergies are gonna be a big concern if you host outside."
     "Jenny" "Ah shit, you're right."
+    show waffle normal at left with dissolve
     "???" "Sorry guys, my class ran late today!"
     "Jenny" "Hey, Maple!"
     "Jenny" "Do you happen to know any good locations on campus that we can use for the maid cafe?"
@@ -1760,6 +1761,7 @@ label cooking_club:
     "\"Beep boop!\""
     "Sandie" "I think that's my bread. Lemme go check on it."
     "Sandie" "It was nice meeting you, [player_name]!"
+    show waffle normal at midleft with move
     "Maple" "So if we do somewhere in Tepper, we'll have to talk to the storage team to make sure they have enough tables, right?"
     "Jenny" "Yeah, I don't fully know how that process works."
     "I can give it a shot."
@@ -1778,6 +1780,7 @@ label cooking_club:
     "I'll see you later!"
     "Jenny" "Bye!"
     "Maple" "See you!"
+    hide waffle normal with dissolve
     return
 
 
