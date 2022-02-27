@@ -14,14 +14,14 @@ define s = Character(name="???")
 define p = Character("Roxy")
 
 init:
-    $ player_name = ""
+    #$ player_name = ""
     $ duo_name = "Mr. SCS"
     $ join_stuco = False
     $ malloc_points = 0
     $ shell_points = 0
     $ proxy_points = 0
-    $ data_points = 0
-    $ attack_points = 0
+    #$ data_points = 0
+    #$ attack_points = 0
     $ stuco_task = -1
 # The game starts here.
 
