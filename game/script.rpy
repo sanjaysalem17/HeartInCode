@@ -838,12 +838,14 @@ label stuco_good:
     p "Anyway, let's head inside."
     "Packet" "mrroww"
     "Halten" "Heyo!"
+    show reduction normal at left with dissolve
     p "Hey, Halten."
     p "Is everyone else here yet?"
     "Halten" "Well, everyone except Steven."
     show critical normal at right with dissolve
     "Graff" "Which was definitely expected."
     "Halten" "Oh, and your brother's here taking coffee again, as usual."
+    hide reduction normal with dissolve
     show distr normal at left with dissolve
     "Pax" "What do you mean, \"as usual\"?"
     p "Pax, please just fix your coffee machine."
@@ -851,6 +853,7 @@ label stuco_good:
     "Pax" "My free time is already distributed too thin, you know?"
     p "(Sigh...)"
     hide distr normal with dissolve
+    show reduction normal with dissolve
     p "Anyway, do we want to wait a few minutes for Steven, or should I just kick him out now?"
     "Halten" "Yes, I am down for punishing Steven."
     "Graff" "Seconded."
@@ -867,6 +870,7 @@ label stuco_good:
     "Halten" "Wait, hold on. Don't we have to do some kind of vote?"
     "Halten" "Or have some pool of candidates to consider first?"
     "Graff" "Dude, there's literally no one else here."
+    hide reduction normal with dissolve
     show distr normal at left with dissolve
     "Pax" "(Slurp...)"
     p "Pax, can you take your coffee and slurp somewhere else?"
@@ -877,6 +881,7 @@ label stuco_good:
     "Pax" "..."
     "Pax" "Alright, alright, you can stop glaring at me. I'll leave now."
     hide distr normal with dissolve
+    show reduction normal at left with dissolve
     p "..."
     p "Let's {i}officially{/i} start the meeting now, then."
     p "[player_name], can you take down the meeting notes?"
@@ -894,6 +899,7 @@ label stuco_good:
     "Graff" "(Hopefully my middle school chuuni pictures aren't being spread around...)"
     hide proxy normal with dissolve
     hide critical normal with dissolve
+    hide reduction normal with dissolve
     scene black
     show text "Roxy goes over some of the menial tasks, which are trivial and left to interpretation by the player." with dissolve
     pause 2.0
@@ -901,6 +907,7 @@ label stuco_good:
     scene bg classroom
     show proxy normal with dissolve
     show critical normal at right with dissolve
+    show reduction normal at left with dissolve
     p "So the three main things we have to do now are talk to the sysadmin to make sure the WiFi bandwidth is enough for the expected crowd,..."
     p "check that the cooking club has a big enough space for their festival activities,..."
     p "ask someone to create a logo and some posters for the festival,..."
@@ -937,6 +944,7 @@ label stuco_good:
     "Bye!"
     hide critical normal with dissolve
     hide proxy normal with dissolve
+    hide reduction normal with dissolve
     jump review_session2
 
 label stuco_bad:
@@ -956,6 +964,7 @@ label stuco_bad:
     p "If you're lucky, you may be promoted from probationary student today."
     "(What does that mean?)"
     "Packet" "mrroww"
+    show reduction normal at left with dissolve
     "Halten" "Heyo!"
     p "Hey, Halten."
     p "Is everyone else here yet?"
@@ -963,6 +972,7 @@ label stuco_bad:
     show critical normal at right with dissolve
     "Graff" "Which was definitely expected."
     "Halten" "Oh, and your brother's here taking coffee again, as usual."
+    hide reduction normal with dissolve
     show distr normal at left with dissolve
     "Pax" "What do you mean, \"as usual\"?"
     p "Pax, please just fix your coffee machine."
@@ -970,6 +980,7 @@ label stuco_bad:
     "Pax" "My free time is already distributed too thin, you know?"
     p "(Sigh...)"
     hide distr normal with dissolve
+    show reduction normal at left with dissolve
     p "Anyway, do we want to wait for Steven, or should I just kick him out now?"
     "Halten" "Yes, I'm down for punishing Steven."
     "Graff" "Seconded."
@@ -988,6 +999,7 @@ label stuco_bad:
     "Halten" "Wait, hold on. Don't we have to hold some kind of vote?"
     "Halten" "Or have a pool of candidates to consider first?"
     "Graff" "Dude, there's literally no one else here."
+    hide reduction normal with dissolve
     show distr normal at left with dissolve
     "Pax" "(Slurp...)"
     p "Pax, can you take your coffee and slurp somewhere else?"
@@ -998,6 +1010,7 @@ label stuco_bad:
     "Pax" "..."
     "Pax" "Alright, alright, you can stop glaring at me. I'll leave now."
     hide distr normal with dissolve
+    show reduction normal at left with dissolve
     p "..."
     p "Let's {i}officially{/i} start the meeting now, then."
     p "[player_name], can you take down the meeting notes?"
@@ -1016,6 +1029,7 @@ label stuco_bad:
     "Graff" "(Hopefully my middle school chuuni pictures aren't being spread around...)"
     hide proxy normal with dissolve
     hide critical normal with dissolve
+    hide reduction normal with dissolve
     scene black
     show text "Roxy goes over some menial tasks. These are trivial and left to interpretation by the player." with dissolve
     pause 2.0
@@ -1023,6 +1037,7 @@ label stuco_bad:
     scene bg classroom
     show proxy normal with dissolve
     show critical normal at right with dissolve
+    show reduction normal at left with dissolve
     p "So the four main things we have to do now are..."
     p "talk to the sysadmin to ensure that the WiFi bandwidth is enough for the expected crowd,..."
     p "check that the cooking club has a large enough space for their festival activities,..."
@@ -1062,6 +1077,7 @@ label stuco_bad:
     "Goodbye!"
     hide critical normal with dissolve
     hide proxy normal with dissolve
+    hide reduction normal with dissolve
     jump review_session2
 
 label review_session2:
@@ -1734,6 +1750,7 @@ label cooking_club:
     "Ooh, that sounds fun!"
     "So do you have an expected number of customers?"
     "Jenny" "Yeah, lemme just ask Sandie."
+    show sandwich normal at midleft with dissolve
     "Jenny" "Hey, Sandie, can you get the binder for last year's logistics?"
     "Sandie" "Yeah, sure, this bread's about to finish proofing so lemme stick it in the oven first..."
     "Sandie" "Ok, there we go."
@@ -1746,6 +1763,7 @@ label cooking_club:
     "I don't think that's a good idea..."
     "I feel like allergies are gonna be a big concern if you host outside."
     "Jenny" "Ah shit, you're right."
+    show sandwich normal at center with move
     show waffle normal at left with dissolve
     "???" "Sorry guys, my class ran late today!"
     "Jenny" "Hey, Maple!"
@@ -1761,6 +1779,7 @@ label cooking_club:
     "\"Beep boop!\""
     "Sandie" "I think that's my bread. Lemme go check on it."
     "Sandie" "It was nice meeting you, [player_name]!"
+    hide sandwich normal with dissolve
     show waffle normal at midleft with move
     "Maple" "So if we do somewhere in Tepper, we'll have to talk to the storage team to make sure they have enough tables, right?"
     "Jenny" "Yeah, I don't fully know how that process works."
