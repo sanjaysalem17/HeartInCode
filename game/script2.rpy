@@ -332,6 +332,7 @@ label calc_hw:
     show text "Unfortunately, this lecture made even less sense than the last one." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     show adb normal at midleft with dissolve
     show data normal at midright with dissolve
     "..."
@@ -344,7 +345,7 @@ label calc_hw:
     "ADB" "Integration by parts is very easy."
     d "But we're not all big math brains like you, lol."
     "ADB" "Baba"
-    "I need to eat something before my next class so I can actually pay attention, so I'll see you guys later!"
+    "I need to eat something before my next class so I can actually pay attention during review session, so I'll see you guys later!"
     d "Bye!"
     "ADB" "See ya!"
     hide adb normal with dissolve
@@ -352,9 +353,32 @@ label calc_hw:
     jump lunch
 
 label lunch:
+    "Hmm.. looks like Schatz changed their lunch menu since last semester..."
+    "..."
+    "Maybe I'll get the pork bowl."
+    show cache normal at midleft with dissolve
+    show bomb normal at midright with dissolve
+    c "You didn't finish your tater tots, Faye!"
+    b "Do you want them?"
+    c "You're a really picky eater, you know that?"
+    b "uwu"
+    c "(Sigh..)"
+    "Looks like that relationship is still going well."
+    "{i}PDA ensues{/i}"
+    "Welp, this is geting slightly uncomfortable."
+    "Looks like I'm getting to-go."
+    "Oh no, review session starts at {i}1{/i}? I thought it was at 2!"
+    "Time to run..."
     jump review_session1
 
 label review_session1:
+    scene black
+    show text "You make it to review session and sit in the back to not distract with your loud eating noises." with dissolve
+    pause 1.5
+    hide text with dissolve
+    "When did that happen?"
+    "Did we start learning about unions already?"
+    "Hopefully this isn't on the midterm."
     jump midterm1
 
 label midterm1:
@@ -364,11 +388,13 @@ label hackathon:
     jump sys_hw
 
 label sys_hw:
+    scene black
     show text "You get started on your Memory allocation homework, but it's very confusing because you didn't pay attention in lecture." with dissolve
     pause 1.0
     show text "You manage to get a good chunk of it finished, but for some reason it doesn't seem to be working." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     "..."
     "Why do I still have fragmentation?"
     "I'm pretty sure I did this part correctly..."
@@ -381,9 +407,37 @@ label sys_hw:
             jump buffy_help
 
 label bitsy_help:
+    "There she is."
+    "Hey, Bitsy!"
+    show data normal with dissolve
+    d "Hey, [player_name]!"
+    "Have you finished the mem alloc homework yet?"
+    "I have a few bugs that I don't know how to fix."
+    d "Ah shoot, I forgot about that! I've been pretty busy with track meets for the past few days, so I haven't started on it yet."
+    d "Maybe you should just go to Office Hours? I heard the TAs are pretty friendly."
+    "Oh hmm.."
+    "Ok, thanks!"
+    "Good luck with track!"
+    d "Ah thanks, haha!"
+    d "See you around!"
+    hide data normal with dissolve
     jump oh_intro
 
 label buffy_help:
+    "There she is."
+    "Hey, Buffy!"
+    show attack normal with dissolve
+    a "Hey!"
+    "Have you finished the mem alloc homework yet?"
+    a "Yeah I'm almost done, but I got carried hard by the TAs, so I don't know if I can really help, haha."
+    a "But my main issue was with my headers and footers."
+    a "So you may need to check your coalescing."
+    "Oh hmm.."
+    "Ok, thanks!"
+    "Maybe I'll try going to OH today."
+    "See ya!"
+    a "Bye!"
+    hide attack normal with dissolve
     jump oh_intro
 
 label oh_intro:

@@ -838,12 +838,14 @@ label stuco_good:
     p "Anyway, let's head inside."
     "Packet" "mrroww"
     "Halten" "Heyo!"
+    show reduction normal at left with dissolve
     p "Hey, Halten."
     p "Is everyone else here yet?"
     "Halten" "Well, everyone except Steven."
     show critical normal at right with dissolve
     "Graff" "Which was definitely expected."
     "Halten" "Oh, and your brother's here taking coffee again, as usual."
+    hide reduction normal with dissolve
     show distr normal at left with dissolve
     "Pax" "What do you mean, \"as usual\"?"
     p "Pax, please just fix your coffee machine."
@@ -851,6 +853,7 @@ label stuco_good:
     "Pax" "My free time is already distributed too thin, you know?"
     p "(Sigh...)"
     hide distr normal with dissolve
+    show reduction normal with dissolve
     p "Anyway, do we want to wait a few minutes for Steven, or should I just kick him out now?"
     "Halten" "Yes, I am down for punishing Steven."
     "Graff" "Seconded."
@@ -867,6 +870,7 @@ label stuco_good:
     "Halten" "Wait, hold on. Don't we have to do some kind of vote?"
     "Halten" "Or have some pool of candidates to consider first?"
     "Graff" "Dude, there's literally no one else here."
+    hide reduction normal with dissolve
     show distr normal at left with dissolve
     "Pax" "(Slurp...)"
     p "Pax, can you take your coffee and slurp somewhere else?"
@@ -877,6 +881,7 @@ label stuco_good:
     "Pax" "..."
     "Pax" "Alright, alright, you can stop glaring at me. I'll leave now."
     hide distr normal with dissolve
+    show reduction normal at left with dissolve
     p "..."
     p "Let's {i}officially{/i} start the meeting now, then."
     p "[player_name], can you take down the meeting notes?"
@@ -894,6 +899,7 @@ label stuco_good:
     "Graff" "(Hopefully my middle school chuuni pictures aren't being spread around...)"
     hide proxy normal with dissolve
     hide critical normal with dissolve
+    hide reduction normal with dissolve
     scene black
     show text "Roxy goes over some of the menial tasks, which are trivial and left to interpretation by the player." with dissolve
     pause 2.0
@@ -901,6 +907,7 @@ label stuco_good:
     scene bg classroom
     show proxy normal with dissolve
     show critical normal at right with dissolve
+    show reduction normal at left with dissolve
     p "So the three main things we have to do now are talk to the sysadmin to make sure the WiFi bandwidth is enough for the expected crowd,..."
     p "check that the cooking club has a big enough space for their festival activities,..."
     p "ask someone to create a logo and some posters for the festival,..."
@@ -937,6 +944,7 @@ label stuco_good:
     "Bye!"
     hide critical normal with dissolve
     hide proxy normal with dissolve
+    hide reduction normal with dissolve
     jump review_session2
 
 label stuco_bad:
@@ -956,6 +964,7 @@ label stuco_bad:
     p "If you're lucky, you may be promoted from probationary student today."
     "(What does that mean?)"
     "Packet" "mrroww"
+    show reduction normal at left with dissolve
     "Halten" "Heyo!"
     p "Hey, Halten."
     p "Is everyone else here yet?"
@@ -963,6 +972,7 @@ label stuco_bad:
     show critical normal at right with dissolve
     "Graff" "Which was definitely expected."
     "Halten" "Oh, and your brother's here taking coffee again, as usual."
+    hide reduction normal with dissolve
     show distr normal at left with dissolve
     "Pax" "What do you mean, \"as usual\"?"
     p "Pax, please just fix your coffee machine."
@@ -970,6 +980,7 @@ label stuco_bad:
     "Pax" "My free time is already distributed too thin, you know?"
     p "(Sigh...)"
     hide distr normal with dissolve
+    show reduction normal at left with dissolve
     p "Anyway, do we want to wait for Steven, or should I just kick him out now?"
     "Halten" "Yes, I'm down for punishing Steven."
     "Graff" "Seconded."
@@ -988,6 +999,7 @@ label stuco_bad:
     "Halten" "Wait, hold on. Don't we have to hold some kind of vote?"
     "Halten" "Or have a pool of candidates to consider first?"
     "Graff" "Dude, there's literally no one else here."
+    hide reduction normal with dissolve
     show distr normal at left with dissolve
     "Pax" "(Slurp...)"
     p "Pax, can you take your coffee and slurp somewhere else?"
@@ -998,6 +1010,7 @@ label stuco_bad:
     "Pax" "..."
     "Pax" "Alright, alright, you can stop glaring at me. I'll leave now."
     hide distr normal with dissolve
+    show reduction normal at left with dissolve
     p "..."
     p "Let's {i}officially{/i} start the meeting now, then."
     p "[player_name], can you take down the meeting notes?"
@@ -1016,6 +1029,7 @@ label stuco_bad:
     "Graff" "(Hopefully my middle school chuuni pictures aren't being spread around...)"
     hide proxy normal with dissolve
     hide critical normal with dissolve
+    hide reduction normal with dissolve
     scene black
     show text "Roxy goes over some menial tasks. These are trivial and left to interpretation by the player." with dissolve
     pause 2.0
@@ -1023,6 +1037,7 @@ label stuco_bad:
     scene bg classroom
     show proxy normal with dissolve
     show critical normal at right with dissolve
+    show reduction normal at left with dissolve
     p "So the four main things we have to do now are..."
     p "talk to the sysadmin to ensure that the WiFi bandwidth is enough for the expected crowd,..."
     p "check that the cooking club has a large enough space for their festival activities,..."
@@ -1062,6 +1077,7 @@ label stuco_bad:
     "Goodbye!"
     hide critical normal with dissolve
     hide proxy normal with dissolve
+    hide reduction normal with dissolve
     jump review_session2
 
 label review_session2:
@@ -1315,6 +1331,8 @@ label meet_cache:
     scene bg classroom
     show cache normal with dissolve
     c "Here we are."
+    show cache normal at midright with move
+    show dfa normal at midleft with dissolve
     "Decider" "Show me your IDs."
     c "Here you go."
     "Here's mine."
@@ -1322,6 +1340,8 @@ label meet_cache:
     "Decider" "These are acceptable."
     "Decider" "Enjoy your evening."
     "Thanks!"
+    hide dfa normal with dissolve
+    show cache normal at center with move
     c "We got here just in time! The show's about to start."
     hide cache normal with dissolve
     show jason normal with dissolve
@@ -1354,7 +1374,8 @@ label meet_cache:
 label meet_bitsy:
     "She should be near the track..."
     "There she is."
-    show data normal with dissolve
+    show data normal at midleft with dissolve
+    show finger normal at midright with dissolve
     d "No no not like that, Root."
     d "You have to make sure your arms don't move when you curl back down."
     "Root" "You mean like this?"
@@ -1401,12 +1422,14 @@ label meet_bitsy:
     d "Float like a butterfly, float like a butterfly...."
     "What's she muttering?"
     hide data normal with dissolve
+    show finger normal at center with move
     "Root" "5!"
     "Root" "4!"
     "Root" "3!"
     "Root" "2!"
     "Root" "1!"
     "Root" "{b}Go{/b}!" with hpunch
+    hide finger normal with dissolve
     "...!"
     "......!"
     "Wow, she's pretty fast, but somehow I'm able to keep up!"
@@ -1421,16 +1444,22 @@ label meet_bitsy:
     "..."
     "{i}more panting noises{/i}"
     "Finally....made...it...!"
+    show data normal at midright with dissolve
+    show finger normal at midleft with dissolve
     d "Hey, you really surprised me there!"
     "Well....my lungs....are dead...."
     "Root" "You should be fine if you sit down for a while, but still, that was pretty fast!"
     "I...need some....water...."
     d "Right right, let's head back inside and find a water fountain."
+    hide data normal with dissolve
+    hide finger normal with dissolve
     scene black
     show text "The three of you head inside and rehydrate at the nearest water fountain." with dissolve
     pause 2.0
     hide text with dissolve
     scene bg classroom
+    show data normal at midright with dissolve
+    show finger normal at midleft with dissolve
     d "That hits the spot!"
     "(My lungs are definitely dead now...)"
     "Root" "You should definitely join the track team, [player_name]!"
@@ -1445,6 +1474,8 @@ label meet_bitsy:
     "I'm pretty sure it is an anime song..."
     "I'm gonna go see who's playing it."
     "I'll be right back."
+    hide finger normal with dissolve
+    hide data normal with dissolve
     "..."
     "..."
     "...!"
@@ -1481,7 +1512,8 @@ label meet_bitsy:
     "Ricky" "Arigatou gozaimasu!"
     hide paperbag life with dissolve
     "..."
-    show data normal with dissolve
+    show data normal at midleft with dissolve
+    show finger normal at midright with dissolve
     d "You're back!"
     "Root" "We were gonna go run a few more laps before coming back inside again, if you wanted to come with us?"
     "Uhhh.... I think that was enough exercise for me for today..."
@@ -1489,9 +1521,10 @@ label meet_bitsy:
     d "Haha, no worries!"
     "Root" "See you later!"
     hide data normal with dissolve
-    "You have [shell_points] points for shell."
-    "You have [data_points] points for data."
-    "You have [malloc_points] points for malloc."
+    hide finger normal with dissolve
+    #"You have [shell_points] points for shell."
+    #"You have [data_points] points for data."
+    #"You have [malloc_points] points for malloc."
     if join_stuco: 
         jump after_break_stuco
     jump after_break_other
@@ -1536,7 +1569,9 @@ label after_break_other:
     pause 2.0
     hide text with dissolve
     scene bg classroom
+    show clogic normal at midleft with dissolve
     "???" "Wait, what are you doing?"
+    show pruning normal at midright with dissolve
     "???" "I'm pruning my trees!"
     "???" "No, that's {i}my{/i} tree, Minnie!"
     "Minnie" "What...?"
@@ -1571,12 +1606,15 @@ label after_break_other:
     "Minnie" "Sshh! He'll hear you!"
     "What?"
     "How will he hear us? There's no one here."
+    show clogic normal at left with move
+    show pruning normal at right with move
     show pigeon hole with dissolve
     "Pigeon Man" "Cooo? (Did someone call for me?)"
     "Harmony" "Ah shit, he showed up."
     "The plot thickens..."
     "Why does he have a pigeon head?"
     "Harmony" "I'll get Berry, you two distract him!"
+    hide clogic normal with dissolve
     "Pigeon Man" "Are those {i}fresh plums{/i} I see?"
     "Distract him {i}how{/i}?"
     "Minnie" "Throw some birdseed at him!"
@@ -1590,7 +1628,10 @@ label after_break_other:
     "Minnie" "That should keep him down for a while."
     "(What is happening here?)"
     "(I was not aware that Pigeon people existed...)"
+    show clogic normal at left with dissolve
     "Harmony" "Alright, I got Berry!"
+    hide clogic normal with dissolve
+    hide pruning normal with dissolve
     show pigeon hole at right with move
     show berry esseen at left with dissolve
     "Berry-Esseen" "Oh no, not this guy again."
@@ -1598,7 +1639,8 @@ label after_break_other:
     "Pigeon Man" "nom nom no-"
     "Pigeon Man" "Coo! (Oh, hello, {i}Berry{/i}.)"
     "Berry-Esseen" "{i}Pigeon{/i}."
-    "(What's with all this tension all of a sudden?)"
+    "(Can this Berry guy understand what the pigeon is saying?)"
+    "(And what's with all this tension all of a sudden?)"
     "(Something's about to go down, isn't it?)"
     "Berry-Esseen" "..."
     "Pigeon Man" "Co, coo? (Oh, you're approaching {i}me{/i}?)"
@@ -1636,6 +1678,9 @@ label after_break_other:
     "Pigeon Man" "COOOOOOOOO!!!!!"
     hide pigeon hole with dissolve
     "Berry-Esseen" "QED!"
+    show berry esseen at center with move
+    show pruning at right with dissolve
+    show clogic at left with dissolve
     "Minnie" "That was amazing, Berry!"
     "Berry-Esseen" "Don't worry about it."
     "Berry-Esseen" "I'll take this guy to the police station, now."
@@ -1643,6 +1688,8 @@ label after_break_other:
     "(But you seem pretty suspicious to me...)"
     "Berry-Esseen" "Farewell."
     hide berry esseen with dissolve
+    show clogic at midleft with move
+    show pruning at midright with move
     "Harmony" "Wow, he protected our trees!"
     "Minnie" "We should celebrate!"
     "Harmony" "[player_name], do you want to harvest the fruits?"
@@ -1652,6 +1699,8 @@ label after_break_other:
     "See you later."
     "Harmony" "Bye!"
     "Minnie" "See you!"
+    hide clogic normal with dissolve
+    hide pruning normal with dissolve
     "I think I just witnessed a hato crime."
     return
     
@@ -1737,6 +1786,7 @@ label cooking_club:
     "Ooh, that sounds fun!"
     "So do you have an expected number of customers?"
     "Jenny" "Yeah, lemme just ask Sandie."
+    show sandwich normal at midleft with dissolve
     "Jenny" "Hey, Sandie, can you get the binder for last year's logistics?"
     "Sandie" "Yeah, sure, this bread's about to finish proofing so lemme stick it in the oven first..."
     "Sandie" "Ok, there we go."
@@ -1749,6 +1799,7 @@ label cooking_club:
     "I don't think that's a good idea..."
     "I feel like allergies are gonna be a big concern if you host outside."
     "Jenny" "Ah shit, you're right."
+    show sandwich normal at center with move
     show waffle normal at left with dissolve
     "???" "Sorry guys, my class ran late today!"
     "Jenny" "Hey, Maple!"
@@ -1764,6 +1815,7 @@ label cooking_club:
     "\"Beep boop!\""
     "Sandie" "I think that's my bread. Lemme go check on it."
     "Sandie" "It was nice meeting you, [player_name]!"
+    hide sandwich normal with dissolve
     show waffle normal at midleft with move
     "Maple" "So if we do somewhere in Tepper, we'll have to talk to the storage team to make sure they have enough tables, right?"
     "Jenny" "Yeah, I don't fully know how that process works."
