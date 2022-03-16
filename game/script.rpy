@@ -1331,6 +1331,8 @@ label meet_cache:
     scene bg classroom
     show cache normal with dissolve
     c "Here we are."
+    show cache normal at midright with move
+    show dfa normal at midleft with dissolve
     "Decider" "Show me your IDs."
     c "Here you go."
     "Here's mine."
@@ -1338,6 +1340,8 @@ label meet_cache:
     "Decider" "These are acceptable."
     "Decider" "Enjoy your evening."
     "Thanks!"
+    hide dfa normal with dissolve
+    show cache normal at center with move
     c "We got here just in time! The show's about to start."
     hide cache normal with dissolve
     show jason normal with dissolve
@@ -1370,7 +1374,8 @@ label meet_cache:
 label meet_bitsy:
     "She should be near the track..."
     "There she is."
-    show data normal with dissolve
+    show data normal at midleft with dissolve
+    show finger normal at midright with dissolve
     d "No no not like that, Root."
     d "You have to make sure your arms don't move when you curl back down."
     "Root" "You mean like this?"
@@ -1417,12 +1422,14 @@ label meet_bitsy:
     d "Float like a butterfly, float like a butterfly...."
     "What's she muttering?"
     hide data normal with dissolve
+    show finger normal at center with move
     "Root" "5!"
     "Root" "4!"
     "Root" "3!"
     "Root" "2!"
     "Root" "1!"
     "Root" "{b}Go{/b}!" with hpunch
+    hide finger normal with dissolve
     "...!"
     "......!"
     "Wow, she's pretty fast, but somehow I'm able to keep up!"
@@ -1437,16 +1444,22 @@ label meet_bitsy:
     "..."
     "{i}more panting noises{/i}"
     "Finally....made...it...!"
+    show data normal at midright with dissolve
+    show finger normal at midleft with dissolve
     d "Hey, you really surprised me there!"
     "Well....my lungs....are dead...."
     "Root" "You should be fine if you sit down for a while, but still, that was pretty fast!"
     "I...need some....water...."
     d "Right right, let's head back inside and find a water fountain."
+    hide data normal with dissolve
+    hide finger normal with dissolve
     scene black
     show text "The three of you head inside and rehydrate at the nearest water fountain." with dissolve
     pause 2.0
     hide text with dissolve
     scene bg classroom
+    show data normal at midright with dissolve
+    show finger normal at midleft with dissolve
     d "That hits the spot!"
     "(My lungs are definitely dead now...)"
     "Root" "You should definitely join the track team, [player_name]!"
@@ -1461,6 +1474,8 @@ label meet_bitsy:
     "I'm pretty sure it is an anime song..."
     "I'm gonna go see who's playing it."
     "I'll be right back."
+    hide finger normal with dissolve
+    hide data normal with dissolve
     "..."
     "..."
     "...!"
@@ -1497,7 +1512,8 @@ label meet_bitsy:
     "Ricky" "Arigatou gozaimasu!"
     hide paperbag life with dissolve
     "..."
-    show data normal with dissolve
+    show data normal at midleft with dissolve
+    show finger normal at midright with dissolve
     d "You're back!"
     "Root" "We were gonna go run a few more laps before coming back inside again, if you wanted to come with us?"
     "Uhhh.... I think that was enough exercise for me for today..."
@@ -1505,9 +1521,10 @@ label meet_bitsy:
     d "Haha, no worries!"
     "Root" "See you later!"
     hide data normal with dissolve
-    "You have [shell_points] points for shell."
-    "You have [data_points] points for data."
-    "You have [malloc_points] points for malloc."
+    hide finger normal with dissolve
+    #"You have [shell_points] points for shell."
+    #"You have [data_points] points for data."
+    #"You have [malloc_points] points for malloc."
     if join_stuco: 
         jump after_break_stuco
     jump after_break_other
@@ -1552,7 +1569,9 @@ label after_break_other:
     pause 2.0
     hide text with dissolve
     scene bg classroom
+    show clogic normal at midleft with dissolve
     "???" "Wait, what are you doing?"
+    show pruning normal at midright with dissolve
     "???" "I'm pruning my trees!"
     "???" "No, that's {i}my{/i} tree, Minnie!"
     "Minnie" "What...?"
@@ -1584,12 +1603,15 @@ label after_break_other:
     "Minnie" "Sshh! He'll hear you!"
     "What?"
     "How will he hear us? There's no one here."
+    show clogic normal at left with move
+    show pruning normal at right with move
     show pigeon hole with dissolve
     "Pigeon Man" "Did someone call for me?"
     "Harmony" "Ah shit, he showed up."
     "The plot thickens..."
     "Why does he have a pigeon head?"
     "Harmony" "I'll get Berry, you two distract him!"
+    hide clogic normal with dissolve
     "Pigeon Man" "Are those {i}fresh plums{/i} I see?"
     "Distract him {i}how{/i}?"
     "Minnie" "Throw some birdseed at him!"
@@ -1603,7 +1625,10 @@ label after_break_other:
     "Minnie" "That should keep him down for a while."
     "(What is happening here?)"
     "(I was not aware that Pigeon people existed...)"
+    show clogic normal at left with dissolve
     "Harmony" "Alright, I got Berry!"
+    hide clogic normal with dissolve
+    hide pruning normal with dissolve
     show pigeon hole at right with move
     show berry esseen at left with dissolve
     "Berry-Esseen" "Oh no, not this guy again."
@@ -1649,6 +1674,9 @@ label after_break_other:
     "Pigeon Man" "Aalsfsajfakdlmfa;slaw;!!!1!!Lasasfl!"
     hide pigeon hole with dissolve
     "Berry-Esseen" "QED!"
+    show berry esseen at center with move
+    show pruning at right with dissolve
+    show clogic at left with dissolve
     "Minnie" "That was amazing, Berry!"
     "Berry-Esseen" "Don't worry about it."
     "Berry-Esseen" "I'll take this guy to the police station, now."
@@ -1656,6 +1684,8 @@ label after_break_other:
     "(But you seem pretty suspicious to me...)"
     "Berry-Esseen" "Farewell."
     hide berry esseen with dissolve
+    show clogic at midleft with move
+    show pruning at midright with move
     "Harmony" "Wow, he protected our trees!"
     "Minnie" "We should celebrate!"
     "Harmony" "[player_name], do you want to harvest the fruits?"
@@ -1665,6 +1695,8 @@ label after_break_other:
     "See you later."
     "Harmony" "Bye!"
     "Minnie" "See you!"
+    hide clogic normal with dissolve
+    hide pruning normal with dissolve
     "I think I just witnessed a hato crime."
     return
     
