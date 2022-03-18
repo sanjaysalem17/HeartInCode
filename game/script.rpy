@@ -364,6 +364,7 @@ label proxy_good_req_den:
     pause 2.0
     hide text with dissolve
     scene bg classroom
+    show shell normal with dissolve
     s "Did you fix the issue with your dynamic memory homework?"
     "Yeah, I just forgot a semicolon. Dumb mistakes go brrr.."
     s "Don't worry about that!"
@@ -377,6 +378,7 @@ label proxy_good_req_den:
     pause 2.0
     hide text with dissolve
     scene bg classroom
+    show shell normal with dissolve
     s "What does it say?"
     "Request denied?"
     s "Huh? Let me see that..."
@@ -385,6 +387,7 @@ label proxy_good_req_den:
     pause 2.0
     hide text with dissolve
     scene bg classroom
+    show shell normal with dissolve
     s "..."
     s "We should go talk to the student council president."
     "Uhh, alright...?"
@@ -409,7 +412,7 @@ label proxy_good_req_den:
     p "Welcome, Shell. It's been a while since I last saw you. How are you?"
     s "I'm doing great!"
     s "Is that Packet there with you?"
-    p "Yes, I just refilled Packet’s food bowl."
+    p "Yes, I just refilled Packet's food bowl."
     "(So, Packet is a cat...)"
     p "Who is your companion, Shell?"
     show shell normal at midright with dissolve
@@ -423,6 +426,8 @@ label proxy_good_req_den:
     pause 3.0
     hide text with dissolve
     scene bg classroom
+    show shell normal at midright with dissolve
+    show proxy normal at midleft with dissolve
     p "Hmm... Let me see... Aha, I found it!"
     p "It seems like Steven accidentally rejected it. Don't worry, I'll punish him later."
     p "Anyways, now that that's out of the way, what I wanted to discuss with you was…"
@@ -449,6 +454,8 @@ label proxy_good_req_den:
     pause 1.0
     hide text with dissolve
     scene bg classroom
+    show shell normal at midright with dissolve
+    show proxy normal at midleft with dissolve
     "Looks good to me."
     p "Great, you're good to go."
     hide shell normal with dissolve
