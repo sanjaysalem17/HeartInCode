@@ -1,9 +1,9 @@
-define d = Character("???")
+define d = Character(name="???")
 define a = Character("Buffy")
 define b = Character("Faye")
 define gdb = Character("Blake")
 define m = Character("Malek")
-define c = Character("???")
+define c = Character(name="???")
 define clc = Character("Kalik")
 define s = Character(name="???")
 define p = Character("Roxy")
@@ -18,6 +18,7 @@ label start:
     $ player_name = renpy.input("What is your name?", length=32)
     $ player_name = player_name.strip()
     $ player_name = player_name[0].upper() + player_name[1:]
+    scene bg classroom
     "Ah, winter break was fun."
     "Hopefully this semester isn't as difficult as last semester, though..."
     "I don't want to write a parallel version of mergesort again..."
@@ -48,6 +49,7 @@ label start:
     show text "You go downstairs to continue your conversation and avoid eavesdropping on a personal discussion..." with dissolve
     pause 1.5
     hide text with dissolve
+    scene bg classroom
     show data normal with dissolve
     d "Phew, that conversation seemed like it was about to get kinda intense..."
     "..."
@@ -99,6 +101,7 @@ label sys_lecture:
     show text "Just know that you learned something something dangling references are bad and four bits are a nibble." with dissolve
     pause 2.0
     hide text with dissolve
+    scene bg classroom
     show attack normal with dissolve
     a "Damn, I thought that lecture would never end!"
     "Yeah, 90 minutes is a pretty long time to just talk about datatypes and pointers."
@@ -142,6 +145,7 @@ label calc_lecture:
     show text "Right...?" with dissolve
     pause 0.75
     hide text with dissolve
+    scene bg classroom
     show data normal with dissolve
     d "Wow, I haven't used an integral symbol in so long!"
     d "But I'm glad we get to use floating point numbers in this class."
@@ -171,6 +175,7 @@ label groceries:
     show text "That's what I just said." with dissolve
     pause 0.5
     hide text with dissolve
+    scene bg classroom
     "Where's my Giant Eagle card...?"
     "..."
     "...."
@@ -186,6 +191,7 @@ label groceries:
     pause 1.0
     show text "After tossing everything on the instant ramen shelf into your cart, you wander around trying to find some snacks." with dissolve
     pause 2.0
+    scene bg classroom
     hide text with dissolve
     "Why do none of these cookies tell you the amount of sugar in them...?"
     "That's pretty sus."
@@ -225,6 +231,8 @@ label groceries:
     pause 1.0
     show text "What a simp." with dissolve
     pause 0.5
+    hide text with dissolve
+    scene bg classroom
     show cache normal with dissolve
     c "Yo, who is that?"
     c "She's pretty hot."
@@ -283,6 +291,7 @@ label hw_prologue:
     show text "A few days later..." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     "Ah, shoot."
     menu:
         "I haven't turned in my calc homework!":
@@ -378,6 +387,7 @@ label review_session1:
     scene black
     show text "You make it to review session and sit in the back to not distract with your loud eating noises." with dissolve
     pause 1.5
+    scene bg classroom
     hide text with dissolve
     "When did that happen?"
     "Did we start learning about unions already?"
@@ -444,21 +454,25 @@ label buffy_help:
     jump oh_intro
 
 label oh_intro:
+    scene black
     show text "You head to Office Hours to see if a TA can help debug your code." with dissolve
     pause 1.0
     hide text with dissolve
+    scene bg classroom
     "Why is this interface so unintuitive now?"
     "Did they change the host of the queue website?"
     "..."
     "Welp, whatever."
     "Hopefully me being 25th in line is just a bug and not actually true."
+    scene black
     show text "Wishful thinking has failed. You are actually 35th in line." with dissolve
     pause 1.5
     show text "But the new episode of Oni Killer is out, so you have something to kill the time while you wait." with dissolve
-    pause 1.5
+    pause 2.5
     show text "As usual, Unlimited Budget Works has managed to pull off top-quality animation." with dissolve
-    pause 1.5
+    pause 2.5
     hide text with dissolve
+    scene bg classroom
     "Ah, that was a good episode."
     "I bet it's already trending on Twotter."
     "..."
