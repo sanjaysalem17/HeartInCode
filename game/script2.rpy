@@ -352,6 +352,9 @@ label calc_hw:
     hide data normal with dissolve
     jump lunch
 
+label prog_hw:
+    jump lunch
+
 label lunch:
     "Hmm.. looks like Schatz changed their lunch menu since last semester..."
     "..."

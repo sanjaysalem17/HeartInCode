@@ -1712,10 +1712,12 @@ label sysadmin:
     scene bg classroom
     "This seems like the place."
     "Hello?"
+    show network normal with dissolve
     "Ether" "Hello! Are you here from the student council?"
     "Yeah, I'm [player_name]. I'm here to make sure the servers can handle the traffic for the upcoming school festival."
     "Ether" "Cool. Roxy sent an email saying someone would come by."
     "Ether" "Let me get my colleague."
+    show network normal at midleft with move
     show fanpu normal at midright with dissolve
     "Ether" "Hey Fanpu. The student council rep is here."
     "Ether" "Can you pull up the network graphs from last year?"
@@ -1762,6 +1764,7 @@ label sysadmin:
     "Ether" "I'm gonna have to do most of this by myself, aren't I?"
     "I'm just gonna leave now..."
     hide fanpu normal with dissolve
+    hide network normal with dissolve
     return
 
 label cooking_club:
