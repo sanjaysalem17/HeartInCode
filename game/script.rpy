@@ -359,6 +359,12 @@ label proxy_good_req_den:
     s "Hey, [player_name]! Did you submit your club form?"
     "Yeah, I'm going to check out the result now."
     s "Cool, I'll come with you!"
+    scene black
+    show text "You and Michelle walk down the hallway towards your SMC mailbox." with dissolve
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
+    show shell normal with dissolve
     s "Did you fix the issue with your dynamic memory homework?"
     "Yeah, I just forgot a semicolon. Dumb mistakes go brrr.."
     s "Don't worry about that!"
@@ -367,9 +373,21 @@ label proxy_good_req_den:
     "Maybe you're right..."
     "..."
     "Ah, here's my form..."
+    scene black
+    show text "You open your SMC mailbox and retrieve your processed club form." with dissolve
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
+    show shell normal with dissolve
     s "What does it say?"
     "Request denied?"
     s "Huh? Let me see that..."
+    scene black
+    show text "Michelle scrutinizes the form with her brows furrowed." with dissolve
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
+    show shell normal with dissolve
     s "..."
     s "We should go talk to the student council president."
     "Uhh, alright...?"
@@ -377,58 +395,69 @@ label proxy_good_req_den:
     s "Don't worry, Roxy's a good friend of mine. She'll talk to us if I'm with you."
     s "There's gotta be a reason why she would reject your form. Maybe there's a mistake on the form."
     "..."
-    s "Let's go ask her!"
-    
+    s "Either way, there's only one way to find out - let's go talk to her!"
 
-    s "Hey, she's over there!"
+    scene black
+    show text "Michelle leads you to the Student Council room, where she swings open the door with a loud bang. This is probably why the Student Council doesn't like visitors." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "Roxy, the Student Council President, emerges from the storage closet with a shallow bowl filled with kibble in hand." with dissolve
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
     show shell star with dissolve
-    s "Roxy!"
+    s "Hey, she's over there! Hi Roxy!"
     show shell star at midright with move
     show proxy normal at midleft with dissolve
-    p "Oh, hello Shell. How are you?"
+    p "Welcome, Shell. It's been a while since I last saw you. How are you?"
     s "I'm doing great!"
-    s "Is that Packet with you?"
+    s "Is that Packet there with you?"
     p "Yes, I just refilled Packet's food bowl."
     "(So, Packet is a cat...)"
-    p "Who's this with you?"
+    p "Who is your companion, Shell?"
     show shell normal at midright with dissolve
-    s "This is [player_name]. We wanted to ask why you denied their Vim club member application."
-    p "You're [player_name]? I wanted to talk to you about something, anyway."
-    p "Your club member request got denied? That's odd."
-    p "Let's go back to the council room and talk there."
+    s "This here is [player_name]. We saw that their Vim membership application was denied and came to find out why."
+    p "You're [player_name]? What a coincidence, I have something I'd like to discuss with you. You've saved me the trouble of looking for you."
+    p "But before that, let's get to the bottom of this situation, shall we? You said your club member application was denied? "
+    p "That's certainly odd. I don't recall denying any applications recently. Why don't we head into the student council room and get things sorted out."
 
-    p "Hmm... Let me see..."
-    p "Ah, here it is."
-    p "Looks like Steven accidentally rejected it."
-    p "I'll have to yell at him later."
-    p "Anyway, what I wanted to ask you was..."
-    p "Are you interested in joining the student council?"
-    p "I know this is very sudden, but you seem to be in good academic standing and have good interpersonal skills."
-    p "Malek was especially impressed by your programming skills."
-    s "Oooh that's great! You should definitely join! I've heard it's super fun!"
-    s "You also get to plan the school festival!"
-    p "That is correct. But keep in mind, it's not all fun and games."
-    p "The student council has to deal with important matters as well."
-    p "It will involve a large time commitment, but I do believe the rewards are worth it."
-    p "So, what do you say?"
+    scene black
+    show text "All three of you enter the student council room. There are many stacks of papers on Roxy's desk. She sits down at her seat and gestures for you and Michelle to take the chairs opposite of her. Roxy moves the stacks to the side so that they don't obstruct your conversation." with dissolve
+    pause 3.0
+    hide text with dissolve
+    scene bg classroom
+    show shell normal at midright with dissolve
+    show proxy normal at midleft with dissolve
+    p "Hmm... Let me see... Aha, I found it!"
+    p "It seems like Steven accidentally rejected it. Don't worry, I'll punish him later."
+    p "Anyways, now that that's out of the way, what I wanted to discuss with you was…"
+    p "are you interested in joining the student council?"
+    p "I know that this is a very sudden request, but you are in good academic standing and have great interpersonal skills. Malek was also especially impressed by your programming skills. These are all qualities that I highly desire in the student council, so I thought to reach out to you."
+    s "Oooh, that's great! You should definitely join! I've heard it's super fun!"
+    s "You also get to plan the School Festival!"
+    p "Right, as Shell said, you'll have the exciting opportunity to organize the School Festival. But keep in mind, it's not all fun and games. The student council also handles other important matters as well."
+    p "Becoming a student council member will involve a large time commitment, but I do believe the rewards are worth it as well. If it motivates you further, you can also add this role as experience on your resume, which I'm sure will be helpful when you are searching for internships."
+    p "What do you say?"
     menu:
         "I'm definitely interested!":
             $ proxy_points += 30
             $ join_stuco = True
-            p "Great! Let me fill out the relevant paperwork."
+            p "Great, welcome aboard. I look forward to working with you. Let me get the relevant paperwork and you can complete it right away."
         "Actually, I think I'm good. Thanks for the offer.":
             $ shell_points += 30
-            p "No worries, I understand."
-            p "Let me approve your club membership form, then."
+            p "Not a problem. I understand. Allow me to approve your Vim Club membership, then."
     p "..."
-    p "Here you are. I just need your signature at the bottom."
-    p "You can take your time to read through it, if you'd like."
-    "..."
-    "...."
-    "..."
+    p "Here you go. I'll need your signature at the bottom and then you're all set."
+    p "You can also take your time to read through it, if you'd like."
+    scene black
+    show text "You take some time to look through the form." with dissolve
+    pause 1.0
+    hide text with dissolve
+    scene bg classroom
+    show shell normal at midright with dissolve
+    show proxy normal at midleft with dissolve
     "Looks good to me."
-    p "Great!"
-    p "You should be good to go, then."
+    p "Great, you're good to go."
     hide shell normal with dissolve
     hide proxy normal with dissolve
     if not join_stuco: 
@@ -1920,4 +1949,81 @@ label gaming_club:
     "Rae" "(Sigh...)"
     hide daniel normal with dissolve
     return
+
+label proxy_asleep:
+    scene black
+    show text "After completing your assigned task for the School Festival, you head back to the student council room to report your results." with dissolve
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
+    show proxy normal at center with dissolve
+    "Hey Roxy, I've completed my-"
+    hide proxy normal with dissolve
+    scene black
+    show text "You stop in your tracks. There, among the stacks of unfinished paperwork, was Roxy, fast asleep at her desk." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "It's a curious sight. You've never seen Roxy like this before. " with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "Most of the time, it feels like she's always rushing from place to place, racing to finish her student council duties, but now she seems so relaxed. Her body gently rises and falls as she breathes." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "You decide to just quietly put your report on her desk so she can read it when she awakens. Hopefully, it doesn't get lost amongst the other paperwork." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "You tip-toe towards Roxy's desk and slide your report in front of her. At this point, you've completed your task and should probably leave, but you're too captivated by Roxy's features." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "Upon further observation, you see that maybe Roxy is not as calm as you had previously thought. Her eyebrows are slightly furrowed and there are dark circles under her eyes. Exhaustion is written all over her face. Her body seems tense even while asleep." with dissolve
+    pause 2.5
+    hide text with dissolve
+    show text "You are reminded of how hard Roxy works, day in and day out, and realize that she really is the backbone of the Student Council. She's the one who keeps everything going smoothly while some of the Student Council members (like Steven) fool around." with dissolve
+    pause 2.5
+    hide text with dissolve
+    show text "She takes so much work onto herself without complaint, without asking for help from others. That's why she's always stuck inside the student council room with stacks and stacks of documents to go through." with dissolve
+    pause 2.5
+    hide text with dissolve
+    show text "Why don't the other members pick up the slack?" with dissolve
+    pause 0.5
+    hide text with dissolve
+    show text "You vow to work harder from now on, for Roxy's sake, and reach out your hand and give her a head pat." with dissolve
+    pause 1.0
+    hide text with dissolve
+    scene bg classroom
+    show proxy normal at center with dissolve
+    p "...hmm?"
+    hide proxy normal with dissolve
+    scene black
+    show text "Roxy stirs and awakens. She seems slightly disoriented and tired at first, but she quickly regains her bearings. Her head whips in your direction." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    show proxy normal at center with dissolve
+    p "Y-you..."
+    hide proxy normal with dissolve
+    scene black
+    show text "Her face quickly turns red with embarrassment as she realizes the situation." with dissolve
+    pause 0.5
+    hide text with dissolve
+    scene bg classroom
+    show proxy normal at center with dissolve
+    p "[player_name], did… you see me sleeping? Did you stare at me while I was asleep? How dare you! Erase the image from your mind! Immediately!"
+    "(Well, this is another new side of Roxy I didn't know about. It's kind of… cute. Maybe I should tease her for a bit.)"
+    "And what if I don't? What if I cherish this memory for all eternity?"
+    p "Don't you dare!"
+    hide proxy normal with dissolve
+    scene black
+    show text "You can practically see the steam coming out of her head." with dissolve
+    pause 0.5
+    hide text with dissolve
+    scene bg classroom
+    show proxy normal at center with dissolve
+    "Oh, but I do dare!"
+    hide proxy normal with dissolve
+    scene black
+    show text "You retreat out the door of the student council room and sprint down the hall, cackling. Roxy chases after you. This pursuit lasts several minutes before you both run out of breath. She finally catches up to you, panting, threatens to flood you with work, and makes you promise not to tell anyone about what you saw and to forget what happened. You only half-heartedly agree to that last request." with dissolve
+    pause 4.0
+    hide text with dissolve
+    scene bg classroom
 
