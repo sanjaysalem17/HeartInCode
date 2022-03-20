@@ -1,0 +1,71 @@
+#script for the poker club meeting
+
+label poker_club:
+    scene black
+    show text "You make your way to the Poker Club room to discuss the upcoming festival." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    "I think this is the right room."
+    "Is PnC or RandomLab in here?"
+    "???" "I think I have you now, PnC. You'll never win."
+    #show PnC normal with dissolve
+    "PnC" "RandomLab, you're not supposed to talk this much during a game of poker."
+    #show RandomLab normal at left with dissolve
+    "RandomLab" "I can't help it. Plus, you'll never know if I'm bluffing or not."
+    "PnC" "You are."
+    "RandomLab" "Are you sure?"
+    "PnC" "Yes. I'm all in."
+    "RandomLab" "I'm all in too."
+    "PnC" "Bold move for someone who is bluffing!"
+    "RandomLab" "Since you are so sure, then check this out!"
+    "PnC" "No way."
+    "RandomLab" "Ha! I wasn't bluffing!"
+    "PnC" "No. Way."
+    "RandomLab" "Looks like I win this time."
+    "PnC" "Agh, you actually beat me."
+    "RandomLab" "Yes!"
+    "RandomLab" "Oh, someone's here."
+    "PnC" "So someone finally shows up."
+    "RandomLab" "You're [player_name], right?"
+    "Yeah, nice to meet you!"
+    "RandomLab" "Nice to meet you too."
+    "PnC" "At least you're here now. We need help planning for gambling night."
+    "Gambling night?"
+    "RandomLab" "It's what we're doing for the festival!"
+    "Oh, that's really cool! What were you thinking of having there?"
+    "PnC" "That's what you're here for."
+    "Hmm, well, what are your favorite gambling games?"
+    "RandomLab" "Oh! Oh! I love blackjack!"
+    "PnC" "I prefer poker, so I'm able to beat everyone."
+    "But didn't you lose that game earlier?"
+    "PnC" "Forget about that game! I usually win."
+    "Okay then. Well, we can add those games to start."
+    "What about the dealers for those games?"
+    "PnC" "I wanna deal for the blackjack table, since I won't be able to play poker myself."
+    "PnC" "I'll love watching them lose!"
+    "Well that settles that. RandomLab, are you gonna deal for poker then?"
+    "RandomLab" "Yeah, I can do that."
+    "Has gambling been a popular thing for festival in the past?"
+    "PnC" "Yeah, it's really popular. We might need more volunteers for managing the games."
+    "RandomLab" "I guess we can try and find some volunteers."
+    "RandomLab" "They could manage a roulette wheel, if we could get our hands on one."
+    "PnC" "Could we even find one?"
+    "RandomLab" "It would be really cool."
+    "RandomLab" "I can try and look into getting one for the festival."
+    "PnC" "I can easily get the cards and chips that people would be using."
+    "PnC" "What are you going to do to help?"
+    "What else does the gambling night need?"
+    "RandomLab" "It could probably use some nice decorations for that extra flair."
+    "I can probably gather some decorations in time."
+    "It could look like a real casino. Well, as much as we could at the festival, anyway."
+    "RandomLab" "I think that's a great idea!"
+    "RandomLab" "This gambling night is going to turn out so well!"
+    "PnC" "You better come through on that idea."
+    "RandomLab" "Thank you for all of your help!"
+    "I'll see you guys later."
+    "RandomLab" "See you later!"
+    "PnC" "Bye."
+    #hide PnC normal with dissolve
+    #hide RandomLab normal with dissolve
+    return
