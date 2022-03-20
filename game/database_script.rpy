@@ -43,7 +43,7 @@ label databases:
     "Database" "I love hanging out with Storage, and asking them to SELECT things."
     "Database" "Not to mention I get to help all the people who come here, which is also great."
     "You really like requesting things that much?"
-    "Database" "Of course! I love saying SELECT and WHERE and HAVING and -"
+    "Database" "Of course! I love saying SELECT and WHERE and HAVING and-"
     "Storage" "Alright that's enough. I'm back."
     #show Storage normal at left with dissolve
     "Storage" "I hope Database didn't bother you too much."
