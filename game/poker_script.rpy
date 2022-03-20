@@ -1,4 +1,4 @@
-#script for the poker club meeting get to line 71
+#script for the poker club meeting
 
 label poker_club:
     scene black
