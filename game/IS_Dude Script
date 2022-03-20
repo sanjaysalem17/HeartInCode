@@ -1,0 +1,22 @@
+#Information Systems Student Dialouge
+
+label IS_Dude:
+    scene black
+    show text "You're done with class and bump into one of your old friends in the hallway..." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg hallway
+    "???" "Woah, I haven't see you in forever! What's Up!"
+    "PnC" "Ohh! Hey..."
+    #show IS_Dude looking distraught
+    "???" "Huh... You really don't remember me?"
+    "IS_Dude" ""
+    
+
+
+
+    
+    "PnC" "Bye."
+    #hide PnC normal with dissolve
+    #hide IS_Dude normal with dissolve
+    return
