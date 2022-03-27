@@ -2,7 +2,7 @@
 
 label databases:
     scene black
-    show text "You make your way to Tartan Ink to try and get festival supplies." with dissolve
+    show text "You make your way to Tartan Ink to try and get festival supplies for the cooking club." with dissolve
     pause 1.5
     hide text with dissolve
     scene bg classroom
