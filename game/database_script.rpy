@@ -24,7 +24,8 @@ label databases:
     "Storage" "I'll be back."
     #hide Storage normal with dissolve
     "Database" "While we wait, what do you need a bunch of tables and chairs for?"
-    "I'm helping the setup for festival, and they sent me here to get them."
+    "I'm helping the cooking club with the festival, and they're doing a cafe."
+    "They sent me here to obtain the tables and chairs for that cafe."
     "Database" "I see. Well, you've come to the right place."
     "Database" "If anyone would have them, it's us."
     "Database" "Oh! Did you see the new Request movie? It's my favorite series."
