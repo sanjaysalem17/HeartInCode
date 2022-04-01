@@ -9,9 +9,9 @@ label poker_club:
     "I think this is the right room."
     "Is PnC or Abby in here?"
     "???" "I think I have you now, PnC. You'll never win."
-    #show PnC normal with dissolve
+    show pnc normal at midright with dissolve
     "PnC" "Abby, you're not supposed to talk this much during a game of poker."
-    #show Abby normal at left with dissolve
+    show random normal at midleft with dissolve
     "Abby" "I can't help it. Plus, you'll never know if I'm bluffing or not."
     "PnC" "You are."
     "Abby" "Are you sure?"
@@ -66,6 +66,6 @@ label poker_club:
     "I'll see you guys later."
     "Abby" "See you later!"
     "PnC" "Bye."
-    #hide PnC normal with dissolve
-    #hide Abby normal with dissolve
-    return
+    hide pnc normal with dissolve
+    hide random normal with dissolve
+    jump matchmaker

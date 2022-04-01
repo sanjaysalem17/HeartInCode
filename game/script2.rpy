@@ -19,7 +19,6 @@ label start:
     $ player_name = renpy.input("What is your name?", length=32)
     $ player_name = player_name.strip()
     $ player_name = player_name[0].upper() + player_name[1:]
-    jump review_session1
     scene bg classroom
     "Ah, winter break was fun."
     "Hopefully this semester isn't as difficult as last semester, though..."
@@ -364,6 +363,65 @@ label calc_hw:
     jump lunch
 
 label prog_hw:
+    $ attack_points += 30
+    "I should find Buffy and compare answers first."
+    "..."
+    "Oh, there she is.."
+    show attack normal at midright with dissolve
+    show adb normal at midleft with dissolve
+    a "So this one is just two's complement added to this value, right?"
+    "ADB" "No, BS BS! You have to create a bitmask too."
+    "ADB" "That's the only way you can figure out which bits are set."
+    a "Oh, right."
+    a "Lemme change this then..."
+    a "..."
+    a "Oh, hey [player_name]!"
+    a "Do you want to check answers too?"
+    "Yeah, I think I got most of the tasks though, I'm just stuck on the last one."
+    "ADB" "Oh, that's the true three fourths one, right?"
+    "ADB" "You have to divide first so that you don't overflow."
+    "ADB" "gg trivial"
+    "How are you so good at this.."
+    a "I mean it's the only logical way to do it right?"
+    "..."
+    "Ah ok."
+    "Damn it really was that simple..."
+    "ADB" "Yeah, trivial, no?"
+    "Alright, that should be it, I think."
+    "Are both of you done?"
+    "ADB" "Yaya"
+    a "Yeah, I just accidentally flipped the mask I was using."
+    "Oh rip."
+    "You understand it now though, right?"
+    a "Yea yea, it's all good."
+    "Alright, time to turn in, then."
+    "ADB" "Lezgo!"
+    hide data normal with dissolve
+    hide adb normal with dissolve
+    scene black
+    show text "You manage to hand in your homework submission a breaking 2 minutes before lecture starts." with dissolve
+    pause 1.5
+    show text "Unfortunately, this lecture made even less sense than the last one." with dissolve
+    pause 1.0
+    hide text with dissolve
+    scene bg classroom
+    show adb normal at midleft with dissolve
+    show data normal at midright with dissolve
+    "..."
+    "This lecture made even less sense than the last one."
+    "ADB" "That was some BS BS."
+    a "I never thought I'd have to do pointers outside of code..."
+    "Imagine if stack pointer hacking shows up on the midterm."
+    "That would not be fun."
+    "ADB" "Yo reject reject!"
+    "ADB" "Code injection is very easy."
+    a "But we're not all big hacker brains like you, lol."
+    "ADB" "Baba"
+    "I need to eat something before my next class so I can actually pay attention during review session, so I'll see you guys later!"
+    a "Bye!"
+    "ADB" "See ya!"
+    hide adb normal with dissolve
+    hide attack normal with dissolve
     jump lunch
 
 label lunch:
@@ -396,52 +454,52 @@ label review_session1:
     "Hopefully this isn't on the midterm."
     "{i}The review sesion finished.{/i}"
     "(Sigh, I got nothing useful out of that.)"
-    "{i}I pack up and get ready to leave{/i}"
+    "{i}I pack up and get ready to leave.{/i}"
     phi "{size=-10}H, Hello?{/size}"
-    "Oh hello there. You are…?"
-    # show sophie normal with dissolve
-    phi "{size=-10}I, I’m Sophie…{/size}"
+    "Oh hello there. You are...?"
+    show philosophy normal with dissolve
+    phi "{size=-10}I, I'm Sophie...{/size}"
     # show sophie thonk with dissolve
-    phi "Th, that was a pretty helpful review session, haha"
+    phi "Th, that was a pretty helpful review session, haha."
     "(uh... really?)"
-    phi "Um… I was wondering if I could ask your opinion on something, do, do you happen to, to have a moment?"
-  	"(Well I was just going to go home and sleep, I guess I’ll stay for a bit)"
-    "Sure thing, ask away"
-    # show sophie normal with dissolve
-    phi "Thank you! you see...theotherdayIwasreadingupontheTuringtestandthechineseroomandsomedebates onsyntaxversussemanticsandIwascuriouswhatotherpeoplethinkofthis…"
+    phi "Um... I was wondering if I could ask your opinion on something, do..do you happen to.. to have a moment?"
+    "(Well I was just going to go home and sleep, I guess I'll stay for a bit.)"
+    "Sure thing, ask away."
+    # show philosophy normal with dissolve
+    phi "Thank you! you see...theotherdayIwasreadingupontheTuringtestandthechineseroomandsomedebates onsyntaxversussemanticsandIwascuriouswhatotherpeoplethinkofthis..."
     "(What was that?! She seems so excited and that was WAY too fast.)"
-    "Uh sorry, I couldn’t quite catch all that…"
-    phi "Oh s,sorry I got ahead of myself…"
-    # show sophie thonk with dissolve
-    phi "Basically, imagine you are a person who does not speak Chinese, and you were placed in a room with an English rule book that tells you how to manipulate Chinese symbols"
-    "{i}I nod in acknowledgement{/i}"
+    "Uh sorry, I couldn't quite catch all that..."
+    phi "Oh s,sorry I got ahead of myself..."
+    # show philosophy thonk with dissolve
+    phi "Basically, imagine you are a person who does not speak Chinese, and you were placed in a room with an English rule book that tells you how to manipulate Chinese symbols."
+    "{i}I nod in acknowledgement.{/i}"
     "Okay"
     phi "People from outside ask you a question in chinese on paper, and you look up the question in the rule book and transform and piece together the symbols in a certain way to produce an answer."
-    # show sophie normal with dissolve
+    # show philosophy normal with dissolve
     phi "Now, do you think you know Chinese?"
-    "Uh I don’t get it, I don’t know Chinese though."
-    # show sophie thonk with dissolve
+    "Uh I don't get it, I don't know Chinese though."
+    # show philosophy thonk with dissolve
     phi "Okay, if we put it this way: imagine the collection of chinese symbols is a database, and the rule book as a program. The questions are input, and answers are output."
     phi "Say the computer always replies like a Chinese speaking person would, does this computer, or this computer program know Chinese?"
     "Uh"
-    # show sophie normal with dissolve
+    # show philosophy normal with dissolve
     "{i}Thonk.{/i}"
-    phi "See, if you say the program does not know Chinese, it would be like saying computers are not capable of having consciousness because they don’t have intentions or semantics, just syntax. And I personally think that…(500 more words here)"
+    phi "See, if you say the program does not know Chinese, it would be like saying computers are not capable of having consciousness because they don't have intentions or semantics, just syntax. And I personally think that...(500 more words here)."
     "(This confuses me.)"
-	"(It would appear that the computer can answer questions because he understands what it means, but then if it’s just manipulating symbols following a set of rules…)"
-    "I think it doesn’t “Know” Chinese but that’s probably not important."
+    "(It would appear that the computer can answer questions because he understands what it means, but then if it's just manipulating symbols following a set of rules...)."
+    "I think it doesn't “Know” Chinese but that's probably not important."
     "I feel like if we can get a program that does this it would be a great achievement, and this technology would help a lot of people in the real world."
-    "At the end of the day it wouldn’t matter whether the computer knows Chinese, if it can be of use to help break the language barrier for us humans."
-    "(Woah that was deep, I didn’t know I was this good at Philosophy. Maybe I should just transfer to UBitt to study philosophy.)"
+    "At the end of the day it wouldn't matter whether the computer knows Chinese, if it can be of use to help break the language barrier for us humans."
+    "(Woah that was deep, I didn't know I was this good at Philosophy. Maybe I should just transfer to UBitt to study philosophy.)"
     phi "..."
-    # show sophie normal with dissolve
+    # show philosophy normal with dissolve
     phi "..."
-    # show sophie thonk with dissolve
+    # show philosophy thonk with dissolve
     phi "...!"
-    # hide sophie normal with dissolve
-    "{i}Sophie ran off without another word. {/i}"
+    hide philosophy normal with dissolve
+    "{i}Sophie ran off without another word.{/i}"
     "(What an interesting individual.)"
-    "Guess I’ll go back and watch YouTube."
+    "Guess I'll go back and watch YouTube."
     jump midterm1
 
 label midterm1:

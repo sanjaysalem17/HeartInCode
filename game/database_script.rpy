@@ -13,7 +13,7 @@ label databases:
     "Oh, uh, I need some tables and chairs."
     "Do you guys have anything like that?"
     "???" "Let's find out. Hey Storage, can you SELECT some tables and chairs for me?"
-    #show Storage normal at left with dissolve
+    show storage normal at left with dissolve
     "Storage" "Database, you know you don't have to yell everytime you ask a question, right?"
     "Database" "Ah, I'm sorry. I just get so excited when requesting items."
     "Database" "So, do we have the tables and chairs?"
@@ -22,7 +22,7 @@ label databases:
     "Database" "Oh, right. Can you check our supplies WHERE the labels are 'table' or 'chair'?"
     "Storage" "You're so weird. But ok, I can look for that."
     "Storage" "I'll be back."
-    #hide Storage normal with dissolve
+    hide storage normal with dissolve
     "Database" "While we wait, what do you need a bunch of tables and chairs for?"
     "I'm helping the cooking club with the festival, and they're doing a cafe."
     "They sent me here to get the tables and chairs for it."
@@ -46,7 +46,7 @@ label databases:
     "You really like requesting things that much?"
     "Database" "Of course! I love saying SELECT and WHERE and HAVING and-"
     "Storage" "Alright that's enough. I'm back."
-    #show Storage normal at left with dissolve
+    show storage normal at left with dissolve
     "Storage" "I hope Database didn't bother you too much."
     "We had a nice chat."
     "Database" "Did you find if we have tables and chairs?"
@@ -62,5 +62,5 @@ label databases:
     "Database" "Bye!!!"
     "Storage" "See ya."
     #hide Database normal with dissolve
-    #hide Storage normal with dissolve
+    hide storage normal with dissolve
     return
