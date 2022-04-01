@@ -3,3 +3,4 @@
 *.json
 *.rpyb
 persistent
+log.txt

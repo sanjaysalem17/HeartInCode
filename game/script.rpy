@@ -1878,8 +1878,9 @@ label gaming_club:
     hide text with dissolve
     scene bg classroom
     "Wow, this place is pretty nice.."
+    show graphics normal with dissolve
     "???" "Andy, what are you doing? Can you come gank bot?"
-    show andy normal with dissolve
+    show andy normal at right with dissolve
     "Andy" "Bruh I just respawned! Lemme stock up on potion first."
     "???" "How did you die!? Did the chickens kill you?"
     "???" "No, it looks like he went AFK..."
@@ -1948,6 +1949,7 @@ label gaming_club:
     hide andy normal with dissolve
     "Rae" "(Sigh...)"
     hide daniel normal with dissolve
+    hide graphics normal with dissolve
     return
 
 label proxy_asleep:

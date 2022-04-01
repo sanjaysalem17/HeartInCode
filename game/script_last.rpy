@@ -174,7 +174,7 @@ label stuco_tasks2:
     if stuco_task == 0:
         jump poker_club
     elif stuco_task == 1:
-        jump storage
+        jump databases
     else:
         jump printing
 
