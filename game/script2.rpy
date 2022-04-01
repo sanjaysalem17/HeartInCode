@@ -363,6 +363,65 @@ label calc_hw:
     jump lunch
 
 label prog_hw:
+    $ attack_points += 30
+    "I should find Buffy and compare answers first."
+    "..."
+    "Oh, there she is.."
+    show attack normal at midright with dissolve
+    show adb normal at midleft with dissolve
+    a "So this one is just two's complement added to this value, right?"
+    "ADB" "No, BS BS! You have to create a bitmask too."
+    "ADB" "That's the only way you can figure out which bits are set."
+    a "Oh, right."
+    a "Lemme change this then..."
+    a "..."
+    a "Oh, hey [player_name]!"
+    a "Do you want to check answers too?"
+    "Yeah, I think I got most of the tasks though, I'm just stuck on the last one."
+    "ADB" "Oh, that's the true three fourths one, right?"
+    "ADB" "You have to divide first so that you don't overflow."
+    "ADB" "gg trivial"
+    "How are you so good at this.."
+    a "I mean it's the only logical way to do it right?"
+    "..."
+    "Ah ok."
+    "Damn it really was that simple..."
+    "ADB" "Yeah, trivial, no?"
+    "Alright, that should be it, I think."
+    "Are both of you done?"
+    "ADB" "Yaya"
+    a "Yeah, I just accidentally flipped the mask I was using."
+    "Oh rip."
+    "You understand it now though, right?"
+    a "Yea yea, it's all good."
+    "Alright, time to turn in, then."
+    "ADB" "Lezgo!"
+    hide data normal with dissolve
+    hide adb normal with dissolve
+    scene black
+    show text "You manage to hand in your homework submission a breaking 2 minutes before lecture starts." with dissolve
+    pause 1.5
+    show text "Unfortunately, this lecture made even less sense than the last one." with dissolve
+    pause 1.0
+    hide text with dissolve
+    scene bg classroom
+    show adb normal at midleft with dissolve
+    show data normal at midright with dissolve
+    "..."
+    "This lecture made even less sense than the last one."
+    "ADB" "That was some BS BS."
+    a "I never thought I'd have to do pointers outside of code..."
+    "Imagine if stack pointer hacking shows up on the midterm."
+    "That would not be fun."
+    "ADB" "Yo reject reject!"
+    "ADB" "Code injection is very easy."
+    a "But we're not all big hacker brains like you, lol."
+    "ADB" "Baba"
+    "I need to eat something before my next class so I can actually pay attention during review session, so I'll see you guys later!"
+    a "Bye!"
+    "ADB" "See ya!"
+    hide adb normal with dissolve
+    hide attack normal with dissolve
     jump lunch
 
 label lunch:
