@@ -781,6 +781,7 @@ label vim_club:
     scene black
     show text "The club goes through a Vim pop quiz, and Steven gets bonked multiple times." with dissolve
     pause 1.5
+    hide text with dissolve
     show text "His Vimrc key bindings also get remapped, so overall it's turning out to be a {i}great{/i} day for Steven." with dissolve
     pause 1.5
     hide text with dissolve

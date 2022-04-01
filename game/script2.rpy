@@ -97,8 +97,10 @@ label sys_lecture:
     scene black
     show text "You run to Doherty and make it to lecture just in time." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "Intro lectures are pretty rudimentary, so the actual lecture content has been omitted." with dissolve
-    pause 1.5
+    pause 2.0
+    hide text with dissolve
     show text "Just know that you learned something something dangling references are bad and four bits are a nibble." with dissolve
     pause 2.0
     hide text with dissolve
@@ -141,8 +143,10 @@ label calc_lecture:
     scene black
     show text "You make it to the lecture early, but realize you're forgotten basically everything about Calc 2." with dissolve
     pause 1.5
+    hide text with dissolve
     show text "But it shouldn't matter, since 3D Calc is very different from 2D Calc." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "Right...?" with dissolve
     pause 0.75
     hide text with dissolve
@@ -190,6 +194,7 @@ label groceries:
     scene black
     show text "You make it onto the 71C and get to Giant Eagle." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "After tossing everything on the instant ramen shelf into your cart, you wander around trying to find some snacks." with dissolve
     pause 2.0
     scene bg classroom
@@ -228,8 +233,10 @@ label groceries:
     scene black
     show text "You help Cash carry his stash of cookies up to the register so that you can both check out." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "After paying for your food, you notice that Cash seems a little distracted by someone." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "What a simp." with dissolve
     pause 0.5
     hide text with dissolve
@@ -339,6 +346,7 @@ label calc_hw:
     scene black
     show text "You manage to hand in your homework submission a breaking 2 minutes before lecture starts." with dissolve
     pause 1.5
+    hide text with dissolve
     show text "Unfortunately, this lecture made even less sense than the last one." with dissolve
     pause 1.0
     hide text with dissolve
@@ -401,6 +409,7 @@ label prog_hw:
     scene black
     show text "You manage to hand in your homework submission a breaking 2 minutes before lecture starts." with dissolve
     pause 1.5
+    hide text with dissolve
     show text "Unfortunately, this lecture made even less sense than the last one." with dissolve
     pause 1.0
     hide text with dissolve
@@ -512,6 +521,7 @@ label sys_hw:
     scene black
     show text "You get started on your Memory allocation homework, but it's very confusing because you didn't pay attention in lecture." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "You manage to get a good chunk of it finished, but for some reason it doesn't seem to be working." with dissolve
     pause 1.0
     hide text with dissolve
@@ -575,8 +585,10 @@ label oh_intro:
     scene black
     show text "Wishful thinking has failed. You are actually 35th in line." with dissolve
     pause 1.5
+    hide text with dissolve
     show text "But the new episode of Oni Killer is out, so you have something to kill the time while you wait." with dissolve
     pause 2.5
+    hide text with dissolve
     show text "As usual, Unlimited Budget Works has managed to pull off top-quality animation." with dissolve
     pause 2.5
     hide text with dissolve
