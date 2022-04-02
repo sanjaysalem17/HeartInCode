@@ -59,7 +59,7 @@ label stuco_mtg2:
     "Packet" "nyan nyan"
     "Steven" "..."
     p "..."
-    P "You forgot to do a lot of paperwork."
+    p "You forgot to do a lot of paperwork."
     "Steven" "Wha-"
     p "Graff had to cover for you."
     p "If it wasn't done, half of the clubs wouldn't have any funding for the festival."
@@ -156,7 +156,7 @@ label stuco_mtg2:
         "Packet" "nyan nyan"
         "Halten" "Watch half the school get exposed for having a gambling addiction."
         p "So, Halten, can you go talk to the inventory department?"
-        P "Graff, you can take the Poker club."
+        p "Graff, you can take the Poker club."
         "Halten" "Sounds good."
         "Graff" "Trivial."
         p "Alright, cool."
@@ -186,3 +186,6 @@ label science_lab:
 
 label printing:
     jump matchmaker
+
+label matchmaker:
+    return

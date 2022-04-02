@@ -1148,7 +1148,7 @@ label review_session2:
     show attack normal at right with dissolve
     a "Hey! Did someone say \"stack pointer\"?"
     "Yes."
-    "Ishan" "All this %rsp stuff is confusing."
+    "Ishan" "All this %%rsp stuff is confusing."
     a "I think I can help explain it."
     hide attack normal with dissolve
     hide data normal with dissolve
@@ -1156,7 +1156,7 @@ label review_session2:
     show text "The four of you go over some of the earlier Systems concepts, so that you don't have to cram before the midterm." with dissolve
     pause 1.5
     hide text with dissolve
-    scene classroom
+    scene bg classroom
     show attack normal at left with dissolve
     show data normal at right with dissolve
     "Ishan" "So then this part of the heap has external fragmentation."
@@ -1571,7 +1571,7 @@ label after_break_stuco:
     pause 1.0
     hide text with dissolve
     scene bg classroom
-    "You have [proxy_points] points for proxy."
+    # "You have [proxy_points] points for proxy."
     "Ah, that was a nice break."
     "I guess I should actually do my student council task."
     "Hmm... let's see..."
@@ -1933,7 +1933,7 @@ label gaming_club:
     "No rush though."
     "We also need some poster designs."
     "Rae" "Daniel, can you make the posters?"
-    show daniel normal at midleft with dissolve
+    show daniel normal at left with dissolve
     "Rae" "You still have that fancy generative script, don't you?"
     "Daniel" "Yeah, I still have it."
     "Daniel" "I'll probably have to reconfigure it, but it shouldn't take long :thinking:"
@@ -1965,7 +1965,7 @@ label proxy_asleep:
     pause 2.0
     hide text with dissolve
     scene bg classroom
-    show proxy normal at center with dissolve
+    #show proxy normal at center with dissolve
     "Hey Roxy, I've completed my-"
     hide proxy normal with dissolve
     scene black
