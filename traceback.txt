@@ -1,26 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 42, in script
-    $ player_name = player_name[0].upper() + player_name[1:]
-  File "game/script.rpy", line 42, in <module>
-    $ player_name = player_name[0].upper() + player_name[1:]
-IndexError: string index out of range
+  File "renpy/common/00keymap.rpy", line 469, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+AttributeError: 'NoneType' object has no attribute 'stores'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 42, in script
-    $ player_name = player_name[0].upper() + player_name[1:]
+  File "renpy/common/00keymap.rpy", line 469, in script
+    python hide:
   File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/ast.py", line 928, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/python.py", line 2245, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/script.rpy", line 42, in <module>
-    $ player_name = player_name[0].upper() + player_name[1:]
-IndexError: string index out of range
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/loadsave.py", line 394, in save
+    roots = renpy.game.log.freeze(None)
+  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/python.py", line 2142, in freeze
+    self.complete(False)
+  File "C:\Users\sanja\Documents\renpy-7.4.11-sdk/renpy/python.py", line 1726, in complete
+    self.current.stores[name], self.current.delta_ebc[name] = sd.get_changes(begin)
+AttributeError: 'NoneType' object has no attribute 'stores'
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 HeartInCode 1.0
-Sat Feb 12 00:03:03 2022
+Sat Apr  2 00:21:37 2022

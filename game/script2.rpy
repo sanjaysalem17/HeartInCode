@@ -404,7 +404,7 @@ label prog_hw:
     a "Yea yea, it's all good."
     "Alright, time to turn in, then."
     "ADB" "Lezgo!"
-    hide data normal with dissolve
+    hide attack normal with dissolve
     hide adb normal with dissolve
     scene black
     show text "You manage to hand in your homework submission a breaking 2 minutes before lecture starts." with dissolve
@@ -415,7 +415,7 @@ label prog_hw:
     hide text with dissolve
     scene bg classroom
     show adb normal at midleft with dissolve
-    show data normal at midright with dissolve
+    show attack normal at midright with dissolve
     "..."
     "This lecture made even less sense than the last one."
     "ADB" "That was some BS BS."

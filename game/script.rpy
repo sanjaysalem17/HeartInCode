@@ -1795,7 +1795,9 @@ label sysadmin:
     "I'm just gonna leave now..."
     hide fanpu normal with dissolve
     hide network normal with dissolve
-    return
+    if join_stuco:
+        jump proxy_asleep
+    jump midterm2
 
 label cooking_club:
     scene black
@@ -1869,7 +1871,9 @@ label cooking_club:
     "Jenny" "Bye!"
     "Maple" "See you!"
     hide waffle normal with dissolve
-    return
+    if join_stuco:
+        jump proxy_asleep
+    jump midterm2
 
 
 label gaming_club:
@@ -1918,7 +1922,7 @@ label gaming_club:
     "Rae" "Yeah, I got it."
     "Rae" "You needed a logo, right? What's the theme for the festival this year?"
     "It's \"Light mode vs. Dark mode\"."
-    show daniel normal at midleft with dissolve
+    show daniel normal at left with dissolve
     "Daniel" ":thinking:"
     hide daniel with dissolve
     "Rae" "Interesting..."
@@ -1951,7 +1955,9 @@ label gaming_club:
     "Rae" "(Sigh...)"
     hide daniel normal with dissolve
     hide graphics normal with dissolve
-    return
+    if join_stuco:
+        jump proxy_asleep
+    jump midterm2
 
 label proxy_asleep:
     scene black
@@ -2029,4 +2035,5 @@ label proxy_asleep:
     pause 4.0
     hide text with dissolve
     scene bg classroom
+    jump midterm2
 
