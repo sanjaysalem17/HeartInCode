@@ -182,6 +182,30 @@ label vim_club2:
     jump matchmaker
 
 label science_lab:
+    scene black
+    show text "On your way home from the midterm, you hear a loud explosion from the Science building." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "Worried that something bad may have happened in some kind of fight between two students, you head over to check it out."
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
+    "???" "If you say that one more time, name, I'm gonna throw this at you."
+    "???" "What's wrong with strong induction, name?"
+    "???" "All you're doing is combining random stuff together."
+    "???" "Aaaahhhh!"
+    "THUD" with hpunch
+    "..."
+    "???" "Why are you mad? You know I'm right."
+    "???" "You can't just n choose 2 your way out of this!"
+    "???" "You have to use strong induction!"
+    "???" "How does that even make sense in this situation?"
+    "???" "You can't just say strong induction for everything!"
+    "???" "You've activated my trap card!"
+    "???" "Here goes my induction hypothesis!"
+    "..."
+    "THUD" with hpunch
+    "Aight, Imma head out. This is too degenerate for me."
     jump matchmaker
 
 label printing:

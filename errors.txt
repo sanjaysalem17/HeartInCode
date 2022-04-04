@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1954: reached end of line when expecting ':'.
-    if 
-       ^
+File "game/script_last.rpy", line 196: expected 'simple_expression' not found.
+    "THUD" with 
+                ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sat Apr  2 00:19:57 2022
+Sat Apr  2 17:55:28 2022
