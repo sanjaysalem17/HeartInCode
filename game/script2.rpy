@@ -107,7 +107,7 @@ label sys_lecture:
     scene bg classroom
     show attack normal with dissolve
     a "Damn, I thought that lecture would never end!"
-    "Yeah, 90 minutes is a pretty long time to just talk about datatypes and pointers."
+    "Yeah, 80 minutes is a pretty long time to just talk about datatypes and pointers."
     "..."
     a "Did you understand the part with the pointer arithmetic problems?"
     a "I got pretty confused..."

@@ -179,6 +179,97 @@ label stuco_tasks2:
         jump printing
 
 label vim_club2:
+    scene black
+    show text "The time has come for another Vim Club meeting, so you head to the meeting room." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    show shell normal with dissolve
+    s "Hey everyone!"
+    s "I hope these past few weeks haven't been too tough on you, with midterms and all."
+    show adb normal at right with dissolve
+    "ADB" "Midterms are easy gg"
+    show rebecca normal at left with dissolve
+    "Rebecca" "Alright, Albert, calm down."
+    hide adb normal with dissolve
+    hide rebecca normal with dissolve
+    s "Ok, so we really need to start getting our mini golf booth set up for the Festival."
+    show evelyn normal at left with dissolve
+    "Evelyn" "I have a very important question."
+    "Evelyn" "Where is sus Steven?"
+    "..."
+    s "..."
+    s "Is he not here?"
+    s "Hm..."
+    s "He might be trying to fight for his position back on the student council."
+    s "But he's probably not gonna get it."
+    "Evelyn" "Lol"
+    show rebecca normal at right with dissolve
+    "Rebecca" "Imma bet he's gonna show up here at the very end and complain about Roxy again."
+    "Evelyn" "Bet."
+    hide rebecca normal with dissolve
+    hide evelyn normal with dissolve
+    s "..."
+    "What is it?"
+    s "I completely forgot to get the materials from last year from my sister!"
+    "That is... unfortunate."
+    s "Does anyone want to come with me to help carry the boards?"
+    "Sure, I can come."
+    show adb normal at left with dissolve
+    "ADB" "wawa I can come too."
+    hide adb normal with dissolve
+    show rebecca normal at left with dissolve
+    show evelyn normal at right with dissolve
+    "Rebecca" "Evelyn and I have to finish up some regrade requests, so I think we'll just stay here haha."
+    "Evelyn" "Wait, I finished mine already."
+    "Rebecca" "Bestie how are you so fast?"
+    hide rebecca normal with dissolve
+    hide evelyn normal with dissolve
+    scene black
+    show text "You go with Shell and ADB to find Shell's sister and ask about the prior year's booth materials." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    show shell normal at left with dissolve
+    s "Hey sis!"
+    s "Are you busy right now?"
+    show os normal at midright with dissolve
+    "Emory" "Uh, I guess I should probably take a break now."
+    "Emory" "This kernel is killing my brain cells."
+    # show compilers normal at right with dissolve
+    "Reg" "Hey, Shell! This SSA is also not fun."
+    "Reg" "Watch them make us write this entire thing and then not even use it for the rest of the compiler..."
+    "..."
+    "ADB" "That sounds kinda stupid."
+    "(Clearly these two are going through a bad semester right now.)"
+    s "Do you know where the minigolf stuff from last year is?"
+    "Emory" "..."
+    "Emory" "It should be in a storage locker somewhere in the UC."
+    "Emory" "I should have a key somewhere, lemme check."
+    s "Thanks!"
+    "Reg" "Ok, I'm giving up. This is too much work to do in 2 days. I hate this class."
+    "Reg" "Em, I'm gonna go get a coffee, do you want anything?"
+    "Emory" "Can you get me a matcha?"
+    "Reg" "Sure."
+    # hide compilers normal with dissolve
+    "Emory" "Ok, I think I got it."
+    "Emory" "Here it is."
+    s "Thanks!"
+    show shell sad at midleft with dissolve
+    s "Don't overwork yourself!"
+    "Emory" "I'll try, but my schedule is very hectic and does not leave time for breaks."
+    "Emory" "Speaking of which, I should get back to kernel."
+    "Emory" "See ya!"
+    hide os normal with dissolve
+    hide shell sad with dissolve 
+    scene black 
+    show text "You head to the UC to find the storage locker with the minigolf materials." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "It turns out to be bigger than you thought, but luckily ADB somehow manages to carry more than half of the panels himself." with dissolve
+    pause 2.5
+    hide text with dissolve
+    scene bg classroom
     jump matchmaker
 
 label science_lab:
