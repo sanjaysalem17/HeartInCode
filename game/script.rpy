@@ -1566,6 +1566,116 @@ label meet_bitsy:
     jump after_break_other
 
 label meet_buffy:
+    scene black
+    show text "You wander around the hallway until you hear some students yelling at each other from inside the Chess club classroom." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "You then realize that it was actually very one-sided yelling, coming from a familiar voice." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    "???" "GOD, YOU'RE HOPELESS! How do you expect to learn how to play chess if you can't even remember how far each piece can move?"
+    "???" "Don't waste my time if you can't even remember basic rules!"
+    show attack normal at center with move
+    "(Just as I approached the classroom where chess club was meeting, a girl stormed out of the classroom, slamming the door closed behind her.)"
+    "(She seemed surprised to see me, but only for a second, before her expression turned cold.)"
+    "(Ah, no surprise; after all, it's Buffy.)"
+    a "What do you want? Are you here to make a fool of yourself too?"
+    menu:
+        "I'm already good at chess.":
+            a "Is that a challenge?"
+            a "I'm the captain of the chess team. I won't go easy on you just because you're a classmate."
+            a "Don't disappoint me."
+        "I genuinely want to learn!":
+            a "..."
+            a "Come in then."
+            $ attack_points += 10
+        "Yes!":
+            a "..."
+            $ attack_points += 20
+            a "Anyway. I guess we can play a match."
+    "(She opened the door and gestured for me to follow.)"
+    hide attack normal with dissolve
+    scene bg classroom
+    "(The classroom was nearly empty, save for one student that was sitting in the corner of the classroom.)"
+    "(One look at his expression told me that he likely wasn't here to stay for long.)"
+    "(Upon seeing Buffy and I walk in, he quickly gathered up his stuff, scooted around the two of us, and burst into a sprint out of the classroom.)"
+    show attack normal at center with move
+    a "What's gotten into him?"
+    a "I swear, the people trying to join this club are less and less competent."
+    a "I don't know why they keep wasting my time."
+    "(Ah... this girl doesn't know the effect she has on people, huh.)"
+    "Yeah, for real."
+    "(That response sounded anything but convincing. Thankfully, Buffy didn't seem to give it any thought.)"
+    a "Let me set up the board."
+    "(She began to pick up the pieces that seem to have been flung to the ground earlier, probably in her fit of rage.)"
+    "(Terrifying.)"
+    "(Maybe I should get out while I still can...)"
+    scene black
+    show text "You zone out, lost in thought, as she sets up the board." with dissolve
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
+    a "Hey you. Wake up."
+    "(Oh shoot.)"
+    "Ah, yes yes, I'm here. Ok. I'm ready."
+    "(She spun the board so the white pieces were facing me.)"
+    "(Looking at the pieces, I was suddenly regretting my decision.)"
+    a "Okay, well, I'll just quickly explain the chess pieces before we start. Just so you can't say you don't know anything about chess when we play."
+    "(I open my mouth to protest, but she silences me with a glare.)"
+    a "In the corners of the back row are the rooks. They can move any distance, vertically and horizontally."
+    a "Next to the rooks are the knights, which can move in the shape of an L."
+    a "Next to the knights are the bishops, which can move any distance diagonally."
+    a "In the middle of the back row are the king and queen. The queen can move any distance vertically, horizontally, and diagonally."
+    a "On the other hand, the king can only move one square horizontally, vertically, or diagonally. When the king is captured, the game ends."
+    a "Pawns can either move two squares forward from their beginning position, one square forward from other positions, or one square diagonally to capture the opponent's pieces."
+    a "Got that?"
+    "(Despite the fact that I didn't really know if I had gotten that, I nodded anyway.)"
+    a "Ready to play, then?"
+    "(No. No I wasn't. But I couldn't tell her that.) Yes."
+    a "Whenever you're ready, then."
+    "(As much as I wanted to stall, I didn't really see any way out of this situation.)"
+    "Well... here I go."
+    menu:
+        "(Move a pawn forward two squares.)":
+            "(She moved her pawn to match.)"
+            "(Ah... what shall my next move be?)"
+            scene black
+            show text "You finish the chess game. She comes out victorious, but it was a tough battle." with dissolve
+            pause 2.0
+            hide text with dissolve
+            scene bg classroom
+            $ attack_points += 30
+            a "Impressive. It's been so long since someone competent has joined this club."
+            "(There seemed to be a hint of friendliness in her expression.)"
+            a "Thanks for coming."
+            "(There was an awkward period of silence as we maintained eye contact.)"
+            "(It seemed to fluster her a little bit.)"
+            a "(Clears throat) Anyway. Thanks again for coming. Um... It looks like break time is almost over."
+            "Yes?"
+            a "I'm really sorry... What's your name again?"
+            "(Wow...)"
+            "(Well, perhaps I should be happy with the fact that she wants to know who I am.)"
+            "It's [player_name]."
+            a "Well, [player_name], thanks for coming. Please, feel free to stop by in the future."
+            scene black
+            show text "We part ways outside the classroom, and she waves goodbye as she leaves." with dissolve
+            pause 2.0
+            hide text with dissolve
+        "(Move a random piece to a random square.)":
+            a "...What?"
+            "I moved my piece."
+            a "Dear god. Please don't waste my time."
+            a "And here I thought you had potential."
+            a "Whatever. I've had it with you brainless idiots trying to join my club."
+            "(With a clean sweep, she knocked all the pieces to the floor.)"
+            a "Leave. And don't show your face in my club ever again."
+            "(Oh no... she's mad.)"
+            "(I'd better get going. It looks like break time is over anyway.)"
+            scene black
+            show text "She is still glowering at you as you walk out of the room." with dissolve
+            pause 2.0
+            hide text with dissolve
     if join_stuco:
         jump after_break_stuco
     jump after_break_other
