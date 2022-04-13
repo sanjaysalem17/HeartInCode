@@ -1118,6 +1118,7 @@ label review_session2:
     scene bg classroom
     "I'm glad I finished the programming homeworks on time, but there's no way I'm gonna remember anything that was taught in lecture..."
     "I didn't have time to study because debugging took {i}way{/} too long."
+    show ishan normal with dissolve
     "Ishan" "That's because this course doesn't use Rust, smh."
     "Huh? Who are you?"
     "Ishan" "I'm a Rust main. We scale late game."
@@ -1134,6 +1135,7 @@ label review_session2:
     "Ishan" "Hmm, lemme take a look."
     "Ishan" "You'd have to round the total size to a multiple of 8 because the long is the largest type here."
     "That makes sense."
+    show ishan normal at midright with move
     show data normal at midleft with dissolve
     d "Hey, [player_name]! Hey, Ishan!"
     "Ishan" "Hello hello."
@@ -1145,13 +1147,15 @@ label review_session2:
     d "Ah, ok. I should probably review some too, then."
     d "How does the stack pointer stuff work again?"
     show data normal at left with move
-    show attack normal at right with dissolve
+    show ishan normal at right with move
+    show attack normal with dissolve
     a "Hey! Did someone say \"stack pointer\"?"
     "Yes."
     "Ishan" "All this %%rsp stuff is confusing."
     a "I think I can help explain it."
     hide attack normal with dissolve
     hide data normal with dissolve
+    hide ishan normal with dissolve
     scene black
     show text "The four of you go over some of the earlier Systems concepts, so that you don't have to cram before the midterm." with dissolve
     pause 1.5
@@ -1379,8 +1383,10 @@ label meet_cache:
     "lil mem sbrk" "Please welcome [duo_name] to the stage!"
     hide jason normal with dissolve
     "Shalin" "Hey, everyone!"
+    show albert normal at midright
     "Albert" "I'm Albert, and this is Shalin, and we're [duo_name]!"
     "Shalin" "Hope you all enjoy our song!"
+    hide albert normal with dissolve
     scene black
     show text "You enjoy the opening act and the subsequent comedy show. Your night is full of laughter and fun." with dissolve
     pause 2.0
@@ -1808,6 +1814,7 @@ label cooking_club:
     "So the club president is someone named Jenny..."
     "I think it's this room, right?"
     "Hello? Is Jenny here?"
+    show jenny normal with dissolve
     "Jenny" "Hewo!"
     "Jenny" "Are you [player_name]?"
     "Yeah, nice to meet you!"
@@ -1821,7 +1828,7 @@ label cooking_club:
     "Ooh, that sounds fun!"
     "So do you have an expected number of customers?"
     "Jenny" "Yeah, lemme just ask Sandie."
-    show sandwich normal at midleft with dissolve
+    show sandwich normal at right with dissolve
     "Jenny" "Hey, Sandie, can you get the binder for last year's logistics?"
     "Sandie" "Yeah, sure, this bread's about to finish proofing so lemme stick it in the oven first..."
     "Sandie" "Ok, there we go."
@@ -1834,7 +1841,6 @@ label cooking_club:
     "I don't think that's a good idea..."
     "I feel like allergies are gonna be a big concern if you host outside."
     "Jenny" "Ah shit, you're right."
-    show sandwich normal at center with move
     show waffle normal at left with dissolve
     "???" "Sorry guys, my class ran late today!"
     "Jenny" "Hey, Maple!"
@@ -1851,7 +1857,6 @@ label cooking_club:
     "Sandie" "I think that's my bread. Lemme go check on it."
     "Sandie" "It was nice meeting you, [player_name]!"
     hide sandwich normal with dissolve
-    show waffle normal at midleft with move
     "Maple" "So if we do somewhere in Tepper, we'll have to talk to the storage team to make sure they have enough tables, right?"
     "Jenny" "Yeah, I don't fully know how that process works."
     "I can give it a shot."
@@ -1870,6 +1875,7 @@ label cooking_club:
     "I'll see you later!"
     "Jenny" "Bye!"
     "Maple" "See you!"
+    hide jenny normal with dissolve
     hide waffle normal with dissolve
     if join_stuco:
         jump proxy_asleep

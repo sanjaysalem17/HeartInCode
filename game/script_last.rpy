@@ -269,7 +269,42 @@ label vim_club2:
     show text "It turns out to be bigger than you thought, but luckily ADB somehow manages to carry more than half of the panels himself." with dissolve
     pause 2.5
     hide text with dissolve
+    show text "You carry the materials back to the club room, and take a break from heavy exercise." with dissolve
+    pause 1.5
+    hide text with dissolve
     scene bg classroom
+    show adb normal at midleft with dissolve
+    show shell normal at midright with dissolve
+    "ADB" "That was a good workout."
+    "I think my arms are broken."
+    s "Haha, thanks for the help!"
+    show shell star at midright with dissolve
+    s "Looks like these panels are already labeled, so we don't need to figure out how to put together each minigolf hole. "
+    "ADB" "baba"
+    "Where did Rebecca and Evelyn go?"
+    "ADB" "I think they had to leave for Office Hours."
+    show shell normal at midright with dissolve
+    s "Ah, makes sense."
+    s "I think we should be good to go for the next meeting, then."
+    s "It'll just be setting up the booth, which I don't think will take long if we know what we're doing."
+    s "I'll see you guys in a few weeks!"
+    "ADB" "Goodbye."
+    hide adb normal with dissolve
+    menu:
+        "See you!":
+            hide shell normal with dissolve
+        "...":
+            s "What is it, [player_name]?"
+            "Do you have any plans yet for the festival?"
+            "Other than the booth, I mean."
+            s "Hmm.."
+            s "I don't think so?"
+            "..."
+            "Good to know."
+            s "Huh? What's that supposed to mean?"
+            "Haha, don't worry about it!"
+            "See you!"
+            hide shell normal with dissolve
     jump matchmaker
 
 label science_lab:
