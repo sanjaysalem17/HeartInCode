@@ -335,6 +335,81 @@ label science_lab:
     jump matchmaker
 
 label printing:
+    scene black
+    show text "You head back to the Graphics Lounge to check on Rae's logos for the festival." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    show graphics normal at midleft with dissolve
+    show daniel normal at midright with dissolve
+    "Rae" "Oh, hey, [player_name]!"
+    "Rae" "You have great timing! I have to go to a staff meeting now, so I asked Daniel to help with printing the logos and posters."
+    "Rae" "I managed to finish them in time, which is very surprising, haha."
+    "Rae" "Sorry, I have to run now since I'm already a few minutes late."
+    "Rae" "I gave Daniel all the dimension info, so he should be able to help you. See you!"
+    hide graphics normal with dissolve
+    show daniel normal at center with move
+    "Daniel" "So I had a script that would convert all the files to something printable, but it doesn't work sadly."
+    "Did you write the script yourself?"
+    "Daniel" "No, I got them from Max and changed them to work for this, but I think the scripts were already broken."
+    "Oh. Did you ask him to fix the scripts?"
+    "Daniel" "I did, but his sprite hasn't been drawn yet so he can't come and help."
+    "Daniel" "He just responded with \"works for me\" and then left me on read."
+    "Interesting."
+    "Daniel" "I guess we have to go to the printing department now gg."
+    hide daniel normal with dissolve
+    scene black
+    show text "You go to the printing department to find the monitor furiously editing some Python files." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show daniel normal at midright with dissolve
+    "Daniel" "Hey, CompPhoto, can you help us print out some posters for the festival?"
+    "CompPhoto" "Hold on, hold on. This assignment is due in like 30 minutes."
+    "Daniel" "Is this Comp Photo?"
+    "CompPhoto" "Perhaps."
+    "CompPhoto" "My bilateral filter is still very broken for some unknown reason..."
+    "Is it ok if we just print ourselves then?"
+    "CompPhoto" "Sure sure. Hmm.. maybe my intensity kernel is wrong..."
+    hide daniel normal with dissolve
+    scene black
+    show text "With some experimentation, you figure out how to calibrate the printer so that you waste the least amount of paper." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "Yes, you've just solved a practical optimization problem called MIN-WASTED-SPACE. Good for you!" with dissolve
+    pause 1.5
+    hide text with dissolve
+    show daniel normal at center
+    "Daniel" "So if we spread them out like this, I think it should work."
+    "Oh, I think we also needed some pins and stickers with the logo."
+    "Daniel" "I think stickers aren't too bad, if we use the sticker sheets."
+    "Daniel" "We just have to format the logo to fit in a circle."
+    "I don't think CompPhoto can help us since she's still busy."
+    "CompPhoto" "Yes, now my joint bilateral is broken. Everything is pain."
+    "I can probably do it then. Just need some resizing."
+    "Daniel" "We should probably order the pins instead of making them manually."
+    "Daniel" "Manual labor is pain."
+    "Yup."
+    "CompPhoto" "Yup."
+    "Daniel" "I think we should be good to go then."
+    "CompPhoto, do you have a good site for pin ordering?"
+    "CompPhoto" "Uhh.. they should all be on that sheet over there."
+    "Ah, ok. I can place an order through the first site after I edit the logos."
+    "Daniel" "Sounds good."
+    "Daniel" "I'll let you know once the posters are finished being printed."
+    "Alright."
+    "Good luck on your Comp Photo assignment, CompPhoto."
+    "CompPhoto" "aaaaaaaaaa"
+    "Daniel" "Those do not sound like good noises lol."
+    "CompPhoto" "My joint bilateral finally works! Time to do detail transfer."
+    "CompPhoto" "Someone give me an epsilon value."
+    "Uh.."
+    "Daniel" "Uh.."
+    "CompPhoto" "Nevermind, numpy probably has something built in..."
+    "..."
+    "Ok, I guess we're all good then?"
+    "See you!"
+    "Daniel" "Bye!"
+    hide daniel normal with dissolve
     jump matchmaker
 
 label matchmaker:
