@@ -1848,7 +1848,60 @@ label after_break_other:
     hide clogic normal with dissolve
     hide pruning normal with dissolve
     "I think I just witnessed a hato crime."
-    return
+    if join_vimclub:
+        "Oh shoot, I'm late for my midterm!"
+        jump midterm2
+    jump photo_club
+
+label photo_club:
+    scene black
+    show text "You manage to escape from the eccentric pigeon man and happen to find two students arguing at Walking to the Sky." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    "???" "Why are you using the default camera on your phone?"
+    "???" "What do you mean? What am I supposed to do?"
+    "???" "Get on my level, Sky. This is a pro camera add on that I have for a monthly subscription."
+    "Sky" "But Hannah, why should I do that when I've got an actual DSLR?"
+    "Hannah" "Why didn't you bring that, then?"
+    "Hannah" "How am I supposed to use this footage for my computer vision project if they're low quality??"
+    "Sky" "Why should I be helping you with {i}your{/i} project?"
+    "Sky" "Anyway, see this default app also has manual exposure and ISO settings."
+    "Sky" "If you hook it up to the accelerometer you can probably do some deblurring manually."
+    "Hannah" "{b}Manually?{/b}"
+    "Hannah" "Why would I want to deblur manually? Capturing good footage the first time is clearly a better use of my time."
+    "Sky" "Whatever. I'm just here because you said it was a good opportunity for a photoshoot."
+    "Sky" "When is Pittsburgh ever gonna have good weather like this again?"
+    "Hannah" "Aiyaa..."
+    "Hannah" "Okay okay..."
+    "Hannah" "Oh, hello!"
+    "Oh hi, what are you guys doing?"
+    "Sky" "Trying to take a picture for the upcoming photo contest."
+    "Hannah" "You may be doing that, but I just need good movement footage to train my model."
+    "Sky" "Alright, alright, we get it, Hannah."
+    "What's the photo contest about?"
+    "Sky" "The theme is \"city skylines\"."
+    "Oh, that sounds cool!"
+    "Hannah" "Ok, I'm giving up."
+    "Hannah" "My group members can deal with this bad footage since I'm basically carrying them in this class anyway."
+    "..."
+    "Sky" "Why are you so elitist, Hannah?"
+    "Hannah" "It's not elitist if it's true."
+    "Hannah" "Do you know how hard it is to set up a model for an autonomous vehicle's vision input?"
+    "Sky" "..."
+    "Hannah" "Alright, I'll see you later."
+    "Sky" "Bye."
+    "Sky" "Do you think these photos look good?"
+    "Hm.."
+    "I think they'd look better at nighttime."
+    "Sky" "!!"
+    "Sky" "Oh you're right! And since I have manual exposure I can make sure it doesn't get too dark!"
+    "..."
+    "I don't know what that means, but it sounds impressive."
+    "Oh shoot, I'm late for my midterm!"
+    "I'll see you later!"
+    "Sky" "Bye!"
+    jump midterm2
     
 label sysadmin:
     scene black
