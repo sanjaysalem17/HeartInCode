@@ -781,6 +781,7 @@ label vim_club:
     scene black
     show text "The club goes through a Vim pop quiz, and Steven gets bonked multiple times." with dissolve
     pause 1.5
+    hide text with dissolve
     show text "His Vimrc key bindings also get remapped, so overall it's turning out to be a {i}great{/i} day for Steven." with dissolve
     pause 1.5
     hide text with dissolve
@@ -1117,6 +1118,7 @@ label review_session2:
     scene bg classroom
     "I'm glad I finished the programming homeworks on time, but there's no way I'm gonna remember anything that was taught in lecture..."
     "I didn't have time to study because debugging took {i}way{/} too long."
+    show ishan normal with dissolve
     "Ishan" "That's because this course doesn't use Rust, smh."
     "Huh? Who are you?"
     "Ishan" "I'm a Rust main. We scale late game."
@@ -1133,6 +1135,7 @@ label review_session2:
     "Ishan" "Hmm, lemme take a look."
     "Ishan" "You'd have to round the total size to a multiple of 8 because the long is the largest type here."
     "That makes sense."
+    show ishan normal at midright with move
     show data normal at midleft with dissolve
     d "Hey, [player_name]! Hey, Ishan!"
     "Ishan" "Hello hello."
@@ -1144,18 +1147,20 @@ label review_session2:
     d "Ah, ok. I should probably review some too, then."
     d "How does the stack pointer stuff work again?"
     show data normal at left with move
-    show attack normal at right with dissolve
+    show ishan normal at right with move
+    show attack normal with dissolve
     a "Hey! Did someone say \"stack pointer\"?"
     "Yes."
-    "Ishan" "All this %rsp stuff is confusing."
+    "Ishan" "All this %%rsp stuff is confusing."
     a "I think I can help explain it."
     hide attack normal with dissolve
     hide data normal with dissolve
+    hide ishan normal with dissolve
     scene black
     show text "The four of you go over some of the earlier Systems concepts, so that you don't have to cram before the midterm." with dissolve
     pause 1.5
     hide text with dissolve
-    scene classroom
+    scene bg classroom
     show attack normal at left with dissolve
     show data normal at right with dissolve
     "Ishan" "So then this part of the heap has external fragmentation."
@@ -1378,8 +1383,10 @@ label meet_cache:
     "lil mem sbrk" "Please welcome [duo_name] to the stage!"
     hide jason normal with dissolve
     "Shalin" "Hey, everyone!"
+    show albert normal at midright
     "Albert" "I'm Albert, and this is Shalin, and we're [duo_name]!"
     "Shalin" "Hope you all enjoy our song!"
+    hide albert normal with dissolve
     scene black
     show text "You enjoy the opening act and the subsequent comedy show. Your night is full of laughter and fun." with dissolve
     pause 2.0
@@ -1559,6 +1566,116 @@ label meet_bitsy:
     jump after_break_other
 
 label meet_buffy:
+    scene black
+    show text "You wander around the hallway until you hear some students yelling at each other from inside the Chess club classroom." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "You then realize that it was actually very one-sided yelling, coming from a familiar voice." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    "???" "GOD, YOU'RE HOPELESS! How do you expect to learn how to play chess if you can't even remember how far each piece can move?"
+    "???" "Don't waste my time if you can't even remember basic rules!"
+    show attack normal at center with move
+    "(Just as I approached the classroom where chess club was meeting, a girl stormed out of the classroom, slamming the door closed behind her.)"
+    "(She seemed surprised to see me, but only for a second, before her expression turned cold.)"
+    "(Ah, no surprise; after all, it's Buffy.)"
+    a "What do you want? Are you here to make a fool of yourself too?"
+    menu:
+        "I'm already good at chess.":
+            a "Is that a challenge?"
+            a "I'm the captain of the chess team. I won't go easy on you just because you're a classmate."
+            a "Don't disappoint me."
+        "I genuinely want to learn!":
+            a "..."
+            a "Come in then."
+            $ attack_points += 10
+        "Yes!":
+            a "..."
+            $ attack_points += 20
+            a "Anyway. I guess we can play a match."
+    "(She opened the door and gestured for me to follow.)"
+    hide attack normal with dissolve
+    scene bg classroom
+    "(The classroom was nearly empty, save for one student that was sitting in the corner of the classroom.)"
+    "(One look at his expression told me that he likely wasn't here to stay for long.)"
+    "(Upon seeing Buffy and I walk in, he quickly gathered up his stuff, scooted around the two of us, and burst into a sprint out of the classroom.)"
+    show attack normal at center with move
+    a "What's gotten into him?"
+    a "I swear, the people trying to join this club are less and less competent."
+    a "I don't know why they keep wasting my time."
+    "(Ah... this girl doesn't know the effect she has on people, huh.)"
+    "Yeah, for real."
+    "(That response sounded anything but convincing. Thankfully, Buffy didn't seem to give it any thought.)"
+    a "Let me set up the board."
+    "(She began to pick up the pieces that seem to have been flung to the ground earlier, probably in her fit of rage.)"
+    "(Terrifying.)"
+    "(Maybe I should get out while I still can...)"
+    scene black
+    show text "You zone out, lost in thought, as she sets up the board." with dissolve
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
+    a "Hey you. Wake up."
+    "(Oh shoot.)"
+    "Ah, yes yes, I'm here. Ok. I'm ready."
+    "(She spun the board so the white pieces were facing me.)"
+    "(Looking at the pieces, I was suddenly regretting my decision.)"
+    a "Okay, well, I'll just quickly explain the chess pieces before we start. Just so you can't say you don't know anything about chess when we play."
+    "(I open my mouth to protest, but she silences me with a glare.)"
+    a "In the corners of the back row are the rooks. They can move any distance, vertically and horizontally."
+    a "Next to the rooks are the knights, which can move in the shape of an L."
+    a "Next to the knights are the bishops, which can move any distance diagonally."
+    a "In the middle of the back row are the king and queen. The queen can move any distance vertically, horizontally, and diagonally."
+    a "On the other hand, the king can only move one square horizontally, vertically, or diagonally. When the king is captured, the game ends."
+    a "Pawns can either move two squares forward from their beginning position, one square forward from other positions, or one square diagonally to capture the opponent's pieces."
+    a "Got that?"
+    "(Despite the fact that I didn't really know if I had gotten that, I nodded anyway.)"
+    a "Ready to play, then?"
+    "(No. No I wasn't. But I couldn't tell her that.) Yes."
+    a "Whenever you're ready, then."
+    "(As much as I wanted to stall, I didn't really see any way out of this situation.)"
+    "Well... here I go."
+    menu:
+        "(Move a pawn forward two squares.)":
+            "(She moved her pawn to match.)"
+            "(Ah... what shall my next move be?)"
+            scene black
+            show text "You finish the chess game. She comes out victorious, but it was a tough battle." with dissolve
+            pause 2.0
+            hide text with dissolve
+            scene bg classroom
+            $ attack_points += 30
+            a "Impressive. It's been so long since someone competent has joined this club."
+            "(There seemed to be a hint of friendliness in her expression.)"
+            a "Thanks for coming."
+            "(There was an awkward period of silence as we maintained eye contact.)"
+            "(It seemed to fluster her a little bit.)"
+            a "(Clears throat) Anyway. Thanks again for coming. Um... It looks like break time is almost over."
+            "Yes?"
+            a "I'm really sorry... What's your name again?"
+            "(Wow...)"
+            "(Well, perhaps I should be happy with the fact that she wants to know who I am.)"
+            "It's [player_name]."
+            a "Well, [player_name], thanks for coming. Please, feel free to stop by in the future."
+            scene black
+            show text "We part ways outside the classroom, and she waves goodbye as she leaves." with dissolve
+            pause 2.0
+            hide text with dissolve
+        "(Move a random piece to a random square.)":
+            a "...What?"
+            "I moved my piece."
+            a "Dear god. Please don't waste my time."
+            a "And here I thought you had potential."
+            a "Whatever. I've had it with you brainless idiots trying to join my club."
+            "(With a clean sweep, she knocked all the pieces to the floor.)"
+            a "Leave. And don't show your face in my club ever again."
+            "(Oh no... she's mad.)"
+            "(I'd better get going. It looks like break time is over anyway.)"
+            scene black
+            show text "She is still glowering at you as you walk out of the room." with dissolve
+            pause 2.0
+            hide text with dissolve
     if join_stuco:
         jump after_break_stuco
     jump after_break_other
@@ -1570,7 +1687,7 @@ label after_break_stuco:
     pause 1.0
     hide text with dissolve
     scene bg classroom
-    "You have [proxy_points] points for proxy."
+    # "You have [proxy_points] points for proxy."
     "Ah, that was a nice break."
     "I guess I should actually do my student council task."
     "Hmm... let's see..."
@@ -1731,7 +1848,60 @@ label after_break_other:
     hide clogic normal with dissolve
     hide pruning normal with dissolve
     "I think I just witnessed a hato crime."
-    return
+    if join_vimclub:
+        "Oh shoot, I'm late for my midterm!"
+        jump midterm2
+    jump photo_club
+
+label photo_club:
+    scene black
+    show text "You manage to escape from the eccentric pigeon man and happen to find two students arguing at Walking to the Sky." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    "???" "Why are you using the default camera on your phone?"
+    "???" "What do you mean? What am I supposed to do?"
+    "???" "Get on my level, Sky. This is a pro camera add on that I have for a monthly subscription."
+    "Sky" "But Hannah, why should I do that when I've got an actual DSLR?"
+    "Hannah" "Why didn't you bring that, then?"
+    "Hannah" "How am I supposed to use this footage for my computer vision project if they're low quality??"
+    "Sky" "Why should I be helping you with {i}your{/i} project?"
+    "Sky" "Anyway, see this default app also has manual exposure and ISO settings."
+    "Sky" "If you hook it up to the accelerometer you can probably do some deblurring manually."
+    "Hannah" "{b}Manually?{/b}"
+    "Hannah" "Why would I want to deblur manually? Capturing good footage the first time is clearly a better use of my time."
+    "Sky" "Whatever. I'm just here because you said it was a good opportunity for a photoshoot."
+    "Sky" "When is Pittsburgh ever gonna have good weather like this again?"
+    "Hannah" "Aiyaa..."
+    "Hannah" "Okay okay..."
+    "Hannah" "Oh, hello!"
+    "Oh hi, what are you guys doing?"
+    "Sky" "Trying to take a picture for the upcoming photo contest."
+    "Hannah" "You may be doing that, but I just need good movement footage to train my model."
+    "Sky" "Alright, alright, we get it, Hannah."
+    "What's the photo contest about?"
+    "Sky" "The theme is \"city skylines\"."
+    "Oh, that sounds cool!"
+    "Hannah" "Ok, I'm giving up."
+    "Hannah" "My group members can deal with this bad footage since I'm basically carrying them in this class anyway."
+    "..."
+    "Sky" "Why are you so elitist, Hannah?"
+    "Hannah" "It's not elitist if it's true."
+    "Hannah" "Do you know how hard it is to set up a model for an autonomous vehicle's vision input?"
+    "Sky" "..."
+    "Hannah" "Alright, I'll see you later."
+    "Sky" "Bye."
+    "Sky" "Do you think these photos look good?"
+    "Hm.."
+    "I think they'd look better at nighttime."
+    "Sky" "!!"
+    "Sky" "Oh you're right! And since I have manual exposure I can make sure it doesn't get too dark!"
+    "..."
+    "I don't know what that means, but it sounds impressive."
+    "Oh shoot, I'm late for my midterm!"
+    "I'll see you later!"
+    "Sky" "Bye!"
+    jump midterm2
     
 label sysadmin:
     scene black
@@ -1794,7 +1964,7 @@ label sysadmin:
     "I'm just gonna leave now..."
     hide fanpu normal with dissolve
     hide network normal with dissolve
-    return
+    jump midterm2
 
 label cooking_club:
     scene black
@@ -1805,6 +1975,7 @@ label cooking_club:
     "So the club president is someone named Jenny..."
     "I think it's this room, right?"
     "Hello? Is Jenny here?"
+    show jenny normal with dissolve
     "Jenny" "Hewo!"
     "Jenny" "Are you [player_name]?"
     "Yeah, nice to meet you!"
@@ -1818,7 +1989,7 @@ label cooking_club:
     "Ooh, that sounds fun!"
     "So do you have an expected number of customers?"
     "Jenny" "Yeah, lemme just ask Sandie."
-    show sandwich normal at midleft with dissolve
+    show sandwich normal at right with dissolve
     "Jenny" "Hey, Sandie, can you get the binder for last year's logistics?"
     "Sandie" "Yeah, sure, this bread's about to finish proofing so lemme stick it in the oven first..."
     "Sandie" "Ok, there we go."
@@ -1831,7 +2002,6 @@ label cooking_club:
     "I don't think that's a good idea..."
     "I feel like allergies are gonna be a big concern if you host outside."
     "Jenny" "Ah shit, you're right."
-    show sandwich normal at center with move
     show waffle normal at left with dissolve
     "???" "Sorry guys, my class ran late today!"
     "Jenny" "Hey, Maple!"
@@ -1848,7 +2018,6 @@ label cooking_club:
     "Sandie" "I think that's my bread. Lemme go check on it."
     "Sandie" "It was nice meeting you, [player_name]!"
     hide sandwich normal with dissolve
-    show waffle normal at midleft with move
     "Maple" "So if we do somewhere in Tepper, we'll have to talk to the storage team to make sure they have enough tables, right?"
     "Jenny" "Yeah, I don't fully know how that process works."
     "I can give it a shot."
@@ -1867,8 +2036,9 @@ label cooking_club:
     "I'll see you later!"
     "Jenny" "Bye!"
     "Maple" "See you!"
+    hide jenny normal with dissolve
     hide waffle normal with dissolve
-    return
+    jump midterm2
 
 
 label gaming_club:
@@ -1917,7 +2087,7 @@ label gaming_club:
     "Rae" "Yeah, I got it."
     "Rae" "You needed a logo, right? What's the theme for the festival this year?"
     "It's \"Light mode vs. Dark mode\"."
-    show daniel normal at midleft with dissolve
+    show daniel normal at left with dissolve
     "Daniel" ":thinking:"
     hide daniel with dissolve
     "Rae" "Interesting..."
@@ -1928,7 +2098,7 @@ label gaming_club:
     "No rush though."
     "We also need some poster designs."
     "Rae" "Daniel, can you make the posters?"
-    show daniel normal at midleft with dissolve
+    show daniel normal at left with dissolve
     "Rae" "You still have that fancy generative script, don't you?"
     "Daniel" "Yeah, I still have it."
     "Daniel" "I'll probably have to reconfigure it, but it shouldn't take long :thinking:"
@@ -1950,7 +2120,7 @@ label gaming_club:
     "Rae" "(Sigh...)"
     hide daniel normal with dissolve
     hide graphics normal with dissolve
-    return
+    jump midterm2
 
 label proxy_asleep:
     scene black
@@ -1958,7 +2128,7 @@ label proxy_asleep:
     pause 2.0
     hide text with dissolve
     scene bg classroom
-    show proxy normal at center with dissolve
+    #show proxy normal at center with dissolve
     "Hey Roxy, I've completed my-"
     hide proxy normal with dissolve
     scene black
@@ -2028,4 +2198,5 @@ label proxy_asleep:
     pause 4.0
     hide text with dissolve
     scene bg classroom
+    jump handin_malloc
 

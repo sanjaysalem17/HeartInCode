@@ -97,15 +97,17 @@ label sys_lecture:
     scene black
     show text "You run to Doherty and make it to lecture just in time." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "Intro lectures are pretty rudimentary, so the actual lecture content has been omitted." with dissolve
-    pause 1.5
+    pause 2.0
+    hide text with dissolve
     show text "Just know that you learned something something dangling references are bad and four bits are a nibble." with dissolve
     pause 2.0
     hide text with dissolve
     scene bg classroom
     show attack normal with dissolve
     a "Damn, I thought that lecture would never end!"
-    "Yeah, 90 minutes is a pretty long time to just talk about datatypes and pointers."
+    "Yeah, 80 minutes is a pretty long time to just talk about datatypes and pointers."
     "..."
     a "Did you understand the part with the pointer arithmetic problems?"
     a "I got pretty confused..."
@@ -141,8 +143,10 @@ label calc_lecture:
     scene black
     show text "You make it to the lecture early, but realize you're forgotten basically everything about Calc 2." with dissolve
     pause 1.5
+    hide text with dissolve
     show text "But it shouldn't matter, since 3D Calc is very different from 2D Calc." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "Right...?" with dissolve
     pause 0.75
     hide text with dissolve
@@ -190,6 +194,7 @@ label groceries:
     scene black
     show text "You make it onto the 71C and get to Giant Eagle." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "After tossing everything on the instant ramen shelf into your cart, you wander around trying to find some snacks." with dissolve
     pause 2.0
     scene bg classroom
@@ -228,8 +233,10 @@ label groceries:
     scene black
     show text "You help Cash carry his stash of cookies up to the register so that you can both check out." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "After paying for your food, you notice that Cash seems a little distracted by someone." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "What a simp." with dissolve
     pause 0.5
     hide text with dissolve
@@ -339,6 +346,7 @@ label calc_hw:
     scene black
     show text "You manage to hand in your homework submission a breaking 2 minutes before lecture starts." with dissolve
     pause 1.5
+    hide text with dissolve
     show text "Unfortunately, this lecture made even less sense than the last one." with dissolve
     pause 1.0
     hide text with dissolve
@@ -396,17 +404,18 @@ label prog_hw:
     a "Yea yea, it's all good."
     "Alright, time to turn in, then."
     "ADB" "Lezgo!"
-    hide data normal with dissolve
+    hide attack normal with dissolve
     hide adb normal with dissolve
     scene black
     show text "You manage to hand in your homework submission a breaking 2 minutes before lecture starts." with dissolve
     pause 1.5
+    hide text with dissolve
     show text "Unfortunately, this lecture made even less sense than the last one." with dissolve
     pause 1.0
     hide text with dissolve
     scene bg classroom
     show adb normal at midleft with dissolve
-    show data normal at midright with dissolve
+    show attack normal at midright with dissolve
     "..."
     "This lecture made even less sense than the last one."
     "ADB" "That was some BS BS."
@@ -447,19 +456,32 @@ label review_session1:
     scene black
     show text "You make it to review session and sit in the back to not distract with your loud eating noises." with dissolve
     pause 1.5
-    scene bg classroom
     hide text with dissolve
+    show text "Unfortunately, you are already confused with the course material, starting with how unions are useful. Or what they even are." with dissolve
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
     "When did that happen?"
     "Did we start learning about unions already?"
     "Hopefully this isn't on the midterm."
-    "{i}The review sesion finished.{/i}"
+    scene black
+    show text "You spend the majority of the review session trying to follow along with notes that you're sure were not covered in lecture." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "Are forks related to cutlery or process control? You don't know anymore." with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "All you know is that the midterm is going to be a big %%rip." with dissolve
+    pause 1.0
+    hide text with dissolve
+    scene bg classroom
     "(Sigh, I got nothing useful out of that.)"
     "{i}I pack up and get ready to leave.{/i}"
     phi "{size=-10}H, Hello?{/size}"
     "Oh hello there. You are...?"
     show philosophy normal with dissolve
     phi "{size=-10}I, I'm Sophie...{/size}"
-    # show sophie thonk with dissolve
+    # show philosophy thonk with dissolve
     phi "Th, that was a pretty helpful review session, haha."
     "(uh... really?)"
     phi "Um... I was wondering if I could ask your opinion on something, do..do you happen to.. to have a moment?"
@@ -490,7 +512,7 @@ label review_session1:
     "I think it doesn't “Know” Chinese but that's probably not important."
     "I feel like if we can get a program that does this it would be a great achievement, and this technology would help a lot of people in the real world."
     "At the end of the day it wouldn't matter whether the computer knows Chinese, if it can be of use to help break the language barrier for us humans."
-    "(Woah that was deep, I didn't know I was this good at Philosophy. Maybe I should just transfer to UBitt to study philosophy.)"
+    "(Whoa that was deep, I didn't know I was this good at Philosophy. Maybe I should just transfer to UBitt to study philosophy.)"
     phi "..."
     # show philosophy normal with dissolve
     phi "..."
@@ -499,7 +521,7 @@ label review_session1:
     hide philosophy normal with dissolve
     "{i}Sophie ran off without another word.{/i}"
     "(What an interesting individual.)"
-    "Guess I'll go back and watch YouTube."
+    "Guess I'll just go back and watch Indian guy on YouTube."
     jump midterm1
 
 label midterm1:
@@ -512,6 +534,7 @@ label sys_hw:
     scene black
     show text "You get started on your Memory allocation homework, but it's very confusing because you didn't pay attention in lecture." with dissolve
     pause 1.0
+    hide text with dissolve
     show text "You manage to get a good chunk of it finished, but for some reason it doesn't seem to be working." with dissolve
     pause 1.0
     hide text with dissolve
@@ -575,8 +598,10 @@ label oh_intro:
     scene black
     show text "Wishful thinking has failed. You are actually 35th in line." with dissolve
     pause 1.5
+    hide text with dissolve
     show text "But the new episode of Oni Killer is out, so you have something to kill the time while you wait." with dissolve
     pause 2.5
+    hide text with dissolve
     show text "As usual, Unlimited Budget Works has managed to pull off top-quality animation." with dissolve
     pause 2.5
     hide text with dissolve
