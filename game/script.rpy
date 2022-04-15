@@ -1964,8 +1964,6 @@ label sysadmin:
     "I'm just gonna leave now..."
     hide fanpu normal with dissolve
     hide network normal with dissolve
-    if join_stuco:
-        jump proxy_asleep
     jump midterm2
 
 label cooking_club:
@@ -2040,8 +2038,6 @@ label cooking_club:
     "Maple" "See you!"
     hide jenny normal with dissolve
     hide waffle normal with dissolve
-    if join_stuco:
-        jump proxy_asleep
     jump midterm2
 
 
@@ -2124,8 +2120,6 @@ label gaming_club:
     "Rae" "(Sigh...)"
     hide daniel normal with dissolve
     hide graphics normal with dissolve
-    if join_stuco:
-        jump proxy_asleep
     jump midterm2
 
 label proxy_asleep:
@@ -2204,5 +2198,5 @@ label proxy_asleep:
     pause 4.0
     hide text with dissolve
     scene bg classroom
-    jump midterm2
+    jump handin_malloc
 

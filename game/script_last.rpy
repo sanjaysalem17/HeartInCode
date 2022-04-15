@@ -17,6 +17,7 @@ label midterm2:
     jump science_lab
 
 label stuco_mtg2:
+    proxy_points += 30
     scene black
     show text "After a rough few weeks of work overload, you look forward to your next Student Council meeting." with dissolve
     pause 1.5
@@ -179,6 +180,7 @@ label stuco_tasks2:
         jump printing
 
 label vim_club2:
+    shell_points += 30
     scene black
     show text "The time has come for another Vim Club meeting, so you head to the meeting room." with dissolve
     pause 1.5
@@ -294,6 +296,7 @@ label vim_club2:
         "See you!":
             hide shell normal with dissolve
         "...":
+            shell_points += 30
             s "What is it, [player_name]?"
             "Do you have any plans yet for the festival?"
             "Other than the booth, I mean."
@@ -413,4 +416,140 @@ label printing:
     jump matchmaker
 
 label matchmaker:
+    scene black
+    show text "A few days later..." with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "While aimlessly walking around campus, you come across an intriguing table in the UC." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "Also, PSA. Go take a walk. Overworking yourself is not a good plan." with dissolve
+    pause 2.5
+    hide text with dissolve
+    scene bg classroom
+    "???" "Hey! Are you interested in finding out who your best match is?"
+    "Are you talking to me?"
+    "???" "Yup! What's your name?"
+    "Uh, I'm [player_name]."
+    "???" "I'm ParenLab! Nice to meet you!"
+    "ParenLab" "So, are you interested in matchmaking?"
+    "Sure, but it this a bit late?"
+    "Valentine's Day already happened."
+    "ParenLab" "Huhuhuhu. What a simpleton."
+    "ParenLab" "Love has no expiration date!"
+    "..."
+    "Sounds like a line out of a romance manga."
+    "ParenLab" "Just stick your hands out and I'll run it through my matchmaker algorithm."
+    "Interesting."
+    "ParenLab" "Weewooweewoo"
+    "What are those noises?"
+    "ParenLab" "It's for extra flair!"
+    $ match = ''
+    if proxy_points > shell_points:
+        if proxy_points > malloc_points:
+            if proxy_points > attack_points:
+                if proxy_points > data_points:
+                    match = 'Roxy'
+                else:
+                    match = 'Bitsy'
+            else:
+                if attack_points > data_points:
+                    match = 'Buffy'
+                else:
+                    match = 'Bitsy'
+        else:
+            if malloc_points > attack_points:
+                if malloc_points > data_points:
+                    match = 'Malek'
+                else:
+                    match = 'Bitsy'
+            else:
+                if attack_points > data_points:
+                    match = 'Buffy'
+                else:
+                    match = 'Bitsy'
+    else:
+        if shell_points > malloc_points:
+            if shell_points > attack_points:
+                if shell_points > data_points:
+                    match = 'Shell'
+                else:
+                    match = 'Bitsy'
+            else:
+                if attack_points > data_points:
+                    match = 'Buffy'
+                else:
+                    match = 'Bitsy'
+        else:
+            if malloc_points > attack_points:
+                if malloc_points > data_points:
+                    match = 'Malek'
+                else:
+                    match = 'Bitsy'
+            else:
+                if attack_points > data_points:
+                    match = 'Buffy'
+                else:
+                    match = 'Bitsy'
+    scene black
+    show text "As you wait for this fancy algorithm to compute your best match, you reminisce about the experiences you've had this semester." with dissolve
+    pause 2.5
+    hide text with dissolve
+    show text "You're glad to have met so many cool people here, even if some of them were weirder than others." with dissolve
+    pause 1.5
+    show text "Even so, it's been a good semester." with dissolve
+    pause 1.0
+    show text "Okay you're right, I may be stalling. We now return to our regularly scheduled program." with dissolve
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
+    "ParenLab" "Alright, looks like it's done!"
+    "ParenLab" "Drum roll please!"
+    "Uh..."
+    "ParenLab" "dadadadadadadada"
+    "ParenLab" "Your best match is [match]!"
+    "ParenLab" "I think you two would make a cuwute couple!"
+    "(Damn... that algorithm was a bit too accurate...)"
+    "Haha, thanks!"
+    "ParenLab" "Thanks for stopping by!" 
+    "No problem! It was pretty fun."
+    if join_stuco:
+        jump proxy_asleep
+    jump handin_malloc
+
+label handin_malloc:
+    scene black
+    show text "In all of the confusion that has happened in the past few weeks, you forgot that MallocLab Final is due tonight." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "Spring Break also starts this weekend! You've already planned out a Las Vegas trip with some of your friends, which you're looking forward to." with dissolve
+    pause 2.5  
+    hide text with dissolve
+    show text "Don't worry. For the sake of plot, you don't have to suffer through trying to finish MallocFinal before tomorrow, because you frontload all of your schoolwork." with dissolve
+    pause 2.5
+    hide text with dissolve
+    show text "In other words, you're already done! Imagine that." with dissolve
+    pause 1.5
+    show text "Where did you find the time to optimize your implementation?" with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "No, seriously. I need to know." with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "Anyway, enjoy your Spring Break!" with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "And with that, we come to the end. Of Part 1." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "Part 2 of this insanely twisty (and possibly low quality) visual novel dating sim will come out Soon TM." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "Whenever I have time to write it :P" with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "Thanks for playing!" with dissolve
+    pause 4.0
+    hide text with dissolve
     return
+

@@ -456,19 +456,32 @@ label review_session1:
     scene black
     show text "You make it to review session and sit in the back to not distract with your loud eating noises." with dissolve
     pause 1.5
-    scene bg classroom
     hide text with dissolve
+    show text "Unfortunately, you are already confused with the course material, starting with how unions are useful. Or what they even are." with dissolve
+    pause 2.0
+    hide text with dissolve
+    scene bg classroom
     "When did that happen?"
     "Did we start learning about unions already?"
     "Hopefully this isn't on the midterm."
-    "{i}The review sesion finished.{/i}"
+    scene black
+    show text "You spend the majority of the review session trying to follow along with notes that you're sure were not covered in lecture." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "Are forks related to cutlery or process control? You don't know anymore." with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "All you know is that the midterm is going to be a big %%rip." with dissolve
+    pause 1.0
+    hide text with dissolve
+    scene bg classroom
     "(Sigh, I got nothing useful out of that.)"
     "{i}I pack up and get ready to leave.{/i}"
     phi "{size=-10}H, Hello?{/size}"
     "Oh hello there. You are...?"
     show philosophy normal with dissolve
     phi "{size=-10}I, I'm Sophie...{/size}"
-    # show sophie thonk with dissolve
+    # show philosophy thonk with dissolve
     phi "Th, that was a pretty helpful review session, haha."
     "(uh... really?)"
     phi "Um... I was wondering if I could ask your opinion on something, do..do you happen to.. to have a moment?"
@@ -499,7 +512,7 @@ label review_session1:
     "I think it doesn't “Know” Chinese but that's probably not important."
     "I feel like if we can get a program that does this it would be a great achievement, and this technology would help a lot of people in the real world."
     "At the end of the day it wouldn't matter whether the computer knows Chinese, if it can be of use to help break the language barrier for us humans."
-    "(Woah that was deep, I didn't know I was this good at Philosophy. Maybe I should just transfer to UBitt to study philosophy.)"
+    "(Whoa that was deep, I didn't know I was this good at Philosophy. Maybe I should just transfer to UBitt to study philosophy.)"
     phi "..."
     # show philosophy normal with dissolve
     phi "..."
@@ -508,7 +521,7 @@ label review_session1:
     hide philosophy normal with dissolve
     "{i}Sophie ran off without another word.{/i}"
     "(What an interesting individual.)"
-    "Guess I'll go back and watch YouTube."
+    "Guess I'll just go back and watch Indian guy on YouTube."
     jump midterm1
 
 label midterm1:
