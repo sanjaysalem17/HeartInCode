@@ -521,21 +521,62 @@ label review_session1:
     hide philosophy normal with dissolve
     "{i}Sophie ran off without another word.{/i}"
     "(What an interesting individual.)"
-    "Guess I'll just go back and watch Indian guy on YouTube."
+    "Guess I'll just go back and watch some Indian guy on YouTube."
     jump midterm1
 
 label midterm1:
-    jump hackathon
-
-label hackathon:
+    scene black
+    show text "After cramming some last minute YouTube videos, you feel like you're prepared for the midterm." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "You feel like you've forgotten to put something on your cheatsheet, but it's too late for that now." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "You get to the exam room and log into the exam server to get ready." with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "And then, the fun begins." with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "2 questions in, you realize the one thing you forgot to put on your cheatsheat was stack pointer examples." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "Fortunately, you remember the basic terms such as %%rsp and %%rip, so you just randomly toss them into your answers to guarantee partial credit." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "Everything else on the midterm is very straightforward, and you breeze through it." with dissolve
+    pause 1.5
+    hide text with dissolve 
+    show text "Be sure to thank those Indian guys on YouTube for explaining unions and struct padding in-depth." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "Being a gigachad, you walk out of the exam... at exactly the same time as everyone else." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "That's right, walking out early makes the other students feel bad. So you don't do it." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "Don't be one of those people." with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "Feeling good about your midterm grade, you head back home before realizing that this class just assigned the next homework assignment." with dissolve
+    pause 2.5 
+    hide text with dissolve
+    show text "Being the frontloader that you are, you decide that you want to start this assignment early. However..." with dissolve
+    pause 2.5
+    hide text with dissolve
+    show text "All your pent up stress about this midterm that you've managed to hide comes out and you crash on your couch." with dissolve
+    pause 2.5
+    hide text with dissolve
+    show text "Which is good. Take a long nap. You deserve it." with dissolve
     jump sys_hw
 
 label sys_hw:
     scene black
-    show text "You get started on your Memory allocation homework, but it's very confusing because you didn't pay attention in lecture." with dissolve
+    show text "After waking up, you get started on your Memory allocation homework, but it's very confusing because you didn't pay attention in recent lectures." with dissolve
     pause 1.0
     hide text with dissolve
-    show text "You manage to get a good chunk of it finished, but for some reason it doesn't seem to be working." with dissolve
+    show text "You manage to get a good chunk of it written, but for some reason it doesn't seem to be working." with dissolve
     pause 1.0
     hide text with dissolve
     scene bg classroom
