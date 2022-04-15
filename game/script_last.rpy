@@ -10,6 +10,37 @@ define p = Character("Roxy")
 
 
 label midterm2:
+    scene black
+    show text "Here we are again." with dissolve
+    pause 1.0
+    hide text with dissolve
+    show text "You made sure to actually understand the material this time, so you're convinced that you can ace this midterm too." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "You get ready and start the test, only to find that..." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "Some of these questions are about C libraries that were not taught in class." with dissolve
+    pause 1.5
+    hide text with dissolve
+    show text "Welp. Looks like it's time to pull out the Random Guess Generator." with dissolve
+    pause 1.5
+    hide text with dissolve 
+    show text "Luckily for you, the questions you do know are about forks and spoons and pthreads." with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "So you're guaranteed at least half of the points now!" with dissolve
+    pause 2.0
+    hide text with dissolve
+    show text "Don't worry though, this midterm is only 10 percent of your final grade in the class. Extra credit go brrrr." with dissolve
+    pause 2.5
+    hide text with dissolve
+    show text "By the time you finish the test, you only have 5 minutes left, so you decide it's better to just leave early and take your nap now." with dissolve
+    pause 2.5
+    hide text with dissolve
+    show text "You get back home and once again crash on the couch. You don't have any assignments due in the near future, so you can destress for a bit." with dissolve
+    pause 2.5
+    hide text with dissolve
     if join_stuco:
         jump stuco_mtg2
     if join_vimclub:
@@ -19,7 +50,7 @@ label midterm2:
 label stuco_mtg2:
     proxy_points += 30
     scene black
-    show text "After a rough few weeks of work overload, you look forward to your next Student Council meeting." with dissolve
+    show text "After a nice few weeks of destressing, you look forward to your next Student Council meeting." with dissolve
     pause 1.5
     hide text with dissolve
     scene bg classroom
@@ -182,7 +213,7 @@ label stuco_tasks2:
 label vim_club2:
     shell_points += 30
     scene black
-    show text "The time has come for another Vim Club meeting, so you head to the meeting room." with dissolve
+    show text "After a nice few weeks of low stress, you look forward to your next Vim Club meeting, and you head to the meeting room." with dissolve
     pause 1.5
     hide text with dissolve
     scene bg classroom

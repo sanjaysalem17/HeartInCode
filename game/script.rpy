@@ -1160,6 +1160,12 @@ label review_session2:
     show text "The four of you go over some of the earlier Systems concepts, so that you don't have to cram before the midterm." with dissolve
     pause 1.5
     hide text with dissolve
+    show text "Why does this class have two midterms? And why is the second one cumulative? These are all valid questions." with dissolve
+    pause 2.5
+    hide text with dissolve
+    show text "This doesn't seem realistic..." with dissolve
+    pause 1.0
+    hide text with dissolve
     scene bg classroom
     show attack normal at left with dissolve
     show data normal at right with dissolve
