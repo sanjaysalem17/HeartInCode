@@ -436,7 +436,8 @@ label proxy_good_req_den:
     s "Oooh, that's great! You should definitely join! I've heard it's super fun!"
     s "You also get to plan the School Festival!"
     p "Right, as Shell said, you'll have the exciting opportunity to organize the School Festival. But keep in mind, it's not all fun and games. The student council also handles other important matters as well."
-    p "Becoming a student council member will involve a large time commitment, but I do believe the rewards are worth it as well. If it motivates you further, you can also add this role as experience on your resume, which I'm sure will be helpful when you are searching for internships."
+    p "Becoming a student council member will involve a large time commitment, but I do believe the rewards are worth it as well."
+    p "If it motivates you further, you can also add this role as experience on your resume, which I'm sure will be helpful when you are searching for internships."
     p "What do you say?"
     menu:
         "I'm definitely interested!":
@@ -663,22 +664,23 @@ label vim_club:
         "Have a fancy Vimrc?":
             $ shell_points += 30
             s "Haha, you don't need a fancy Vimrc to join this club."
-    show shell normal at right with move
-    show rebecca normal at midleft with dissolve
+    #show shell normal at right with move
+    show rebecca normal at left with dissolve
     "Rebecca" "Isn't it to write a cheatsheet?"
-    show evelyn normal at midright with dissolve
+    show evelyn normal at right with dissolve
     "Evelyn" "Wait, but I don't use a cheatsheet for my Vim commands..."
     "Rebecca" "That's pretty zesty, besty. You're too big brained."
+    hide rebecca normal with dissolve
     show adb normal at left with dissolve
     "ADB" "Hehe I just stole a cheatsheet from Google..."
     "ADB" "Why do more work when someone else already did it?" 
-    hide rebecca normal with dissolve
+    #hide rebecca normal with dissolve
     hide evelyn normal with dissolve
     hide adb normal with dissolve
-    show shell normal at midleft with move
-    show steven normal at midright with dissolve
+    #show shell normal at midleft with move
+    show steven normal at right with dissolve
     "Steven" "I have a question. How do I exit Vim?"
-    show shell angry at midleft with dissolve
+    show shell angry with dissolve
     s "Steven, what are {i}you{/i} doing here?"
     s "Shouldn't you be at the student council meeting?"
     "Steven" "Well, they ran out of food, so I came here instead."
@@ -703,7 +705,7 @@ label vim_club:
     s "Now go sit in the Emacs corner while you approve all those member requests."
     "Steven" "(Sigh...)"
     hide steven normal with moveoutright
-    show shell normal at center with move
+    show shell normal with dissolve
     "Damn, Shell, you almost sound like an actual member of the student council."
     "More so than Steven, anyway."
     "Why are you not a part of it?"
@@ -731,8 +733,8 @@ label vim_club:
     "Evelyn" "Awwww...."
     "Rebecca" "Are there prizes?"
     s "You get to bonk Steven."
-    show shell normal at midleft with move
-    show steven normal at midright with dissolve
+    #show shell normal at midleft with move
+    show steven normal at right with dissolve
     "Steven" "Wait what."
     "Steven" "I did not agree to this."
     s "Yeah well, I just got a message from Roxy saying you're kicked from the student council, so..."
@@ -751,22 +753,26 @@ label vim_club:
     "Steven" "Why is this happening?"
     s "Do you have a better incentive for a pop quiz?"
     "Steven" "..."
-    show shell normal at midright with move
-    show steven normal at right with move
-    show evelyn normal at midleft with dissolve
+    #show shell normal at midright with move
+    #show steven normal at right with move
+    show evelyn normal at left with dissolve
     "Evelyn" "Can we also actually bonk him?"
     "Evelyn" "Does anyone have an inflatable baseball bat?"
     "This is escalating pretty quickly..."
     #show steven normal at midright with move
-    show evelyn normal at center with move
-    show rebecca normal at midleft with dissolve
+    #show evelyn normal at center with move
+    hide evelyn normal with dissolve
+    show rebecca normal at left with dissolve
     #show adb normal at left with dissolve
     "Rebecca" "Oh I think I have one, gimme a few minutes."
     "Steven" "Why do you people find joy in physically hurting me?"
+    hide rebecca normal with dissolve
+    show evelyn normal at left with dissolve
     "Evelyn" "Because hurting you emotionally is bad."
+    hide evelyn normal with dissolve
     show adb normal at left with dissolve 
     "ADB" "Mental health is good baba."
-    hide adb with dissolve
+    hide adb normal with dissolve
     "Steven" "(Sigh...)"
     "Steven" "Maybe if I didn't wear a cow onesie people wouldn't gang up on me like this..."
     "Steven" "I'm gonna go tell Angela that I'm being bullied."
@@ -775,8 +781,8 @@ label vim_club:
     s "Let's start the pop quiz!"
     hide shell normal with dissolve
     hide steven normal with dissolve
-    hide evelyn normal with dissolve
-    hide rebecca normal with dissolve
+    #hide evelyn normal with dissolve
+    #hide rebecca normal with dissolve
     #hide adb normal with dissolve
     scene black
     show text "The club goes through a Vim pop quiz, and Steven gets bonked multiple times." with dissolve

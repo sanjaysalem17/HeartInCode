@@ -48,7 +48,7 @@ label midterm2:
     jump science_lab
 
 label stuco_mtg2:
-    proxy_points += 30
+    $ proxy_points += 30
     scene black
     show text "After a nice few weeks of destressing, you look forward to your next Student Council meeting." with dissolve
     pause 1.5
@@ -211,7 +211,7 @@ label stuco_tasks2:
         jump printing
 
 label vim_club2:
-    shell_points += 30
+    $ shell_points += 30
     scene black
     show text "After a nice few weeks of low stress, you look forward to your next Vim Club meeting, and you head to the meeting room." with dissolve
     pause 1.5
@@ -327,7 +327,7 @@ label vim_club2:
         "See you!":
             hide shell normal with dissolve
         "...":
-            shell_points += 30
+            $ shell_points += 30
             s "What is it, [player_name]?"
             "Do you have any plans yet for the festival?"
             "Other than the booth, I mean."
@@ -480,48 +480,48 @@ label matchmaker:
         if proxy_points > malloc_points:
             if proxy_points > attack_points:
                 if proxy_points > data_points:
-                    match = 'Roxy'
+                    $ match = 'Roxy'
                 else:
-                    match = 'Bitsy'
+                    $ match = 'Bitsy'
             else:
                 if attack_points > data_points:
-                    match = 'Buffy'
+                    $ match = 'Buffy'
                 else:
-                    match = 'Bitsy'
+                    $ match = 'Bitsy'
         else:
             if malloc_points > attack_points:
                 if malloc_points > data_points:
-                    match = 'Malek'
+                    $ match = 'Malek'
                 else:
-                    match = 'Bitsy'
+                    $ match = 'Bitsy'
             else:
                 if attack_points > data_points:
-                    match = 'Buffy'
+                    $ match = 'Buffy'
                 else:
-                    match = 'Bitsy'
+                    $ match = 'Bitsy'
     else:
         if shell_points > malloc_points:
             if shell_points > attack_points:
                 if shell_points > data_points:
-                    match = 'Shell'
+                    $ match = 'Shell'
                 else:
-                    match = 'Bitsy'
+                    $ match = 'Bitsy'
             else:
                 if attack_points > data_points:
-                    match = 'Buffy'
+                    $ match = 'Buffy'
                 else:
-                    match = 'Bitsy'
+                    $ match = 'Bitsy'
         else:
             if malloc_points > attack_points:
                 if malloc_points > data_points:
-                    match = 'Malek'
-                else:
-                    match = 'Bitsy'
+                    $ match = 'Malek'
+                else: 
+                    $ match = 'Bitsy'
             else:
                 if attack_points > data_points:
-                    match = 'Buffy'
-                else:
-                    match = 'Bitsy'
+                    $ match = 'Buffy'
+                else: 
+                    $ match = 'Bitsy'
     scene black
     show text "As you wait for this fancy algorithm to compute your best match, you reminisce about the experiences you've had this semester." with dissolve
     pause 2.5
