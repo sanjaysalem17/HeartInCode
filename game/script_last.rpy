@@ -396,6 +396,7 @@ label printing:
     show text "You go to the printing department to find the monitor furiously editing some Python files." with dissolve
     pause 1.5
     hide text with dissolve
+    scene bg classroom
     show daniel normal at midright with dissolve
     "Daniel" "Hey, CompPhoto, can you help us print out some posters for the festival?"
     "CompPhoto" "Hold on, hold on. This assignment is due in like 30 minutes."
@@ -412,6 +413,7 @@ label printing:
     show text "Yes, you've just solved a practical optimization problem called MIN-WASTED-SPACE. Good for you!" with dissolve
     pause 1.5
     hide text with dissolve
+    scene bg classroom
     show daniel normal at center
     "Daniel" "So if we spread them out like this, I think it should work."
     "Oh, I think we also needed some pins and stickers with the logo."
