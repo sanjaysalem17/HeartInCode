@@ -889,7 +889,7 @@ label stuco_good:
     "Pax" "My free time is already distributed too thin, you know?"
     p "(Sigh...)"
     hide distr normal with dissolve
-    show reduction normal with dissolve
+    show reduction normal at left with dissolve
     p "Anyway, do we want to wait a few minutes for Steven, or should I just kick him out now?"
     "Halten" "Yes, I am down for punishing Steven."
     "Graff" "Seconded."
@@ -1306,7 +1306,7 @@ label meet_cache:
     show text "You and Cash get on the 61D bus down to the Waterfront." with dissolve
     pause 1.5
     hide text with dissolve
-    scene bg classroom
+    scene bg bus
     show cache normal with dissolve
     "So Cash, how's your relationship going?"
     c "Oh it's..."
@@ -1403,7 +1403,7 @@ label meet_cache:
     show text "You enjoy the opening act and the subsequent comedy show. Your night is full of laughter and fun." with dissolve
     pause 2.0
     hide text with dissolve
-    scene bg classroom
+    scene bg bus
     show cache normal with dissolve
     c "So, [player_name], did you enjoy the show?"
     "Yeah!"
@@ -1588,7 +1588,7 @@ label meet_buffy:
     scene bg classroom
     "???" "GOD, YOU'RE HOPELESS! How do you expect to learn how to play chess if you can't even remember how far each piece can move?"
     "???" "Don't waste my time if you can't even remember basic rules!"
-    show attack normal at center with move
+    show attack normal with dissolve
     "(Just as I approached the classroom where chess club was meeting, a girl stormed out of the classroom, slamming the door closed behind her.)"
     "(She seemed surprised to see me, but only for a second, before her expression turned cold.)"
     "(Ah, no surprise; after all, it's Buffy.)"
@@ -1612,7 +1612,7 @@ label meet_buffy:
     "(The classroom was nearly empty, save for one student that was sitting in the corner of the classroom.)"
     "(One look at his expression told me that he likely wasn't here to stay for long.)"
     "(Upon seeing Buffy and I walk in, he quickly gathered up his stuff, scooted around the two of us, and burst into a sprint out of the classroom.)"
-    show attack normal at center with move
+    show attack normal with dissolve
     a "What's gotten into him?"
     a "I swear, the people trying to join this club are less and less competent."
     a "I don't know why they keep wasting my time."
@@ -1623,11 +1623,13 @@ label meet_buffy:
     "(She began to pick up the pieces that seem to have been flung to the ground earlier, probably in her fit of rage.)"
     "(Terrifying.)"
     "(Maybe I should get out while I still can...)"
+    hide attack normal with dissolve
     scene black
     show text "You zone out, lost in thought, as she sets up the board." with dissolve
     pause 2.0
     hide text with dissolve
     scene bg classroom
+    show attack normal with dissolve
     a "Hey you. Wake up."
     "(Oh shoot.)"
     "Ah, yes yes, I'm here. Ok. I'm ready."
@@ -1670,6 +1672,7 @@ label meet_buffy:
             "(Well, perhaps I should be happy with the fact that she wants to know who I am.)"
             "It's [player_name]."
             a "Well, [player_name], thanks for coming. Please, feel free to stop by in the future."
+            hide attack normal with dissolve
             scene black
             show text "We part ways outside the classroom, and she waves goodbye as she leaves." with dissolve
             pause 2.0
@@ -1684,6 +1687,7 @@ label meet_buffy:
             a "Leave. And don't show your face in my club ever again."
             "(Oh no... she's mad.)"
             "(I'd better get going. It looks like break time is over anyway.)"
+            hide attack normal with dissolve
             scene black
             show text "She is still glowering at you as you walk out of the room." with dissolve
             pause 2.0
@@ -1837,8 +1841,8 @@ label after_break_other:
     hide pigeon hole with dissolve
     "Berry-Esseen" "QED!"
     show berry esseen at center with move
-    show pruning at right with dissolve
-    show clogic at left with dissolve
+    show pruning normal at right with dissolve
+    show clogic normal at left with dissolve
     "Minnie" "That was amazing, Berry!"
     "Berry-Esseen" "Don't worry about it."
     "Berry-Esseen" "I'll take this guy to the police station, now."
@@ -1846,8 +1850,8 @@ label after_break_other:
     "(But you seem pretty suspicious to me...)"
     "Berry-Esseen" "Farewell."
     hide berry esseen with dissolve
-    show clogic at midleft with move
-    show pruning at midright with move
+    show clogic normal at midleft with move
+    show pruning normal at midright with move
     "Harmony" "Wow, he protected our trees!"
     "Minnie" "We should celebrate!"
     "Harmony" "[player_name], do you want to harvest the fruits?"
