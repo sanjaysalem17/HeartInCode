@@ -15,7 +15,6 @@ init:
     $ data_points = 0
 
 
-
 label start:
     $ player_name = renpy.input("What is your name?", length=32)
     if player_name == "" or player_name == " ":
