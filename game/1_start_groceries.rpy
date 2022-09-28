@@ -10,6 +10,8 @@ define p = Character("Roxy")
 define phi = Character(name="???")
 
 init:
+    $ config.keymap['dismiss'].remove('K_SPACE')
+    $ config.keymap['hide_windows'].append('K_SPACE')
     $ player_name = ""
     $ attack_points = 0
     $ data_points = 0
@@ -23,9 +25,11 @@ label start:
     $ player_name = player_name[0].upper() + player_name[1:]
     scene bg classroom
     "Ah, winter break was fun."
-    "Hopefully this semester isn't as difficult as last semester, though..."
-    "I don't want to write a parallel version of mergesort again..."
-    "And what even are spin locks?"
+    "I'm glad I escaped Pittsburgh before that winter storm hit."
+    "Otherwise I would've had to waste money on snow boots that I'll never use again."
+    "Having to walk to Office Hours in the cold was such a drag..."
+    "At least my schedule this semester doesn't seem too bad."
+    "It's just some systems class, a 3D calc class, and..."
     "THUD!" with hpunch
     "Oww..."
     show data normal with dissolve
@@ -35,39 +39,43 @@ label start:
     d "I didn't see you there."
     d "I didn't bonk you too hard, did I?"
     "Nah, I think I'm fine."
+    "(Did she just say bonk?)"
     "I didn't even see you coming though."
     d "Haha, I run pretty fast, sorry."
+    d "The side effect of being the track team captain, I guess."
     "No worries."
     $ d.name = "Bitsy"
     d "I'm Bitsy, by the way. Nice to meet you!"
-    "Nice to meet you too!"
-    "???" "What do you mean \"this isn't working out\"?"
-    "???" "It's just not working."
-    "???" "We never get to spend any time together because you're always off doing something else..."
+    "Oh, nice to meet you too! I'm [player_name]."
+    "???" "{i}What do you mean \"this isn't working out\"?{/i}"
+    "???" "{i}It's just not working.{/i}"
+    "???" "{i}We never get to spend any time together because you're always off doing \"work\"...{/i}"
+    "???" "{i}How do I know you're not lying to me?{/i}"
+    "???" "{i}The semester literally just started! How can you have so much work to do?{/i}"
     "???" "..."
-    d "Looks like something's happening over there..."
+    d "..."
     d "Maybe we should go somewhere else..."
     hide data normal with dissolve
     scene black
-    show text "You go downstairs to continue your conversation and avoid eavesdropping on a personal discussion..." with dissolve
+    show text "You go downstairs to continue your conversation and avoid eavesdropping on something personal..." with dissolve
     pause 1.5
     hide text with dissolve
     scene bg classroom
     show data normal with dissolve
-    d "Phew, that conversation seemed like it was about to get kinda intense..."
+    d "Phew, that conversation was too heavy..."
+    d "I hope they're both okay."
     "..."
     d "So, what classes are you taking this semester?"
     "Uh..."
     "I'm taking Computer Systems."
     "..."
-    "Oh, I'm also taking Calc 3D, I think."
+    "Oh, I'm also taking Calc 3D."
     d "Oh, nice!"
     d "I'm taking Calc 3D, too!"
     show data normal at midleft with move
     show attack normal at midright with dissolve
-    a "Hey, Bitsy!"
-    d "Oh hey, Buffy!"
-    a "Hello!"
+    d "Oh, hey, Buffy!"
+    a "Hey, Bitsy."
     d "Oh, this is [player_name]."
     a "Ah, nice to meet you!"
     "You too."
@@ -75,7 +83,7 @@ label start:
     a "Hmm? Yea."
     d "Oh nice! [player_name]'s taking it too!"
     a "Oh cool!"
-    d "Anyway, I should probably get going."
+    a "Anyway, I should probably get going."
     d "What's your next lecture?"
     menu:
         "Calc lecture.":
@@ -86,7 +94,7 @@ label start:
 
 label sys_lecture:
     $ attack_points += 30
-    a "Oh cool, that's my next lecture too!"
+    a "Oh cool, that's my next lecture too."
     d "You guys have fun!"
     d "I have to head to Calc lecture now."
     d "I'll see you later!"

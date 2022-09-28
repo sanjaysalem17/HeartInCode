@@ -5,7 +5,7 @@ label review_session2:
     hide text with dissolve
     scene bg classroom
     "I'm glad I finished the programming homeworks on time, but there's no way I'm gonna remember anything that was taught in lecture..."
-    "I didn't have time to study because debugging took {i}way{/} too long."
+    "I didn't have time to study because debugging took {i}way{/i} too long."
     show ishan normal with dissolve
     "Ishan" "That's because this course doesn't use Rust, smh."
     "Huh? Who are you?"
