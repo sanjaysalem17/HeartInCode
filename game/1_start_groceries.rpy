@@ -17,7 +17,7 @@ init:
 
 label start:
     $ player_name = renpy.input("What is your name?", length=32)
-    if player_name == "":
+    if player_name == "" or player_name == " ":
         $ player_name = "Watashi"
     $ player_name = player_name.strip()
     $ player_name = player_name[0].upper() + player_name[1:]
