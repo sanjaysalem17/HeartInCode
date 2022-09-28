@@ -4,3 +4,4 @@
 *.rpyb
 persistent
 log.txt
+traceback.txt

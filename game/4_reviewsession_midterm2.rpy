@@ -1,4 +1,4 @@
-abel review_session2:
+label review_session2:
     scene black
     show text "After a few days of completely forgetting that you actually have exams, you begin your cramming ritual." with dissolve
     pause 1.0
