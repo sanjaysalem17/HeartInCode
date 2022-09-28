@@ -368,6 +368,152 @@ label science_lab:
     "Aight, Imma head out. This is too degenerate for me."
     jump matchmaker
 
+label databases:
+    scene black
+    show text "You make your way to the inventory room to try and get festival supplies for the cooking club." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    "I think this is the right room."
+    "Is this the Inventory Department?"
+    "???" "Yep. What can I help you with?"
+    #show Database normal with dissolve
+    "Oh, uh, I need some tables and chairs."
+    "Do you guys have anything like that?"
+    "???" "Let's find out. Hey Storage, can you SELECT some tables and chairs for me?"
+    show storage normal at left with dissolve
+    "Storage" "Database, you know you don't have to yell everytime you ask a question, right?"
+    "Database" "Ah, I'm sorry. I just get so excited when requesting items."
+    "Database" "So, do we have the tables and chairs?"
+    "Storage" "You're gonna have to be more specific than that."
+    "Storage" "I'll check in the back with specific instructions only."
+    "Database" "Oh, right. Can you check our supplies WHERE the labels are 'table' or 'chair'?"
+    "Storage" "You're so weird. But ok, I can look for that."
+    "Storage" "I'll be back."
+    hide storage normal with dissolve
+    "Database" "While we wait, what do you need a bunch of tables and chairs for?"
+    "The cooking club is doing a maid cafe for the school festival."
+    "I'm here to make sure they have enough tables and chairs beforehand."
+    "Database" "I see. Well, you've come to the right place."
+    "Database" "If anyone would have them, it's us."
+    "Database" "Oh! Did you see the new Request movie? It's my favorite series."
+    "The what? I've never heard of a movie like that."
+    "Database" "It's a great franchise about a team requesting items."
+    "Interesting."
+    "Are the movies good?"
+    "Database" "Of course they are! There are so many cool scenes like the one where they SELECT things and-"
+    "Oh, uh, I see. And a new one just came out?"
+    "Database" "Yep! But now that it's out, they can make plans for the future."
+    "Database" "I sure hope they get to work right away on the 'sequel' ;)."
+    "..."
+    "Let's talk about something else now."
+    "Database" "Sure!"
+    "So how did you end up working down here?"
+    "Database" "Oh, thats quite simple, actually."
+    "Database" "I love hanging out with Storage, and asking them to SELECT things."
+    "Database" "Not to mention I get to help all the people who come here, which is also great."
+    "You like requesting things that much?"
+    "Database" "Of course! I love saying SELECT and WHERE and HAVING and-"
+    "Storage" "Alright that's enough. I'm back."
+    show storage normal at left with dissolve
+    "Storage" "I hope Database didn't bother you too much."
+    "We had a nice chat."
+    "Database" "Did you find out if we have enough tables and chairs?"
+    "Storage" "Yep, we got them right here."
+    "Storage" "Here you go, uh-"
+    "Oh, my name is [player_name]."
+    "Storage" "Nice to meet you, [player_name]."
+    "Storage" "Here are the item numbers for the tables and chairs."
+    "Storage" "I reserved the amount you said you needed, so you can tell the cooking club to come pick them up whenever they want."
+    "Nice to meet you too, and thank you for getting these for me."
+    "Storage" "No problem."
+    "Database" "I hope we see you around! I would love the chance to request more items for you!"
+    "I'm sure I'll come back again to request more things in the future. Maybe"
+    "See you guys later!"
+    "Database" "Bye!!!"
+    "Storage" "See ya."
+    #hide Database normal with dissolve
+    hide storage normal with dissolve
+    jump matchmaker
+
+
+label poker_club:
+    scene black
+    show text "You make your way to the Poker Club room to discuss the fundraiser for the upcoming festival." with dissolve
+    pause 1.5
+    hide text with dissolve
+    scene bg classroom
+    "I think this is the right room."
+    "Is Joelle in here?"
+    "???" "I think I have you now, Isabella. You'll never win."
+    show pnc normal at midright with dissolve
+    "Isabella" "Abby, you're not supposed to talk this much during a game of poker."
+    show random normal at midleft with dissolve
+    "Abby" "I can't help it. Plus, you'll never know if I'm bluffing or not."
+    "Isabella" "You are."
+    "Abby" "Are you sure?"
+    "Isabella" "Yes. I'm all in."
+    "Abby" "I'm all in too."
+    "Isabella" "Bold move for someone who is bluffing!"
+    "Abby" "Since you are so sure, then check this out!"
+    "Isabella" "No way."
+    "Abby" "Ha! I wasn't bluffing!"
+    "Isabella" "No. Way."
+    "... Hello...?"
+    "Abby" "Looks like I win this time."
+    "Isabella" "Agh, you actually beat me."
+    "Abby" "Yes!"
+    "Abby" "Oh, someone's here."
+    "Isabella" "Huh?"
+    "Abby" "You're [player_name], right?"
+    "Yeah, nice to meet you!"
+    "Abby" "Nice to meet you too."
+    "Isabella" "At least you're here now. We need help planning for Casino Night."
+    "Why do you need my help? I'm just here to make sure your plans are coming along smoothly for the Student Council."
+    "Isn't Joelle the club president?"
+    "Abby" "Well yes, but Joelle's really been slacking in the planning so far."
+    "Isabella" "She pulls all nighters playing MMORPGs and then sleeps all day."
+    "Abby" "Classic pro gamer move. I don't understand how she has time to game and still do work for classes."
+    "Isabella" "Yes somehow she had the time to secure the club budget and set up financial accounts for the fundraiser. She's too OP."
+    #"Abby" "It's what we're doing for the festival!"
+    #"Oh, that's really cool! What were you thinking of having there?"
+    "Isabella" "Anyway, we basically just need some outside opinions on what games to have going."
+    "(Looks like a planning speedrun is happening now...)"
+    "Hmm, well, what are your favorite gambling games?"
+    "Abby" "Oh! Oh! I love blackjack!"
+    "Isabella" "I prefer poker, so I'm able to beat everyone."
+    "But didn't you lose that game earlier?"
+    "Isabella" "Forget about that game! I usually win."
+    "Okay then. Well, we can add those games as a start."
+    "What about the dealers for those games?"
+    "Isabella" "I wanna deal for the blackjack table, since I won't be able to play poker myself."
+    "Isabella" "I'll love watching them lose!"
+    "Well, that settles that. Abby, are you gonna deal for poker then?"
+    "Abby" "Yeah, I can do that."
+    "Has gambling been a popular thing for the festival in the past?"
+    "Isabella" "Yeah, it's really popular. We might need more volunteers for managing the games."
+    "Abby" "I guess we can try and find some volunteers."
+    "Abby" "They could manage a roulette wheel, if we could get our hands on one."
+    "Isabella" "Could we even find one?"
+    "Abby" "It would be really cool."
+    "Abby" "I can try and look into getting one for the festival."
+    "Isabella" "I can easily get the cards and chips that people would be using."
+    #"Isabella" "What are you going to do to help?"
+    "What else does the gambling night need?"
+    "Abby" "It could probably use some nice decorations for that extra flair."
+    "Isabella" "Maybe Joelle knows if there's anything in storage somewhere. Since the club has thrown a Casino Night before."
+    #"It could look like a real casino. Well, as much as we could at the festival, anyway."
+    "Abby" "I think that's a great idea!"
+    "Isabella" "This Casino Night is going to turn out so well!"
+    #"Isabella" "You better come through on that idea."
+    "Abby" "Thank you for all of your help!"
+    "I'll see you guys later."
+    "Abby" "See you later!"
+    "Isabella" "Bye."
+    hide pnc normal with dissolve
+    hide random normal with dissolve
+    jump matchmaker
+
 label printing:
     scene black
     show text "You head back to the Graphics Lounge to check on Rae's logos for the festival." with dissolve
