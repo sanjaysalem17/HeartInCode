@@ -1,4 +1,4 @@
-## Artists Info
+## Artists
 
 BGs need to be 1080 x 1920 (hxw),
 and can be either PNG or JPG format
