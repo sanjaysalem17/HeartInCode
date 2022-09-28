@@ -2,6 +2,8 @@
 *.save
 *.json
 *.rpyb
+*.rpyc
 persistent
 log.txt
 traceback.txt
+errors.txt
