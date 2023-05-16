@@ -32,7 +32,7 @@ label start:
     "It's just some systems class, a 3D calc class, and..."
     "THUD!" with hpunch
     "Oww..."
-    show data normal with dissolve
+    show bitsy normal with dissolve
     d "Aw man... that hurt..."
     "Are you ok?"
     d "Ah, sorry about that!"
@@ -55,13 +55,13 @@ label start:
     "???" "..."
     d "..."
     d "Maybe we should go somewhere else..."
-    hide data normal with dissolve
+    hide bitsy normal with dissolve
     scene black
     show text "You go downstairs to continue your conversation and avoid eavesdropping on something personal..." with dissolve
     pause 1.5
     hide text with dissolve
     scene bg classroom
-    show data normal with dissolve
+    show bitsy normal with dissolve
     d "Phew, that conversation was too heavy..."
     d "I hope they're both okay."
     "..."
@@ -72,7 +72,7 @@ label start:
     "Oh, I'm also taking Calc 3D."
     d "Oh, nice!"
     d "I'm taking Calc 3D, too!"
-    show data normal at midleft with move
+    show bitsy normal at midleft with move
     show attack normal at midright with dissolve
     d "Oh, hey, Buffy!"
     a "Hey, Bitsy."

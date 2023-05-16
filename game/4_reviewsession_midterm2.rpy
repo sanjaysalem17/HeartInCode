@@ -578,7 +578,6 @@ label meet_buffy:
         jump after_break_stuco
     jump after_break_other
 
-
 label after_break_stuco:
     scene black
     show text "A few days later..." with dissolve
@@ -600,7 +599,6 @@ label after_break_stuco:
         jump gaming_club
     return
 
-label after_break_other:
     scene black
     show text "A few days later..." with dissolve
     pause 1.0
